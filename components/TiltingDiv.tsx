@@ -8,7 +8,7 @@ const tiltAmount = 100;
 const calc = (x: number, y: number) => 
     [-(y-(window.innerHeight / 2)) / tiltAmount, (x-(window.innerWidth / 2)) / tiltAmount, 1.1]
 
-const rotate = (x,y): string => 
+const rotate = (x: number,y: number): string => 
     `perspective(600px) rotateX(${x}deg) rotateY(${y}deg)`
     
 interface IInteractive { className?: string, style?: object }
@@ -20,7 +20,7 @@ export const TiltingDiv: FC<IInteractive> = ({children, className, style}) => {
         <animated.div
             className={className}
             //@ts-ignore
-            style={{transform: spring.xy.interpolate(rotate), ...style}}
+            style={{transform: spring.xy.to(rotate), ...style}}
             onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
             onMouseLeave={() => set({ xy: [0, 0] })}>
                 {children}

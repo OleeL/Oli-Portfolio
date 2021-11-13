@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { animated, useSpring } from 'react-spring';
+import React, { BaseSyntheticEvent } from 'react';
 import css from "styled-jsx/css";
-import create from 'zustand';
 import ImageButton from '../components/ImageButton';
 import ParticleBackdrop from '../components/ParticleBackdrop';
 import TiltingDiv from '../components/TiltingDiv';
@@ -10,27 +8,8 @@ import router from 'next/dist/client/router';
 const pic_github = '/images/logos/ghlogo.svg';
 const pic_email = '/images/logos/emlogo.svg';
 const pic_linkedin = '/images/logos/lilogo.svg';
-const pic_phone = '/images/logos/phlogo.svg';
-const pic_profile = '/images/profilepic.webp';
-
-type IStore = {
-    relocate: boolean;
-    setRelocate: (relocate: boolean) => void;
-}
-
-export const useStore = create<IStore>((set, get) => ({
-    relocate: false,
-    setRelocate: (relocate: boolean) => {
-        state => state.relocate = relocate;
-    }
-}));
-
-const AppStyle = css`
-    div {
-        text-align: center;
-    }
-
-`
+// const pic_phone = '/images/logos/phlogo.svg';
+// const pic_profile = '/images/profilepic.webp';
 
 const PageStyle = css`
     div {
@@ -42,11 +21,6 @@ const PageStyle = css`
         justify-content: center;
         position: relative;
         text-align: center;
-    }
-
-    img {
-        height: 20vmin;
-        width: 20vmin;
     }
 `
 
@@ -99,7 +73,7 @@ const Content = () => {
     )
 }
 
-const handleClick = (e, href) => {
+const handleClick = (e: BaseSyntheticEvent, href: string) => {
     e.preventDefault();
     router.replace(href);
 }
@@ -113,7 +87,7 @@ const Footer = () => {
                 src={pic_github}
                 alt="GitHub" />
             <ImageButton
-                onClick={e => handleClick(e, "mailto:oliglegg@hotmail.co.uk")}
+                onClick={(e: BaseSyntheticEvent) => handleClick(e, "mailto:oliglegg@hotmail.co.uk")}
                 src={pic_email}
                 href="."
                 alt="Email" />
@@ -125,23 +99,24 @@ const Footer = () => {
     )
 }
 
-const PortfolioLink = () => {
-    const [hovering, setHovering] = useState(false);
-    const spring = useSpring({
-        transform: hovering ? `scale(1.2)` : `scale(1)`,
-        margin: 0,
-        fontSize: `calc(2.5vmin)`
-    });
+// const PortfolioLink = () => {
+//     const [hovering, setHovering] = useState(false);
+//     const spring = useSpring({
+//         transform: hovering ? `scale(1.2)` : `scale(1)`,
+//         margin: 0,
+//         fontSize: `calc(2.5vmin)`
+//     });
 
-    return (
-        <a
-            href="/portfolio"
-            onMouseEnter={() => {setHovering(true)}}
-            onMouseLeave={() => {setHovering(false)}}>
-            <style jsx>{FooterStyle}</style>
-            <animated.h2 style={spring}>Portfolio</animated.h2>
-        </a>
-    )
-}
+//     return (
+//         <Link href="/portfolio">
+//             <a
+//                 onMouseEnter={() => {setHovering(true)}}
+//                 onMouseLeave={() => {setHovering(false)}}>
+//                 <style jsx>{FooterStyle}</style>
+//                 <animated.h2 style={spring}>Portfolio</animated.h2>
+//             </a>
+//         </Link>
+//     )
+// }
 
 export default App;

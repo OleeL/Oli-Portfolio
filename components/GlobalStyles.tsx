@@ -1,6 +1,5 @@
 // styles/global.js
 import css from 'styled-jsx/css'
-import create from 'zustand';
 
 export interface IColorScheme {
     primary: string,
@@ -9,30 +8,6 @@ export interface IColorScheme {
     backgroundColor: string,
     color: string
 }
-
-const Light: IColorScheme = {
-    primary: "#00b0e0",
-    primaryInverted: "#ffffff",
-    secondary: "#38545c",
-    backgroundColor: "#d1e0eb",
-    color: "#000000"  //black
-}
-
-const Dark: IColorScheme = {
-    primary: "#00485c",
-    primaryInverted: "#DDDDDD",
-    secondary: "#303030",
-    backgroundColor: "#373a3e",
-    color: "#ffffff"  //white
-}
-
-type TColorStore = {
-    Selected: IColorScheme
-}
-
-export const useColorStore = create<TColorStore>(set => ({
-    Selected: Dark,
-}));
 
 export const GlobalStyles = css.global`
 
