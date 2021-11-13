@@ -22,9 +22,9 @@ const ImageButton: FC<any> = (args) => {
                 style={spring}
                 onMouseEnter={() => {setHovering(true)}}
                 onMouseLeave={() => {setHovering(false)}}
-                {...args}>
+                >
             <style jsx>{ButtonStyle}</style>
-            <img src={args?.src} />
+            <img {...args} />
         </animated.a>
     )
 }

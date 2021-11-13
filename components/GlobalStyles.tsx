@@ -34,7 +34,7 @@ export const useColorStore = create<TColorStore>(set => ({
     Selected: Dark,
 }));
 
-const GlobalStyles = css.global`
+export const GlobalStyles = css.global`
 
     @font-face {
         font-family: 'RobotoMono';
@@ -43,7 +43,7 @@ const GlobalStyles = css.global`
 
     @font-face {
         font-family: 'RobotoMono';
-        src: url('/fonts/RobotoMono-Italic.ttf') format('truetype')
+        src: url('/fonts/RobotoMono-Italic.ttf') format('truetype');
         font-style: italic;
     }
 
