@@ -6,15 +6,16 @@ const ButtonStyle = css`
     img {
         width: 6vmin;
         height: 6vmin;
-        margin: 2vmin;
         cursor: pointer;
+
     }
 `
 
 const ImageButton: FC<any> = (args) => {
     const [hovering, setHovering] = useState(false);
     const spring = useSpring({
-        transform: hovering ? `scale(1.2)` : `scale(1)`
+        transform: hovering ? `scale(1.2)` : `scale(1)`,
+        margin: "2vmin"
     });
 
     return (
@@ -22,9 +23,10 @@ const ImageButton: FC<any> = (args) => {
                 style={spring}
                 onMouseEnter={() => {setHovering(true)}}
                 onMouseLeave={() => {setHovering(false)}}
+                href={args?.href}
                 >
-            <style jsx>{ButtonStyle}</style>
             <img {...args} />
+            <style jsx>{ButtonStyle}</style>
         </animated.a>
     )
 }

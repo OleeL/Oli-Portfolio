@@ -115,6 +115,7 @@ const Footer = () => {
             <ImageButton
                 onClick={e => handleClick(e, "mailto:oliglegg@hotmail.co.uk")}
                 src={pic_email}
+                href="."
                 alt="Email" />
             <ImageButton
                 href="https://linkedin.com/in/leggoli"
