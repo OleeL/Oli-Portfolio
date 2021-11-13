@@ -1,15 +1,20 @@
 import React, { BaseSyntheticEvent } from 'react';
 import css from "styled-jsx/css";
 import ImageButton from '../components/ImageButton';
-import ParticleBackdrop from '../components/ParticleBackdrop';
 import TiltingDiv from '../components/TiltingDiv';
 import router from 'next/dist/client/router';
+import dynamic from "next/dynamic"
 
 const pic_github = '/images/logos/ghlogo.svg';
 const pic_email = '/images/logos/emlogo.svg';
 const pic_linkedin = '/images/logos/lilogo.svg';
 // const pic_phone = '/images/logos/phlogo.svg';
 // const pic_profile = '/images/profilepic.webp';
+
+const LazyParticleBackdrop = dynamic(
+    () => import('../components/ParticleBackdrop'),
+    { loading: () => <p>...</p> }
+)
 
 const PageStyle = css`
     div {
@@ -57,13 +62,13 @@ const App = () => <Page />
 const Page = () =>
     <div>
         <style jsx>{PageStyle}</style>
-        <ParticleBackdrop />
+        <LazyParticleBackdrop />
         <Content />
     </div>
 
 const Content = () => {
     return (
-        <TiltingDiv style={{width: '50vmin', height: '40vmin'}}>
+        <TiltingDiv style={{ width: '50vmin', height: '40vmin' }}>
             <div>
                 <h1>Oliver Legg</h1>
                 <Footer />
@@ -87,7 +92,9 @@ const Footer = () => {
                 src={pic_github}
                 alt="GitHub" />
             <ImageButton
-                onClick={(e: BaseSyntheticEvent) => handleClick(e, "mailto:oliglegg@hotmail.co.uk")}
+                onClick={(e: BaseSyntheticEvent) => {
+                    return handleClick(e, "mailto:oliglegg@hotmail.co.uk")}
+                }
                 src={pic_email}
                 href="."
                 alt="Email" />
