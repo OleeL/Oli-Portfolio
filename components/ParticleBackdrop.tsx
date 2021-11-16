@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import Particles from "react-tsparticles"
+import { Particles } from "@blackbox-vision/react-particles";
 
 // Must use react styling here for particle compatibility
 const style: CSSProperties = {
@@ -12,12 +12,13 @@ const style: CSSProperties = {
     justifyContent: 'center'
 };
 
-const ParticleBackdrop = () =>
+const ParticleBackdrop = () => 
         <Particles
-            id="tsparticles"
+            id="simple"
+            width="auto"
+            height="100vh"
             style={style}
-            options={{
-                fpsLimit: 165,
+            params={{
                 particles: {
                     number: {
                         value: 60,
@@ -38,7 +39,7 @@ const ParticleBackdrop = () =>
                     },
                     size: {
                         random: true,
-                        value: 1
+                        value: 3
                     },
                     opacity: {
                         anim: {
@@ -50,10 +51,11 @@ const ParticleBackdrop = () =>
                 },
                 interactivity: {
                     events: {
-                        onClick: {
+                        onclick: {
                             enable: true,
                             mode: "push"
-                        }
+                        },
+                        resize: true
                     },
                     modes: {
                         push: {
