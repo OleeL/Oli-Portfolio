@@ -1,5 +1,7 @@
-import { CSSProperties } from "react";
-import { Particles } from "@blackbox-vision/react-particles";
+import { CSSProperties } from 'react';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import type { Engine } from 'tsparticles-engine';
 
 // Must use react styling here for particle compatibility
 const style: CSSProperties = {
@@ -9,61 +11,91 @@ const style: CSSProperties = {
     left: 0,
     position: 'absolute',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
 };
 
-const ParticleBackdrop = () => 
+const ParticleBackdrop = () => {
+    const particlesInit = async (main: Engine) => await loadFull(main);
+
+    return (
         <Particles
-            id="simple"
-            width="auto"
-            height="100vh"
+            id={'tsparticles'}
+            init={particlesInit}
             style={style}
-            params={{
-                particles: {
-                    number: {
-                        value: 60,
-                        density: {
-                            enable: true,
-                            value_area: 1500
-                        }
+            options={{
+                background: {
+                    color: {
+                        value: '#353535',
                     },
-                    links: {
-                        enable: true,
-                        opacity: 0.09
-                    },
-                    move: {
-                        direction: "right",
-                        speed: 0.8,
-                        enable: true,
-                        straight: false
-                    },
-                    size: {
-                        random: true,
-                        value: 3
-                    },
-                    opacity: {
-                        anim: {
-                            enable: true,
-                            speed: 2,
-                            opacity_min: 0.05
-                        }
-                    }
                 },
+                fpsLimit: 120,
                 interactivity: {
                     events: {
-                        onclick: {
+                        onClick: {
                             enable: true,
-                            mode: "push"
+                            mode: 'push',
                         },
-                        resize: true
+                        onHover: {
+                            enable: true,
+                            mode: 'repulse',
+                        },
+                        resize: true,
                     },
                     modes: {
                         push: {
-                            quantity: 1
-                        }
-                    }
+                            quantity: 1,
+                        },
+                        repulse: {
+                            distance: 100,
+                            duration: 10,
+                        },
+                    },
                 },
-                retina_detect: true
-            }} />
+                particles: {
+                    color: {
+                        value: '#ffffff',
+                    },
+                    links: {
+                        color: '#ffffff',
+                        distance: 150,
+                        enable: true,
+                        opacity: 0.5,
+                        width: 1,
+                    },
+                    collisions: {
+                        enable: true,
+                    },
+                    move: {
+                        direction: 'none',
+                        enable: true,
+                        outModes: {
+                            default: 'bounce',
+                        },
+                        random: false,
+                        speed: 1,
+                        straight: false,
+                    },
+                    number: {
+                        density: {
+                            enable: true,
+                            area: 800,
+                        },
+                        value: 80,
+                    },
+                    opacity: {
+                        value: 0.5,
+                    },
+                    shape: {
+                        type: 'circle',
+                    },
+                    size: {
+                        value: { min: 1, max: 5 },
+                    },
+                },
+                detectRetina: true,
+            }}
+        />
+    );
+};
 
 export default ParticleBackdrop;
