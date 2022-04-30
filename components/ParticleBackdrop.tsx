@@ -14,6 +14,12 @@ const style: CSSProperties = {
     justifyContent: 'center',
 };
 
+export const ParticleBackdropTemporary = () => (
+    <div style={style}>
+
+    </div>
+);
+
 const ParticleBackdrop = () => {
     const particlesInit = async (main: Engine) => await loadFull(main);
 
@@ -46,6 +52,7 @@ const ParticleBackdrop = () => {
                             quantity: 1,
                         },
                         repulse: {
+                            factor: 2,
                             distance: 100,
                             duration: 10,
                         },
