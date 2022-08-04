@@ -1,7 +1,9 @@
-import { CSSProperties } from 'react';
-import Particles from 'react-tsparticles';
+import React, { Suspense } from 'react';
+import { CSSProperties, FC } from 'react';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
+
+const Particles = React.lazy(() => import('react-tsparticles'));
 
 // Must use react styling here for particle compatibility
 const style: CSSProperties = {
@@ -10,98 +12,98 @@ const style: CSSProperties = {
     top: 0,
     left: 0,
     position: 'absolute',
+    zIndex: -1,
     alignItems: 'center',
     justifyContent: 'center',
 };
 
-export const ParticleBackdropTemporary = () => (
-    <div style={style}>
+const ParticleBackdropTemporary = () => <div style={style}></div>;
 
-    </div>
-);
-
-const ParticleBackdrop = () => {
+const ParticleBackdrop: FC = () => {
     const particlesInit = async (main: Engine) => await loadFull(main);
 
     return (
-        <Particles
-            id={'tsparticles'}
-            init={particlesInit}
-            style={style}
-            options={{
-                background: {
-                    color: {
-                        value: '#353535',
-                    },
-                },
-                fpsLimit: 120,
-                interactivity: {
-                    events: {
-                        onClick: {
-                            enable: true,
-                            mode: 'push',
+        <div style={style}>
+            <Suspense fallback={<ParticleBackdropTemporary />}>
+                <Particles
+                    id={'tsparticles'}
+                    init={particlesInit}
+                    options={{
+                        background: {
+                            color: {
+                                value: '#e5e5e5',
+                            },
                         },
-                        onHover: {
-                            enable: true,
-                            mode: 'repulse',
+                        fpsLimit: 120,
+                        interactivity: {
+                            events: {
+                                onClick: {
+                                    enable: true,
+                                    mode: 'push',
+                                },
+                                onHover: {
+                                    enable: true,
+                                    mode: 'repulse',
+                                },
+                                resize: true,
+                            },
+                            modes: {
+                                push: {
+                                    quantity: 1,
+                                },
+                                repulse: {
+                                    factor: 2,
+                                    distance: 100,
+                                    duration: 10,
+                                },
+                            },
                         },
-                        resize: true,
-                    },
-                    modes: {
-                        push: {
-                            quantity: 1,
+                        particles: {
+                            color: {
+                                value: '#000000',
+                            },
+                            links: {
+                                color: '#000000',
+                                distance: 150,
+                                enable: true,
+                                opacity: 1,
+                                width: 1,
+                            },
+                            collisions: {
+                                enable: true,
+                            },
+                            move: {
+                                direction: 'none',
+                                enable: true,
+                                outModes: {
+                                    default: 'bounce',
+                                },
+                                random: false,
+                                speed: 0.2,
+                                straight: false,
+                            },
+                            number: {
+                                density: {
+                                    enable: true,
+                                    area: 800,
+                                },
+                                value: 80,
+                            },
+                            opacity: {
+                                value: 0.5,
+                            },
+                            shape: {
+                                type: 'circle',
+                            },
+                            size: {
+                                value: { min: 1, max: 5 },
+                            },
                         },
-                        repulse: {
-                            factor: 2,
-                            distance: 100,
-                            duration: 10,
-                        },
-                    },
-                },
-                particles: {
-                    color: {
-                        value: '#ffffff',
-                    },
-                    links: {
-                        color: '#ffffff',
-                        distance: 150,
-                        enable: true,
-                        opacity: 0.5,
-                        width: 1,
-                    },
-                    collisions: {
-                        enable: true,
-                    },
-                    move: {
-                        direction: 'none',
-                        enable: true,
-                        outModes: {
-                            default: 'bounce',
-                        },
-                        random: false,
-                        speed: 1,
-                        straight: false,
-                    },
-                    number: {
-                        density: {
-                            enable: true,
-                            area: 800,
-                        },
-                        value: 80,
-                    },
-                    opacity: {
-                        value: 0.5,
-                    },
-                    shape: {
-                        type: 'circle',
-                    },
-                    size: {
-                        value: { min: 1, max: 5 },
-                    },
-                },
-                detectRetina: true,
-            }}
-        />
+                        detectRetina: true,
+                    }}
+                />
+            </Suspense>
+        </div>
     );
 };
 

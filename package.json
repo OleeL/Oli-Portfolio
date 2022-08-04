@@ -18,7 +18,9 @@
     ]
   },
   "dependencies": {
+    "bootstrap": "^5.1.3",
     "gh-pages": "^3.2.3",
+    "math2d": "^4.0.1",
     "next": "^12.1.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",

@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import GlobalStyles from '../components/GlobalStyles';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     useEffect(() => {
@@ -11,6 +12,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
         document.title = 'Oliver Legg';
     }, []);
+
     return (
         <>
             <Component {...pageProps} />
