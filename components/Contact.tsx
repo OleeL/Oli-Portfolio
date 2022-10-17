@@ -1,20 +1,20 @@
 import { FC } from 'react';
 import { useScrollSpring, goToSection } from '../utilities/ScrollHandler';
-import ButtonDown from './buttons/ButtonDown';
+import { ButtonUp } from './buttons/ButtonDown';
 
-const Education: FC = () => {
+const Contact: FC = () => {
     const api = useScrollSpring();
     return (
-        <section id="education">
+        <section id="contact">
             <div className="fill-width">
                 <div className="section-content">
-                    <h3 className="divider">Education</h3>
+                    <h3 className="divider">Contact</h3>
                 </div>
-                <p>Educated</p>
+                <p>0121</p>
             </div>
-            <ButtonDown setPressed={() => goToSection({ api, id: 'projects' })} />
+            <ButtonUp setPressed={() => goToSection({ api, id: 'profile' })} />
         </section>
     );
 };
 
-export default Education;
+export default Contact;

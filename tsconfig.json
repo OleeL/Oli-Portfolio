@@ -19,12 +19,14 @@
     "incremental": true,
     "jsx": "preserve"
   },
+  "typings": ["./lib/typings/typings.d.ts"],
   "exclude": [
     "node_modules"
   ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-  ]
+    "**/*.tsx",
+    "lib/global_hooks/animation/useFadeIn"
+  ],
 }

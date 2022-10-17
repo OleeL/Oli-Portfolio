@@ -1,0 +1,92 @@
+@import './variables';
+
+
+.navigation {
+    display: inline-flex;
+    width: 100%;
+
+    ul {
+        counter-reset: list-number;
+    }
+    svg {
+        width: 85px;
+        height: 85px;
+        .logo {
+            stroke: $primary-theme-color;
+            stroke-width: 3;
+
+            &:hover {
+                fill-opacity: 0.1;
+            }
+        }
+        polygon {
+            fill: $primary-theme-color;
+            stroke: $primary-theme-color;
+            stroke-width: 3;
+            cursor: pointer;
+            pointer-events: all;
+        }
+        text {
+            font-family: 'Segoe UI';
+            font-size: 27px;
+            fill: $primary-theme-color;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+    }
+
+    .nav-button {
+        color: white;
+        font-family: 'Fira Code';
+        margin: 0px 7px 0px 7px;
+        font-size: 16px;
+        height: 30px;
+        display: inline;
+        background-color: rgba(0,0,0,0);
+        cursor: pointer;
+        pointer-events: all;
+    }
+
+    .nav-button-hovered {
+        color: $primary-theme-color;
+    }
+
+    .nav-button:before {
+        color: $primary-theme-color;
+        counter-increment: list-number;
+        content: "0" counter(list-number) ". ";
+      }
+}
+
+.div {
+    position: absolute;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-evenly;
+    user-select: none;
+    z-index: 999;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 94%;
+    padding: 15px 3% 15px 3%;
+}
+
+.logo {
+    user-select: none;
+}
+
+.nav-buttons {
+    padding-inline-start: 0px;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style-type: none;   
+}

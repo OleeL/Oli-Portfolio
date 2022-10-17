@@ -1,35 +1,60 @@
 {
   "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": [
-      "./tsconfig.json"
-    ]
-  },
   "plugins": [
     "@typescript-eslint"
   ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx",
+          ".d.ts"
+        ]
+      }
+    }
+  },
   "rules": {
-    "@typescript-eslint/strict-boolean-expressions": [
-      2,
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-console": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "no-plusplus": "off",
+    "no-param-reassign": "off",
+    "class-methods-use-this": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
       {
-        "allowString": false,
-        "allowNumber": false
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": false
       }
     ],
-    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "@typescript-eslint/no-explicit-any": "off",
-    "@next/next/no-img-element": "off",
-    "react/react-in-jsx-scope": "off"
-  },
-  "ignorePatterns": [
-    "src/**/*.test.ts",
-    "src/frontend/generated/*"
-  ]
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ]
+  }
 }

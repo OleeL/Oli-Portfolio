@@ -39,37 +39,6 @@ const GetLineStyle = () => css.resolve`
     }
 `;
 
-const BurgerButton: FC<IBurgerProps> = ({
-    setPressed = () => null,
-    pressed = false,
-    className,
-}) => {
-    const collection = GetCollectionStyle();
-    const [hovered, setHovered] = useState(false);
-    const togglePressed = () => setPressed(!pressed);
-    // const _hoverColor = 'rgba(2, 126, 219, 1)';
-    // const _idleColor = 'rgba(0, 0, 0, 0)';
-    const scale = hovered ? 1.01 : 1;
-    const spring = useSpring({
-        scale: scale,
-        // boxShadow: `0px 0px 10px 3px ${hovered ? hoverColor : idleColor}`,
-    });
-
-    return (
-        <a.a
-            onClick={togglePressed}
-            style={spring}
-            className={`${collection.className} ${className}`}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}>
-            <Top pressed={pressed} hovered={hovered} />
-            <Middle />
-            <Bottom pressed={pressed} hovered={hovered} />
-            {collection.styles}
-        </a.a>
-    );
-};
-
 const GetRotRight = (hovered: boolean): string => (hovered ? '45deg' : '0deg');
 const GetRotLeft = (hovered: boolean): string => (hovered ? '-45deg' : '0deg');
 const GetTranslationLeftBottom = (hovered: boolean): string =>
@@ -88,7 +57,7 @@ const Top: FC<IBurgerProps> = ({ pressed = false, hovered = false }) => {
     const width = hovered ? '16px' : '32px';
     const spring = useSpring({
         transform: `translate3d(${translation}) rotate(${rotation})`,
-        width: width,
+        width,
         config: springConfig,
     });
 
@@ -113,7 +82,7 @@ const Bottom: FC<IBurgerProps> = ({ hovered = false, pressed = false }) => {
     const width = hovered ? '16px' : '32px';
     const spring = useSpring({
         transform: `translate3d(${translation}) rotate(${rotation})`,
-        width: width,
+        width,
         config: springConfig,
     });
 
@@ -121,6 +90,37 @@ const Bottom: FC<IBurgerProps> = ({ hovered = false, pressed = false }) => {
         <animated.div style={spring} className={className} id="burger-button">
             {styles}
         </animated.div>
+    );
+};
+
+const BurgerButton: FC<IBurgerProps> = ({
+    setPressed = () => null,
+    pressed = false,
+    className,
+}) => {
+    const collection = GetCollectionStyle();
+    const [hovered, setHovered] = useState(false);
+    const togglePressed = () => setPressed(!pressed);
+    // const _hoverColor = 'rgba(2, 126, 219, 1)';
+    // const _idleColor = 'rgba(0, 0, 0, 0)';
+    const scale = hovered ? 1.01 : 1;
+    const spring = useSpring({
+        scale,
+        // boxShadow: `0px 0px 10px 3px ${hovered ? hoverColor : idleColor}`,
+    });
+
+    return (
+        <a.a
+            onClick={togglePressed}
+            style={spring}
+            className={`${collection.className} ${className}`}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}>
+            <Top pressed={pressed} hovered={hovered} />
+            <Middle />
+            <Bottom pressed={pressed} hovered={hovered} />
+            {collection.styles}
+        </a.a>
     );
 };
 

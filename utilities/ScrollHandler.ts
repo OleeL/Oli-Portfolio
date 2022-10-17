@@ -1,8 +1,8 @@
 import { SpringRef, useSpring } from 'react-spring';
 
 type IScrollFromTo = {
-    target: number,
-    current: number,
+    target: number;
+    current: number;
 };
 
 const calcuateY = (target: string): number => document?.getElementById(target)?.offsetTop ?? 0;
@@ -29,7 +29,7 @@ export const goToSection = (props: IScrollProps) => {
     props.api.start({ y: target });
 };
 
-export const GetScrollSpring = () => {
+export const useScrollSpring = () => {
     const [, api] = useSpring(() => ({
         y: 0,
         immediate: false,

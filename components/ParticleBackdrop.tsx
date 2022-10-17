@@ -1,5 +1,4 @@
-import React, { Suspense } from 'react';
-import { CSSProperties, FC } from 'react';
+import React, { Suspense, CSSProperties, FC } from 'react';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 
@@ -20,7 +19,7 @@ const style: CSSProperties = {
 const ParticleBackdropTemporary = () => <div style={style}></div>;
 
 const ParticleBackdrop: FC = () => {
-    const particlesInit = async (main: Engine) => await loadFull(main);
+    const particlesInit = async (main: Engine) => loadFull(main);
 
     return (
         <div style={style}>

@@ -1,83 +1,18 @@
 import { FC } from 'react';
-import css from 'styled-jsx/css';
-import { GetScrollSpring, goToSection } from '../utilities/ScrollHandler';
+import { useScrollSpring, goToSection } from '../utilities/ScrollHandler';
 import ButtonDown from './buttons/ButtonDown';
 
-const ProfileStyle = css`
-    section {
-        background-color: white;
-    }
-    * {
-        color: black;
-    }
-`;
-
 const Experience: FC = () => {
-    const api = GetScrollSpring();
+    const api = useScrollSpring();
     return (
         <section id="experience">
-            <div>
-                <h1>Experience</h1>
+            <div className="fill-width">
+                <div className="section-content">
+                    <h3 className="divider">Experience</h3>
+                </div>
+                <p>Hello</p>
             </div>
-            <div id="experience-timeline">
-                <div data-date="June 2021 - Present" className="shadow">
-                    <h3></h3>
-                    <h4></h4>
-                    <ul>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                    </ul>
-                </div>
-
-                <div data-date="September 2020 - June 2021" className="shadow">
-                    <h3></h3>
-                    <h4></h4>
-                    <ul>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                    </ul>
-                </div>
-
-                <div data-date="March 2020 - Present" className="shadow">
-                    <h3></h3>
-                    <h4></h4>
-                    <ul>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                        <li>
-                        </li>
-                    </ul>
-                </div>
-                <div data-date="December 2018 - January 2019" className="shadow">
-                    <h3></h3>
-                    <h4></h4>
-                    <ul>
-                        <li>
-                        </li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
-            <ButtonDown setPressed={() => goToSection({ api: api, id: 'education' })} />
-            <style jsx>{ProfileStyle}</style>
+            <ButtonDown setPressed={() => goToSection({ api, id: 'education' })} />
         </section>
     );
 };

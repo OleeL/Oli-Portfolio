@@ -17,7 +17,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<'img'> {
 const ImageButton: FC<ButtonProps> = args => {
     const [hovering, setHovering] = useState(false);
     const spring = useSpring({
-        transform: hovering ? `scale(1.2)` : `scale(1)`,
+        transform: hovering ? 'scale(1.2)' : 'scale(1)',
         margin: '2vmin',
     });
 

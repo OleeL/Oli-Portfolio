@@ -13,10 +13,9 @@ interface IButtonDown {
 }
 
 const GetCollectionStyle = () => css.resolve`
-    a {
+    button {
         margin-left: auto;
         margin-right: auto;
-        width: 100px; /* Need a specific value to work */
         right: 0;
         left: 0;
         bottom: 10px;
@@ -29,7 +28,6 @@ const GetCollectionStyle = () => css.resolve`
         background: black;
         width: 50px;
         height: 50px;
-        padding: 5px 10px;
         border-radius: 100%;
     }
 `;
@@ -54,12 +52,12 @@ const GetLineStyle = () => css.resolve`
 
 const Left = () => {
     const { className, styles } = GetLineStyle();
-    return <div className={className + ' left'}>{styles}</div>;
+    return <div className={`${className} left`}>{styles}</div>;
 };
 
 const Right = () => {
     const { className, styles } = GetLineStyle();
-    return <div className={className + ' right'}>{styles}</div>;
+    return <div className={`${className} right`}>{styles}</div>;
 };
 
 const ButtonDown: FC<IButtonDown> = ({
@@ -72,31 +70,30 @@ const ButtonDown: FC<IButtonDown> = ({
     const [hovered, setHovered] = useState(false);
     const togglePressed = () => setPressed(!pressed);
     const scale = hovered ? 1.2 : 1;
-    const obj: CSSProperties = {
-        // boxShadow: `0px 0px 10px 3px ${hovered ? hoverColor : idleColor}`,
-        scale: scale,
+    const spring = useSpring({
+        scale,
         ...style,
-    };
-    const spring = useSpring(obj);
+    });
     const trimmedProps = [collection.className, className].filter(x => x != null).join(' ');
 
     return (
-        <a.a
+        <a.button
             onClick={togglePressed}
             style={spring}
+            aria-label="button down"
             className={trimmedProps}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}>
             {collection.styles}
             <Left />
             <Right />
-        </a.a>
+        </a.button>
     );
 };
 
 export const ButtonUp: FC<IButtonDown> = props => {
     const style = {
-        transform: 'rotate(3.142rad)',
+        transform: 'rotate(180deg)',
     };
     return <ButtonDown {...props} style={style} />;
 };
