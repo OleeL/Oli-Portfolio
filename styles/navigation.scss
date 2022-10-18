@@ -45,6 +45,7 @@
         background-color: rgba(0,0,0,0);
         cursor: pointer;
         pointer-events: all;
+        white-space: nowrap;
     }
 
     .nav-button-hovered {
@@ -55,7 +56,8 @@
         color: $primary-theme-color;
         counter-increment: list-number;
         content: "0" counter(list-number) ". ";
-      }
+        white-space: pre-line;
+    }
 }
 
 .code {
