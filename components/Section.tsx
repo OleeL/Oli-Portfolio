@@ -12,14 +12,14 @@ const Section: FC<ISection> = ({ sectionName, body }) => {
     const { fade, ref } = useFadeInIfVisible();
 
     return (
-        <section ref={ref} id={toKebabCase(sectionName)}>
-            <a.div className="overflow fill-width" style={fade}>
+        <a.section ref={ref} id={toKebabCase(sectionName)} style={fade}>
+            <div className="fill-width">
                 <div className="section-content">
                     <h3 className="section-heading divider">{sectionName}</h3>
                 </div>
                 {body}
-            </a.div>
-        </section>
+            </div>
+        </a.section>
     );
 };
 
