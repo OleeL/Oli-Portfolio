@@ -1,16 +1,9 @@
 import { FC } from 'react';
+import Section from './Section';
+
+const ProjectsBody = () => <p>Projects</p>;
 
 const Projects: FC = () => {
-    return (
-        <section id="projects">
-            <div className="fill-width">
-                <div className="section-content">
-                    <h3 className="divider">Experience</h3>
-                </div>
-                <p>Experienced</p>
-            </div>
-        </section>
-    );
+    return <Section sectionName={'Projects'} body={<ProjectsBody />} />;
 };
-
 export default Projects;

@@ -7,18 +7,32 @@ main {
 }
 
 section {
+    margin-bottom: 1px;
     display: flex;
     width: 100%;
     max-width: 100vw;
-    height: 100vh;
     justify-content: flex-start;
-    align-items: center;
     font-size: 27px;
     overflow-x: hidden;
     overflow-y: hidden;
+    
+    &.centered {
+        align-items: center;
+    }
+
+    height: 50vh;
+
+    &.full-screen {
+        height: 100vh;
+    }
+
     p, & {
         color: $p-color;
     }
+}
+
+.active {
+    color: $primary-theme-color;
 }
 
 .container {
@@ -61,7 +75,7 @@ h3 {
 
     &.divider::after {
         content: "";
-        border: 1px solid $divider-color;
+        border-bottom: 1px solid $divider-color;
         margin: 20px;
         width: -webkit-fill-available;
         margin-left: 40px;
@@ -77,4 +91,13 @@ h3 {
 a {
     color: $primary-theme-color;
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1)
+}
+
+.section-heading {
+    &::before {
+        margin-right: 8px;
+        counter-increment: section 1;
+        content: "0" counter(section) ".";
+        color: $primary-theme-color;
+    }
 }

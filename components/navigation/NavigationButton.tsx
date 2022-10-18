@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { a, useSpring } from 'react-spring';
 import { useScrollSpring, goToSection } from '../../utilities/ScrollHandler';
 import styles from '../../styles/navigation.module.scss';
+import { toKebabCase } from '../../lib/helpers/string';
 
 interface IButton {
     buttonName: string;
@@ -26,7 +27,7 @@ const NavigationButton: FC<IButton> = ({ buttonName, props }) => {
             <a.button
                 style={{ ...spring, ...props }}
                 className="nav-button"
-                onClick={() => goToSection({ api, id: buttonName.toLowerCase() })}
+                onClick={() => goToSection({ api, id: toKebabCase(buttonName) })}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
                 {buttonName}

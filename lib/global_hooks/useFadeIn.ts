@@ -1,3 +1,4 @@
+import { RefObject, useEffect, useRef, useState } from 'react';
 import { useSpring } from 'react-spring';
 
 type FadeProps = {
@@ -40,6 +41,46 @@ export const useFadeInArr = (props: FadePropsArr | number) => {
         });
     }
     return springs;
+};
+
+type FadeInIfVisible = {
+    ref: RefObject<any>;
+    isVisible: boolean;
+    fade: ReturnType<typeof useFadeIn>;
+};
+
+export const useFadeInIfVisible = (props?: FadeProps): FadeInIfVisible => {
+    const [isVisible, setVisible] = useState(false);
+    const ref = useRef();
+    useEffect(() => {
+        if (!ref.current) {
+            return () => {};
+        }
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setVisible(entry.isIntersecting);
+                }
+            });
+        });
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+        if (isVisible) {
+            observer.unobserve(ref.current);
+        }
+        return () => {
+            if (ref?.current) observer.unobserve(ref.current);
+        };
+    }, []);
+
+    const fade = useSpring({
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translate(0px, 0px)' : 'translate(-10px, -20px)',
+        config: { mass: 70, tension: 1000, friction: 700 },
+        ...props,
+    });
+    return { ref, isVisible, fade };
 };
 
 export default useFadeIn;

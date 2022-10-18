@@ -10,7 +10,7 @@ interface INavigation {
 }
 
 export const Navigation: FC<INavigation> = () => {
-    const navigationButtons = ['About', 'Experience', 'Projects', 'Contact'];
+    const navigationButtons = ['About Me', 'Experience', 'Projects', 'Contact'];
     const fadeIn = useFadeInArr({
         length: navigationButtons.length,
         initialDelay: 100,

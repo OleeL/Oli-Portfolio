@@ -1,20 +1,10 @@
 import { FC } from 'react';
-import { useScrollSpring, goToSection } from '../utilities/ScrollHandler';
-import ButtonDown from './buttons/ButtonDown';
+import Section from './Section';
+
+const ExperienceBody = () => <p>Experienced</p>;
 
 const Experience: FC = () => {
-    const api = useScrollSpring();
-    return (
-        <section id="experience">
-            <div className="fill-width">
-                <div className="section-content">
-                    <h3 className="divider">Experience</h3>
-                </div>
-                <p>Hello</p>
-            </div>
-            <ButtonDown setPressed={() => goToSection({ api, id: 'education' })} />
-        </section>
-    );
+    return <Section sectionName={'Experience'} body={<ExperienceBody />} />;
 };
 
 export default Experience;

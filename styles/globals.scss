@@ -40,6 +40,7 @@ html {
 }
 
 body {
+    counter-reset: section;
     background-color: $background-blue;
     width: 100%;
     font-size: calc(2.5vmin);
@@ -52,6 +53,10 @@ body {
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.overflow {
+    position: absolute;
 }
 
 .fill-width {
