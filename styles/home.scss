@@ -6,6 +6,26 @@ main {
     width: 70%;
 }
 
+.inset {
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.7) inset;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.7) inset;
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.7) inset;
+}
+
+.experience-list {
+    padding-inline-start: 7px;
+    list-style-type: none;
+    width: fit-content;
+
+    .list-element {
+        background: none;
+        width: 100%;
+        padding-left: 20px;
+        margin: 0;
+        margin-left: -10px;
+    }
+}
+
 section {
     margin-bottom: 1px;
     display: flex;
@@ -29,6 +49,12 @@ section {
     p, & {
         color: $p-color;
     }
+}
+
+.selection-slider {
+    background-color: $primary-theme-color;
+    border-radius: 2px;
+    width: 3px;
 }
 
 .active {
