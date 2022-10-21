@@ -10,7 +10,7 @@ const AboutMeBody = () => (
 );
 
 const AboutMe: FC = () => {
-    return <Section sectionName={'About Me'} body={<AboutMeBody />} />;
+    return <Section sectionName={'About Me'} Content={AboutMeBody} />;
 };
 
 export default AboutMe;

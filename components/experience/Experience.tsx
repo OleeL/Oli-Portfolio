@@ -1,13 +1,9 @@
 import { FC, useState } from 'react';
 import { a, useSpring } from 'react-spring';
-import { inherits } from 'util';
 import useSelectionSlider from '../../lib/global_hooks/useSelectionSlider';
 import Section from '../Section';
 import experiences from './Experiences';
 import useExperience from './hooks/useExperience';
-import styles from '../../styles/navigation.module.scss';
-
-const { primaryThemeColorDimmed } = styles;
 
 const ExperienceBody = () => {
     const { experience, setExperience } = useExperience(experiences[0]);
@@ -42,7 +38,7 @@ const ExperienceBody = () => {
 };
 
 const Experience: FC = () => {
-    return <Section sectionName={'Experience'} body={<ExperienceBody />} />;
+    return <Section sectionName={'Experience'} Content={ExperienceBody} />;
 };
 
 export default Experience;
