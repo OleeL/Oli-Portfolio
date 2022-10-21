@@ -1,37 +1,54 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import moment from 'moment';
 import { FC, useState } from 'react';
-import { a, useSpring } from 'react-spring';
 import useSelectionSlider from '../../lib/global_hooks/useSelectionSlider';
 import Section from '../Section';
 import experiences from './Experiences';
 import useExperience from './hooks/useExperience';
 
+const Footnote: FC<{ children: any }> = ({ children }) => {
+    return <p className="footnote">{children}</p>;
+};
 const ExperienceBody = () => {
     const { experience, setExperience } = useExperience(experiences[0]);
     const { ref, Slider } = useSelectionSlider({ selection: experience });
+
+    const { startDate, endDate, company, role } = experience;
     return (
         <>
             <p>Experiences: </p>
-            <ul ref={ref} className="experience-list">
-                {experiences.map((x, key) => {
-                    const active = experience.company === x.company;
-                    const [hovered, setHovered] = useState<boolean>(false);
-                    const rowSpring = useSpring({
-                        backgroundColor: hovered ? '#FFFFFF' : '#00000000',
-                        config: { mass: 10, tension: 400, friction: 40, clamp: true },
-                    });
-                    return (
-                        <a.li
-                            className={`list-element pointer${active ? ' active' : ''}`}
-                            key={key}
-                            onMouseOver={() => setHovered(true)}
-                            onMouseLeave={() => setHovered(false)}
-                            style={rowSpring}
-                            onClick={() => setExperience({ ...x })}>
-                            {x.company}
-                        </a.li>
-                    );
-                })}
-            </ul>
+            <div className="experience-container">
+                <div className="experience-box">
+                    <ul ref={ref} className="experience-list">
+                        {experiences.map((x, key) => {
+                            const active = company === x.company;
+                            const [hovered, setHovered] = useState<boolean>(false);
+                            return (
+                                <li
+                                    className={`list-element pointer${active ? ' active' : ''}`}
+                                    key={key}
+                                    onMouseOver={() => setHovered(true)}
+                                    onMouseLeave={() => setHovered(false)}
+                                    style={{ backgroundColor: hovered ? '#FFFFFF' : '#00000000' }}
+                                    onClick={() => setExperience({ ...x })}>
+                                    {x.company}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    <div className="experience-description">
+                        <h4>
+                            &gt; {company} | {role}
+                        </h4>
+                        <Footnote>
+                            <FontAwesomeIcon icon={['fas', 'calendar']} />{' '}
+                            {moment(startDate).format('MM/YY')} -{' '}
+                            {endDate ? moment(endDate)?.format('MM/YY') : 'Now'}{' '}
+                        </Footnote>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
             <Slider />
         </>
     );

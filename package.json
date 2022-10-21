@@ -18,15 +18,19 @@
     ]
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "gh-pages": "^3.2.3",
     "math2d": "^4.0.1",
+    "moment": "^2.29.4",
     "next": "^12.1.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-spring": "^9.4.4",
     "react-tsparticles": "^2.0.6",
-    "tsparticles": "^2.0.6",
-    "styled-jsx": "^5.0.7"
+    "styled-jsx": "^5.0.7",
+    "tsparticles": "^2.0.6"
   },
   "devDependencies": {
     "@types/node": "^17.0.29",

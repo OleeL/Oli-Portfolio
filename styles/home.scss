@@ -16,6 +16,9 @@ main {
     padding-inline-start: 7px;
     list-style-type: none;
     width: fit-content;
+    padding-right: 20px;
+    border-right: 1px solid $divider-color;
+    margin-right: 20px;
 
     .list-element {
         background: none;
@@ -23,7 +26,44 @@ main {
         padding-left: 20px;
         margin: 0;
         margin-left: -10px;
+        font-size: 22px;
     }
+}
+
+.experience-container {    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.experience-box {
+    display: flex;-webkit-box-shadow: 1px 0px 16px -3px rgba(0,0,0,0.37); 
+    -webkit-box-shadow: 1px 0px 16px 5px rgba(0,0,0,0.26); 
+    box-shadow: 1px 0px 16px 5px rgba(0,0,0,0.26);
+    width:95%;
+    border-radius: 20px;
+}
+
+.experience-description {
+    margin: 27px 0px 27px 0px;
+
+    h4 {
+        color: $primary-theme-color;
+        margin: 0px;
+        font-weight: normal;
+        font-family: 'Fira Code';
+        font-size: 20px;
+        
+    }
+}
+
+.footnote {
+    font-size: 15px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family: 'Fira Code';
 }
 
 section {
