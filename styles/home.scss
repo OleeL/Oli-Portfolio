@@ -22,10 +22,10 @@ main {
 
     .list-element {
         background: none;
-        width: 100%;
+        width: 93%;
         padding-left: 20px;
         margin: 0;
-        margin-left: -10px;
+        margin-left: 10px;
         font-size: 22px;
     }
 }
@@ -37,11 +37,11 @@ main {
 }
 
 .experience-box {
-    display: flex;-webkit-box-shadow: 1px 0px 16px -3px rgba(0,0,0,0.37); 
-    -webkit-box-shadow: 1px 0px 16px 5px rgba(0,0,0,0.26); 
-    box-shadow: 1px 0px 16px 5px rgba(0,0,0,0.26);
+    display: flex;
+    -webkit-box-shadow: 1px 0px 40px 5px rgba(0,0,0,0.09);
+    box-shadow: 1px 0px 40px 5px rgba(0,0,0,0.09);
     width:95%;
-    border-radius: 20px;
+    border-radius: 7px;
 }
 
 .experience-description {
@@ -50,6 +50,7 @@ main {
     h4 {
         color: $primary-theme-color;
         margin: 0px;
+        margin-bottom: 4px;
         font-weight: normal;
         font-family: 'Fira Code';
         font-size: 20px;
@@ -95,6 +96,9 @@ section {
     background-color: $primary-theme-color;
     border-radius: 2px;
     width: 3px;
+    &.backdrop {
+        background-color: $divider-color;
+    }
 }
 
 .active {

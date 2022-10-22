@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import { a, useSpring } from 'react-spring';
 
 interface IProps {
@@ -6,6 +6,10 @@ interface IProps {
     activeKey?: string;
     className?: string;
 }
+
+const defaultSettings: CSSProperties = {
+    position: 'absolute',
+};
 
 export const useSelectionSlider = ({
     activeKey = 'active',
@@ -24,11 +28,27 @@ export const useSelectionSlider = ({
     const child = children[index] ?? null;
 
     const height = child?.getBoundingClientRect()?.height ?? 0;
+    const left = child?.offsetLeft ?? 0;
     const spring = useSpring({
         top: child?.offsetTop ?? 0,
+        left,
     });
+
+    const backdropHeight = child?.parentElement?.offsetHeight ?? 0;
+
     const Slider = () => (
-        <a.div className={className} style={{ ...spring, height, position: 'absolute', left: 0 }} />
+        <>
+            <div
+                className={`${className} backdrop`}
+                style={{
+                    ...defaultSettings,
+                    height: backdropHeight,
+                    top: child?.parentElement?.offsetTop ?? 0,
+                    left,
+                }}
+            />
+            <a.div className={className} style={{ ...spring, ...defaultSettings, height }} />
+        </>
     );
 
     return { ref, Slider };
