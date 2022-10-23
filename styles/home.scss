@@ -13,11 +13,13 @@ main {
 }
 
 .experience-list {
-    padding-inline-start: 12px;
+    padding-inline-start: 0px;
     list-style-type: none;
     width: fit-content;
     padding-right: 20px;
+    padding-left: 10px;
     margin-right: 20px;
+    margin-top: 0px;
     height:max-content;
 
     display: flex;
@@ -35,7 +37,7 @@ main {
 }
 
 .experience-list-divider-container {
-    margin: 20px 20px 20px 0px;
+    margin: 27px 20px 27px 0px;
     border-right: 1px solid $divider-color;
 }
 
