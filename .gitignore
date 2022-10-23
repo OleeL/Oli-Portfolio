@@ -26,4 +26,3 @@ yarn.lock
 /.next
 /.vscode
 /out
-package-lock.json
