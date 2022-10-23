@@ -13,39 +13,46 @@ const ExperienceBody = () => {
     const { experience, setExperience } = useExperience(experiences[0]);
     const { ref, Slider } = useSelectionSlider({ selection: experience });
 
-    const { startDate, endDate, company, role } = experience;
+    const { startDate, endDate, company, role, description, location } = experience;
     return (
         <>
             <p>Experiences: </p>
             <div className="experience-container">
                 <div className="experience-box">
-                    <ul ref={ref} className="experience-list">
-                        {experiences.map((x, key) => {
-                            const active = company === x.company;
-                            const [hovered, setHovered] = useState<boolean>(false);
-                            return (
-                                <li
-                                    className={`list-element pointer${active ? ' active' : ''}`}
-                                    key={key}
-                                    onMouseOver={() => setHovered(true)}
-                                    onMouseLeave={() => setHovered(false)}
-                                    style={{ backgroundColor: hovered ? '#FFFFFF' : '#00000000' }}
-                                    onClick={() => setExperience({ ...x })}>
-                                    {x.company}
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    <div className="experience-list-divider-container">
+                        <ul ref={ref} className="experience-list">
+                            {experiences.map((x, key) => {
+                                const active = company === x.company;
+                                const [hovered, setHovered] = useState<boolean>(false);
+                                return (
+                                    <li
+                                        className={`list-element pointer${active ? ' active' : ''}`}
+                                        key={key}
+                                        onMouseOver={() => setHovered(true)}
+                                        onMouseLeave={() => setHovered(false)}
+                                        style={{
+                                            backgroundColor: hovered ? '#FFFFFF' : '#00000000',
+                                        }}
+                                        onClick={() => setExperience({ ...x })}>
+                                        {x.company}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
                     <div className="experience-description">
                         <h4>
-                            &gt; {company} | {role}
+                            &gt; {company} | <span>{role}</span>
                         </h4>
                         <Footnote>
                             <FontAwesomeIcon icon={['fas', 'calendar']} />{' '}
                             {moment(startDate).format('MM/YY')} -{' '}
-                            {endDate ? moment(endDate)?.format('MM/YY') : 'Now'}{' '}
+                            {endDate ? moment(endDate)?.format('MM/YY') : 'Now'}
+                            {' | '}
+                            <FontAwesomeIcon icon={['fas', 'location-dot']} />{' '}
+                            <a href={location.url}>{location.name}</a>
                         </Footnote>
-                        <p></p>
+                        <div className="description">{description}</div>
                     </div>
                 </div>
             </div>

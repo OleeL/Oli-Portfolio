@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useRef, useState } from 'react';
+import { CSSProperties, useCallback, useEffect, useRef, useState } from 'react';
 import { a, useSpring } from 'react-spring';
 
 interface IProps {
@@ -17,10 +17,13 @@ export const useSelectionSlider = ({
     selection,
 }: IProps) => {
     const ref = useRef<HTMLUListElement>(null);
-    const [refChange, setRefChange] = useState(false);
-
+    const [, updateState] = useState<any>();
+    const forceUpdate = useCallback(() => updateState({}), []);
     useEffect(() => {
-        setRefChange(!refChange);
+        window.addEventListener('resize', forceUpdate);
+    }, []);
+    useEffect(() => {
+        forceUpdate();
     }, [ref, selection]);
 
     const children = Object.values(ref?.current?.childNodes ?? []) as HTMLElement[];

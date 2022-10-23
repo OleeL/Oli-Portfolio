@@ -13,16 +13,20 @@ main {
 }
 
 .experience-list {
-    padding-inline-start: 7px;
+    padding-inline-start: 12px;
     list-style-type: none;
     width: fit-content;
     padding-right: 20px;
-    border-right: 1px solid $divider-color;
     margin-right: 20px;
+    height:max-content;
+
+    display: flex;
+    flex-direction: column;
 
     .list-element {
         background: none;
         width: 93%;
+        min-width: 146px;
         padding-left: 16px;
         margin: 0;
         margin-left: 13px;
@@ -30,7 +34,13 @@ main {
     }
 }
 
-.experience-container {    
+.experience-list-divider-container {
+    margin: 20px 20px 20px 0px;
+    border-right: 1px solid $divider-color;
+}
+
+.experience-container {
+    min-height: 400px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -55,7 +65,20 @@ main {
         font-weight: normal;
         font-family: 'Fira Code';
         font-size: 20px;
-        
+
+        span {
+            color: $p-color;
+            font-size: smaller;
+        }
+    }
+
+    a {
+        color: $p-color;
+    }
+
+    .description {
+        font-size: 15px;
+        font-family: 'Fira Code';
     }
 }
 
@@ -70,6 +93,8 @@ main {
 
 section {
     margin-bottom: 1px;
+    margin-top: 35px;
+
     display: flex;
     width: 100%;
     max-width: 100vw;
@@ -82,9 +107,10 @@ section {
         align-items: center;
     }
 
-    height: 50vh;
+    min-height: 50vh;
 
     &.full-screen {
+        margin-top: 0px;
         height: 100vh;
     }
 

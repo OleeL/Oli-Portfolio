@@ -6,7 +6,14 @@ export const experiences: ExperienceType[] = [
         role: 'Software Developer',
         startDate: new Date(2022, 6, 1),
         endDate: null,
-        description: <></>,
+        description: (
+            <ul>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+            </ul>
+        ),
         url: 'https://www.silverchip.com/',
         location: {
             name: 'Manchester, UK',
@@ -32,7 +39,10 @@ export const experiences: ExperienceType[] = [
         endDate: new Date(2021, 9, 1),
         description: <></>,
         url: 'https://www.google.com/maps/place/Dublin,+Ireland/@53.6392395,-7.2807953,7.21z/data=!4m5!3m4!1s0x48670e80ea27ac2f:0xa00c7a9973171a0!8m2!3d53.3497316!4d-6.2608337',
-        location: { name: 'Dublin, Ireland', url: '' },
+        location: {
+            name: 'Dublin, Ireland',
+            url: 'https://www.google.com/maps/place/Irish+Centre+for+High-End+Computing+(ICHEC)/@53.3504456,-6.3609425,11.34z/data=!4m9!1m2!2m1!1sICHEC+Ireland!3m5!1s0x48670eecb29bad07:0x9e3434e28fe12529!8m2!3d53.3419432!4d-6.2392902!15sCg1JQ0hFQyBJcmVsYW5kkgEScmVzZWFyY2hfaW5zdGl0dXRl4AEA',
+        },
     },
     {
         company: 'Chronyko',
