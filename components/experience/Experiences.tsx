@@ -8,10 +8,16 @@ export const experiences: ExperienceType[] = [
         endDate: null,
         description: (
             <ul>
-                <li>Test</li>
-                <li>Test</li>
-                <li>Test</li>
-                <li>Test</li>
+                <li>
+                    Developed on and helped to achieve a successful project im- plementing unit
+                    tests, code reviews and a CI/CD pipeline on Azure.
+                </li>
+                <li>
+                    Collaborated with clients and communicated with them to help them turn their
+                    ideas into reality.
+                </li>
+                <li>Designed and implemented software using C# .NET Core 6.0 with Blazor.</li>
+                <li>Training to be Microsoft Azure Certified as an Azure Developer Associate.</li>
             </ul>
         ),
         url: 'https://www.silverchip.com/',
@@ -25,7 +31,20 @@ export const experiences: ExperienceType[] = [
         role: 'Software Engineer',
         startDate: new Date(2021, 10, 1),
         endDate: new Date(2022, 6, 1),
-        description: <></>,
+        description: (
+            <ul>
+                <li>
+                    Developed on and helped to achieve a successful project im- plementing unit
+                    tests, code reviews and a CI/CD pipeline on Azure.
+                </li>
+                <li>
+                    Collaborated with clients and communicated with them to help them turn their
+                    ideas into reality.
+                </li>
+                <li>Designed and implemented software using C# .NET Core 6.0 with Blazor.</li>
+                <li>Training to be Microsoft Azure Certified as an Azure Developer Associate.</li>
+            </ul>
+        ),
         url: 'https://beeta.co/',
         location: {
             name: 'Manchester, UK',
@@ -37,7 +56,23 @@ export const experiences: ExperienceType[] = [
         role: 'SoHPC Project Participant',
         startDate: new Date(2021, 6, 1),
         endDate: new Date(2021, 9, 1),
-        description: <></>,
+        description: (
+            <ul>
+                <li>
+                    Experience of developing, debugging and profiling parallel programs using Julia
+                    Lang and MPI.
+                </li>
+                <li>
+                    Developed parallel graph algorithms with a branch and bound programming paradigm
+                    which can be applied to many prob- lems.
+                </li>
+                <li>
+                    Communicated computer science and high performance com- puting with blogs and
+                    public speaking.
+                </li>
+                <li>Improved general programming skills and worked as part of a team.</li>
+            </ul>
+        ),
         url: 'https://www.google.com/maps/place/Dublin,+Ireland/@53.6392395,-7.2807953,7.21z/data=!4m5!3m4!1s0x48670e80ea27ac2f:0xa00c7a9973171a0!8m2!3d53.3497316!4d-6.2608337',
         location: {
             name: 'Dublin, Ireland',
@@ -49,7 +84,26 @@ export const experiences: ExperienceType[] = [
         role: 'Full Stack Developer',
         startDate: new Date(2019, 7, 1),
         endDate: new Date(2020, 9, 1),
-        description: <></>,
+        description: (
+            <ul>
+                <li>Designed and implemented software experiencing full stack development.</li>
+                <li>
+                    Worked independently and in a small agile team using contin- uous integration.
+                </li>
+                <li>
+                    Front-end development mainly consisted of Typescript and React. I developed a
+                    multiplayer game using Three.Js. The project used SignalR for real time game
+                    updates with .NET Core (C#).
+                </li>
+                <li>
+                    Worked on a project with Arduinos and various electronic components. I created a
+                    valuable generic software which can be modified by adding / removing electronic
+                    devices plugged into the Arduino. Interaction with the components could be made
+                    remotely in the browser.
+                </li>
+                <li>Working under pressure to deliver products and client events.</li>
+            </ul>
+        ),
         url: 'https://chronyko.com/',
         location: {
             name: 'Reading, UK',
@@ -61,7 +115,20 @@ export const experiences: ExperienceType[] = [
         role: 'IT Assistant',
         startDate: new Date(2015, 7, 1),
         endDate: new Date(2015, 8, 1),
-        description: <></>,
+        description: (
+            <ul>
+                <li>
+                    An IT project to update and improve the company SharePoint intranet website.
+                    Working predominantly on my own initiative to scope out and implement a new
+                    layout, improved communi- cations and graphics. I also provided a scoping
+                    document and training guide.
+                </li>
+                <li>
+                    This gave me an insight into teamwork, the importance of communication and
+                    managing work to deadlines.
+                </li>
+            </ul>
+        ),
         url: 'https://www.eventms.com/',
         location: {
             name: 'Ellesmere Port, UK',

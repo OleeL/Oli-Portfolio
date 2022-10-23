@@ -16,7 +16,6 @@ main {
     padding-inline-start: 0px;
     list-style-type: none;
     width: fit-content;
-    padding-right: 20px;
     padding-left: 10px;
     margin-right: 20px;
     margin-top: 0px;
@@ -27,8 +26,7 @@ main {
 
     .list-element {
         background: none;
-        width: 93%;
-        min-width: 146px;
+        width: 255px;
         padding-left: 16px;
         margin: 0;
         margin-left: 13px;
@@ -58,7 +56,7 @@ main {
 }
 
 .experience-description {
-    margin: 27px 0px 27px 0px;
+    margin: 27px 27px 27px 0px;
 
     h4 {
         color: $primary-theme-color;
@@ -81,6 +79,9 @@ main {
     .description {
         font-size: 15px;
         font-family: 'Fira Code';
+        ul {
+            padding-inline-start: 17.5px;
+        }
     }
 }
 
@@ -199,4 +200,9 @@ a {
         content: "0" counter(section) ".";
         color: $primary-theme-color;
     }
+}
+
+.tag {
+    background-color: blue;
+    font-family: 'Fira Code';
 }

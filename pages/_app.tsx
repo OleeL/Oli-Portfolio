@@ -4,13 +4,13 @@ import '../styles/globals.scss';
 import '../styles/home.scss';
 import '../styles/_variables.scss';
 import '../styles/navigation.scss';
-import { faCalendar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faLocationDot, faTag } from '@fortawesome/free-solid-svg-icons';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { library, config, dom } = require('@fortawesome/fontawesome-svg-core');
 
 config.autoAddCss = false; // already being imported above
-library.add(faLocationDot, faCalendar);
+library.add(faLocationDot, faCalendar, faTag);
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     useEffect(() => {

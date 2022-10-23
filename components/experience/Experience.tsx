@@ -5,6 +5,7 @@ import useSelectionSlider from '../../lib/global_hooks/useSelectionSlider';
 import Section from '../Section';
 import experiences from './Experiences';
 import useExperience from './hooks/useExperience';
+import { Tag } from '../Tag';
 
 const Footnote: FC<{ children: any }> = ({ children }) => {
     return <p className="footnote">{children}</p>;
@@ -40,19 +41,22 @@ const ExperienceBody = () => {
                             })}
                         </ul>
                     </div>
-                    <div className="experience-description">
-                        <h4>
-                            &gt; {company} | <span>{role}</span>
-                        </h4>
-                        <Footnote>
-                            <FontAwesomeIcon icon={['fas', 'calendar']} />{' '}
-                            {moment(startDate).format('MM/YY')} -{' '}
-                            {endDate ? moment(endDate)?.format('MM/YY') : 'Now'}
-                            {' | '}
-                            <FontAwesomeIcon icon={['fas', 'location-dot']} />{' '}
-                            <a href={location.url}>{location.name}</a>
-                        </Footnote>
-                        <div className="description">{description}</div>
+                    <div>
+                        <div className="experience-description">
+                            <h4>
+                                &gt; {company} | <span>{role}</span>
+                            </h4>
+                            <Footnote>
+                                <FontAwesomeIcon icon={['fas', 'calendar']} />{' '}
+                                {moment(startDate).format('MM/YY')} -{' '}
+                                {endDate ? moment(endDate)?.format('MM/YY') : 'Now'}
+                                {' | '}
+                                <FontAwesomeIcon icon={['fas', 'location-dot']} />{' '}
+                                <a href={location.url}>{location.name}</a>
+                            </Footnote>
+                            <div className="description">{description}</div>
+                        </div>
+                        <Tag className="tag" name="Hello"></Tag>
                     </div>
                 </div>
             </div>
