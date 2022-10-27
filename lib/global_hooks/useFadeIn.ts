@@ -29,7 +29,7 @@ export const useFadeReset = (props: UseSpringProps, deps: readonly any[]) => {
         [],
     );
     useEffect(() => {
-        animate({ reset: true });
+        animate.start({ reset: true });
     }, deps);
 
     return fade;
