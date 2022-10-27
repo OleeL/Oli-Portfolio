@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC, CSSProperties } from 'react';
-import { toKebabCase } from '../lib/helpers/string';
 
 interface ITag {
     name: string;
