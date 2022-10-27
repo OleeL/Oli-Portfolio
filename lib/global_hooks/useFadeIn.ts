@@ -1,5 +1,5 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
-import { useSpring } from 'react-spring';
+import { useSpring, UseSpringProps } from 'react-spring';
 
 type FadeProps = {
     delay?: number;
@@ -10,13 +10,30 @@ type FadePropsArr = FadeProps & {
     length: number;
 };
 
-export const useFadeIn = (props?: FadeProps) =>
+export const useFadeIn = (props?: FadeProps | UseSpringProps) =>
     useSpring({
         opacity: 1,
         transform: 'translate(0px, 0px)',
         from: { opacity: 0, transform: 'translate(-10px, -20px)' },
         ...props,
     });
+
+export const useFadeReset = (props: UseSpringProps, deps: readonly any[]) => {
+    const [fade, animate] = useSpring(
+        {
+            opacity: 1,
+            transform: 'translate(0px, 0px)',
+            from: { opacity: 0, transform: 'translate(-10px, -20px)' },
+            ...props,
+        },
+        [],
+    );
+    useEffect(() => {
+        animate({ reset: true });
+    }, deps);
+
+    return fade;
+};
 
 const getDefaultFadeProps = ({
     length,

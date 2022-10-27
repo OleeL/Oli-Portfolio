@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Experience } from '../../../lib/types';
+import { ExperienceType } from '../../../lib/types';
 
-const useExperience = (initExperience: Experience) => {
-    const [experience, setExperience] = useState<Experience>(initExperience);
+const useExperience = (initExperience: ExperienceType) => {
+    const [experience, setExperience] = useState<ExperienceType>(initExperience);
 
     return { experience, setExperience };
 };

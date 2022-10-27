@@ -1,4 +1,4 @@
-import { Experience as ExperienceType } from '../../lib/types';
+import { ExperienceType } from '../../lib/types';
 
 export const experiences: ExperienceType[] = [
     {
@@ -153,18 +153,11 @@ export const experiences: ExperienceType[] = [
         startDate: new Date(2015, 7, 1),
         endDate: new Date(2015, 8, 1),
         description: (
-            <ul>
-                <li>
-                    An IT project to update and improve the company SharePoint intranet website.
-                    Working predominantly on my own initiative to scope out and implement a new
-                    layout, improved communications and graphics. I also provided a scoping document
-                    and training guide.
-                </li>
-                <li>
-                    This gave me an insight into teamwork, the importance of communication and
-                    managing work to deadlines.
-                </li>
-            </ul>
+            <p>
+                An IT project to update and improve the company SharePoint intranet website. Working
+                to scope out and implement a new layout to result in a new and improved method of
+                communication. I also provided scoping documents and training guides.
+            </p>
         ),
         url: 'https://www.eventms.com/',
         location: {

@@ -9,7 +9,7 @@ type Tag = {
     name: string;
 };
 
-export type Experience = {
+export type ExperienceType = {
     company: string;
     role: string;
     startDate: Date;
@@ -20,4 +20,4 @@ export type Experience = {
     tags: Tag[];
 };
 
-export default Experience;
+export default ExperienceType;
