@@ -5,6 +5,10 @@ type Location = {
     name: string;
 };
 
+type Tag = {
+    name: string;
+};
+
 export type Experience = {
     company: string;
     role: string;
@@ -13,6 +17,7 @@ export type Experience = {
     description: ReactElement<any>;
     url: string;
     location: Location;
+    tags: Tag[];
 };
 
 export default Experience;

@@ -5,6 +5,8 @@ type IWidthHeight = {
     height?: number;
 };
 
+export const isBrowser = () => typeof window !== 'undefined';
+
 export const useWindowSize = () => {
     const [windowSize, setWindowSize] = useState<IWidthHeight>({
         width: undefined,
@@ -12,7 +14,7 @@ export const useWindowSize = () => {
     });
 
     useEffect(() => {
-        if (typeof window === 'undefined') return () => {};
+        if (isBrowser()) return () => {};
         const handleResize = () => {
             setWindowSize({
                 width: window.innerWidth,

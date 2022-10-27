@@ -9,8 +9,8 @@ export const experiences: ExperienceType[] = [
         description: (
             <ul>
                 <li>
-                    Developed on and helped to achieve a successful project im- plementing unit
-                    tests, code reviews and a CI/CD pipeline on Azure.
+                    Developed on and helped to achieve a successful project implementing unit tests,
+                    code reviews and a CI/CD pipeline on Azure.
                 </li>
                 <li>
                     Collaborated with clients and communicated with them to help them turn their
@@ -25,6 +25,16 @@ export const experiences: ExperienceType[] = [
             name: 'Manchester, UK',
             url: 'https://www.google.co.uk/maps/place/Silverchip+Ltd/@53.4844621,-2.2338038,17z/data=!3m2!4b1!5s0x487badbed3b7256f:0x3f8aaf639a5712c7!4m5!3m4!1s0x487bb1ea0e528ae3:0x78684458a30ac11a!8m2!3d53.4844621!4d-2.2316151',
         },
+        tags: [
+            { name: 'React' },
+            { name: 'React Native' },
+            { name: 'SCSS' },
+            { name: 'AWS' },
+            { name: '.NET 3-6' },
+            { name: 'C#' },
+            { name: 'Typescript' },
+            { name: 'Javascript' },
+        ],
     },
     {
         company: 'Beeta Tech Ltd',
@@ -34,8 +44,8 @@ export const experiences: ExperienceType[] = [
         description: (
             <ul>
                 <li>
-                    Developed on and helped to achieve a successful project im- plementing unit
-                    tests, code reviews and a CI/CD pipeline on Azure.
+                    Developed on and helped to achieve a successful project implementing unit tests,
+                    code reviews and a CI/CD pipeline on Azure.
                 </li>
                 <li>
                     Collaborated with clients and communicated with them to help them turn their
@@ -50,6 +60,13 @@ export const experiences: ExperienceType[] = [
             name: 'Manchester, UK',
             url: 'https://www.google.com/maps/place/Beeta+Tech+Limited/@53.4806823,-2.2438599,17z/data=!3m1!4b1!4m5!3m4!1s0x487bb1ea90b00001:0x21d8dd54c5531c84!8m2!3d53.4806823!4d-2.2416659',
         },
+        tags: [
+            { name: 'Azure' },
+            { name: '.NET 3-6' },
+            { name: 'C#' },
+            { name: 'Javascript' },
+            { name: 'React' },
+        ],
     },
     {
         company: 'ICHEC',
@@ -64,10 +81,10 @@ export const experiences: ExperienceType[] = [
                 </li>
                 <li>
                     Developed parallel graph algorithms with a branch and bound programming paradigm
-                    which can be applied to many prob- lems.
+                    which can be applied to many problems.
                 </li>
                 <li>
-                    Communicated computer science and high performance com- puting with blogs and
+                    Communicated computer science and high performance computing with blogs and
                     public speaking.
                 </li>
                 <li>Improved general programming skills and worked as part of a team.</li>
@@ -78,6 +95,13 @@ export const experiences: ExperienceType[] = [
             name: 'Dublin, Ireland',
             url: 'https://www.google.com/maps/place/Irish+Centre+for+High-End+Computing+(ICHEC)/@53.3504456,-6.3609425,11.34z/data=!4m9!1m2!2m1!1sICHEC+Ireland!3m5!1s0x48670eecb29bad07:0x9e3434e28fe12529!8m2!3d53.3419432!4d-6.2392902!15sCg1JQ0hFQyBJcmVsYW5kkgEScmVzZWFyY2hfaW5zdGl0dXRl4AEA',
         },
+        tags: [
+            { name: 'Julia' },
+            { name: 'MPI' },
+            { name: 'C' },
+            { name: 'OpenMP' },
+            { name: 'LaTeX' },
+        ],
     },
     {
         company: 'Chronyko',
@@ -88,7 +112,7 @@ export const experiences: ExperienceType[] = [
             <ul>
                 <li>Designed and implemented software experiencing full stack development.</li>
                 <li>
-                    Worked independently and in a small agile team using contin- uous integration.
+                    Worked independently and in a small agile team using continuous integration.
                 </li>
                 <li>
                     Front-end development mainly consisted of Typescript and React. I developed a
@@ -109,6 +133,19 @@ export const experiences: ExperienceType[] = [
             name: 'Reading, UK',
             url: 'https://www.google.com/maps/place/Reading/@52.9318589,-3.3236135,6.88z/data=!4m5!3m4!1s0x48742078d93d3db7:0x2ae19f7fcefa7994!8m2!3d51.4542645!4d-0.9781303',
         },
+        tags: [
+            { name: 'React' },
+            { name: 'AWS' },
+            { name: '.NET 3-6' },
+            { name: 'C#' },
+            { name: 'Typescript' },
+            { name: 'Javascript' },
+            { name: 'Arduino C++' },
+            { name: 'Python' },
+            { name: 'Three.js' },
+            { name: 'Next.js' },
+            { name: 'SignalR' },
+        ],
     },
     {
         company: 'Event Marketing Solutions',
@@ -120,8 +157,8 @@ export const experiences: ExperienceType[] = [
                 <li>
                     An IT project to update and improve the company SharePoint intranet website.
                     Working predominantly on my own initiative to scope out and implement a new
-                    layout, improved communi- cations and graphics. I also provided a scoping
-                    document and training guide.
+                    layout, improved communications and graphics. I also provided a scoping document
+                    and training guide.
                 </li>
                 <li>
                     This gave me an insight into teamwork, the importance of communication and
@@ -134,6 +171,7 @@ export const experiences: ExperienceType[] = [
             name: 'Ellesmere Port, UK',
             url: 'https://www.google.co.uk/maps/place/Ellesmere+Port/@53.3807656,-3.2921582,7.75z/data=!4m5!3m4!1s0x487ad9533edc276d:0xffd9ac3c5a1329d1!8m2!3d53.279812!4d-2.897404',
         },
+        tags: [{ name: 'Sharepoint' }],
     },
 ];
 

@@ -25,12 +25,18 @@ main {
     flex-direction: column;
 
     .list-element {
+        font-family: 'Fira Code';
         background: none;
         width: 255px;
         padding-left: 16px;
-        margin: 0;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
         margin-left: 13px;
-        font-size: 22px;
+        font-size: 18px;
+        &:not(:first-child) {
+            margin: 20px 0px 0px 13px;
+
+        }
     }
 }
 
@@ -41,6 +47,7 @@ main {
 
 .experience-container {
     min-height: 400px;
+    margin-top: 35px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -52,7 +59,29 @@ main {
     box-shadow: 1px 0px 40px 5px rgba(0,0,0,0.09);
     width:95%;
     border-radius: 7px;
-    border: 1px solid $divider-color;
+    border: 1px solid $divider-color;    
+    margin: -1px;
+
+    .tag {
+        background-color: $divider-color;
+        user-select: none;
+        font-size: 13px;
+        color: $p-color;
+        padding: 3px 11px 3px 11px;
+        border-radius: 20px;
+        font-family: 'Fira Code';
+        margin-bottom: 2px;
+        margin-right: 3px;
+    }
+
+    .tag-row {
+        margin: 15px;
+        height: fit-content;
+        display: flex;
+        white-space: nowrap;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
 
 .experience-description {
@@ -200,9 +229,4 @@ a {
         content: "0" counter(section) ".";
         color: $primary-theme-color;
     }
-}
-
-.tag {
-    background-color: blue;
-    font-family: 'Fira Code';
 }

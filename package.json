@@ -30,11 +30,13 @@
     "react-spring": "^9.4.4",
     "react-tsparticles": "^2.0.6",
     "styled-jsx": "^5.0.7",
-    "tsparticles": "^2.0.6"
+    "tsparticles": "^2.0.6",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.29",
     "@types/react": "^18.0.8",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",

@@ -43,6 +43,11 @@ html {
     cursor: pointer;
 }
 
+.fit-content {
+    width: fit-content;
+    height: fit-content;
+}
+
 body {
     counter-reset: section;
     background-color: $background-blue;

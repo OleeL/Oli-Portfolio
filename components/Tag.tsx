@@ -1,29 +1,28 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC, CSSProperties } from 'react';
-import css from 'styled-jsx/css';
+import { toKebabCase } from '../lib/helpers/string';
 
 interface ITag {
     name: string;
     className?: string;
     style?: CSSProperties;
+    id?: string;
 }
 
-const styling = css.resolve`
-    span {
-        background-color: grey;
-        user-select: none;
-        font-size: 13px;
-        color: white;
-        padding: 5px 10px 5px 10px;
-        border-radius: 20px;
-    }
-`;
-
-export const Tag: FC<ITag> = ({ name, className, style = {} }) => {
+export const Tag: FC<ITag> = ({ name, className, style = {}, id }) => {
     return (
-        <span style={style} className={`${styling.className} ${className}`}>
+        <span id={id} style={style} className={`${className || 'default'}`}>
             <FontAwesomeIcon style={style} icon={['fas', 'tag']} /> {name}
-            {styling.styles}
+            <style jsx>{`
+                span.default {
+                    background-color: grey;
+                    user-select: none;
+                    font-size: 13px;
+                    color: white;
+                    padding: 5px 10px 5px 10px;
+                    border-radius: 20px;
+                }
+            `}</style>
         </span>
     );
 };
