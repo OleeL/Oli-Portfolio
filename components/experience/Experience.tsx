@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment';
-import { FC, RefObject, useState, useEffect, useRef } from 'react';
-import { a, useSpring } from 'react-spring';
+import { FC, RefObject, useState, useEffect } from 'react';
+import { a } from 'react-spring';
 import useSelectionSlider from '../../lib/global_hooks/useSelectionSlider';
 import Section from '../Section';
 import experiences from './Experiences';
