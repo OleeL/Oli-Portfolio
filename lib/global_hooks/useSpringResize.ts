@@ -21,15 +21,15 @@ export const useSpringResizeHeight = <T extends HTMLElement>() => {
     const ref = useRef<T | null>(null);
     const minHeightRef = useRef<any | null>(null);
 
-    const extras = minHeightRef?.current
-        ? {
-              minHeight: `${getRefPropertiesHeight(minHeightRef.current) + 20}px`,
-          }
-        : {};
+    const height = minHeightRef?.current
+        ? Math.max(
+              getRefPropertiesHeight(minHeightRef.current) + 20,
+              getRefPropertiesHeight(ref.current),
+          )
+        : getRefPropertiesHeight(ref.current);
 
     const style = useSpring({
-        ...extras,
-        height: `${getRefPropertiesHeight(ref.current)}px`,
+        height: `${height}px`,
     });
 
     return { ref, style, minHeightRef };
