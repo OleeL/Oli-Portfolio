@@ -56,5 +56,3 @@ export const useSelectionSlider = ({
 
     return { ref, Slider };
 };
-
-export default useSelectionSlider;

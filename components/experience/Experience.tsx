@@ -1,15 +1,15 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment';
-import { FC, RefObject, useState, useEffect } from 'react';
+import { FC, RefObject, useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { a } from 'react-spring';
-import useSelectionSlider from '../../lib/global_hooks/useSelectionSlider';
-import Section from '../Section';
-import experiences from './Experiences';
-import useExperience from './hooks/useExperience';
+import { experiences } from './Experiences';
 import { Tag } from '../Tag';
 import { useSpringResizeHeight } from '../../lib/global_hooks/useSpringResize';
 import { ExperienceType } from '../../lib/types';
 import { useFadeReset } from '../../lib/global_hooks';
+import { useSelectionSlider } from '../../lib/global_hooks/useSelectionSlider';
+import useExperience from './hooks/useExperience';
+import Section from '../Section';
 
 const Footnote: FC<{ children: any }> = ({ children }) => {
     return <p className="footnote">{children}</p>;
@@ -57,12 +57,36 @@ const ExperienceDescription = <T extends HTMLDivElement>({
     );
 };
 
+interface IExperienceListElement {
+    experience: ExperienceType;
+    selectedExperience: ExperienceType;
+    setExperience: Dispatch<SetStateAction<ExperienceType>>;
+}
+const ExperienceListElement: FC<IExperienceListElement> = ({
+    experience,
+    selectedExperience,
+    setExperience,
+}) => {
+    const { company } = experience;
+    const active = company === selectedExperience.company;
+    const [hovered, setHovered] = useState<boolean>(false);
+    return (
+        <li
+            className={`list-element pointer${active ? ' active' : ''}`}
+            onMouseOver={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            style={{
+                backgroundColor: hovered ? '#FFFFFF' : '#00000000',
+            }}
+            onClick={() => setExperience(experience)}>
+            {company}
+        </li>
+    );
+};
+
 const ExperienceBody = () => {
     const { experience, setExperience } = useExperience(experiences[0]);
     const { ref, Slider } = useSelectionSlider({ selection: experience });
-
-    const { company } = experience;
-
     const { ref: springRef, style, minHeightRef } = useSpringResizeHeight<HTMLDivElement>();
 
     useEffect(() => {
@@ -75,23 +99,14 @@ const ExperienceBody = () => {
                 <a.div style={style} className="experience-box">
                     <div className="experience-list-divider-container">
                         <ul ref={ref} className="experience-list">
-                            {experiences.map((x, key) => {
-                                const active = company === x.company;
-                                const [hovered, setHovered] = useState<boolean>(false);
-                                return (
-                                    <li
-                                        className={`list-element pointer${active ? ' active' : ''}`}
-                                        key={key}
-                                        onMouseOver={() => setHovered(true)}
-                                        onMouseLeave={() => setHovered(false)}
-                                        style={{
-                                            backgroundColor: hovered ? '#FFFFFF' : '#00000000',
-                                        }}
-                                        onClick={() => setExperience(x)}>
-                                        {x.company}
-                                    </li>
-                                );
-                            })}
+                            {experiences.map(x => (
+                                <ExperienceListElement
+                                    key={x.id}
+                                    setExperience={setExperience}
+                                    experience={x}
+                                    selectedExperience={experience}
+                                />
+                            ))}
                         </ul>
                     </div>
                     <ExperienceDescription springRef={springRef} experience={experience} />

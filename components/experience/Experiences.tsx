@@ -2,6 +2,7 @@ import { ExperienceType } from '../../lib/types';
 
 export const experiences: ExperienceType[] = [
     {
+        id: 1,
         company: 'Silverchip',
         role: 'Software Developer',
         startDate: new Date(2022, 6, 1),
@@ -37,6 +38,7 @@ export const experiences: ExperienceType[] = [
         ],
     },
     {
+        id: 2,
         company: 'Beeta Tech Ltd',
         role: 'Software Engineer',
         startDate: new Date(2021, 10, 1),
@@ -69,6 +71,7 @@ export const experiences: ExperienceType[] = [
         ],
     },
     {
+        id: 3,
         company: 'ICHEC',
         role: 'SoHPC Project Participant',
         startDate: new Date(2021, 6, 1),
@@ -104,6 +107,7 @@ export const experiences: ExperienceType[] = [
         ],
     },
     {
+        id: 4,
         company: 'Chronyko',
         role: 'Full Stack Developer',
         startDate: new Date(2019, 7, 1),
@@ -148,6 +152,7 @@ export const experiences: ExperienceType[] = [
         ],
     },
     {
+        id: 5,
         company: 'Event Marketing Solutions',
         role: 'IT Assistant',
         startDate: new Date(2015, 7, 1),
@@ -167,5 +172,3 @@ export const experiences: ExperienceType[] = [
         tags: [{ name: 'Sharepoint' }],
     },
 ];
-
-export default experiences;

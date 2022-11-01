@@ -10,6 +10,7 @@ type Tag = {
 };
 
 export type ExperienceType = {
+    id: number;
     company: string;
     role: string;
     startDate: Date;

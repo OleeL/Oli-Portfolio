@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from '../components/Navigation';
+import NavigationComponent from '../components/Navigation';
 import Profile from '../components/Profile';
 import AboutMe from '../components/AboutMe';
 import Experience from '../components/experience/Experience';
@@ -9,7 +9,7 @@ import Projects from '../components/Projects';
 
 const Content = () => (
     <main>
-        <Navigation />
+        <NavigationComponent />
         <Profile />
         <AboutMe />
         <Experience />
