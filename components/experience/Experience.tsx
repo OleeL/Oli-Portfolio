@@ -10,6 +10,7 @@ import { useFadeReset } from '../../lib/global_hooks';
 import { useSelectionSlider } from '../../lib/global_hooks/useSelectionSlider';
 import useExperience from './hooks/useExperience';
 import Section from '../Section';
+import { nextOpen } from '../../lib/helpers/window';
 
 const Footnote: FC<{ children: any }> = ({ children }) => {
     return <p className="footnote">{children}</p>;
@@ -44,7 +45,7 @@ const ExperienceDescription = <T extends HTMLDivElement>({
                     {endDate ? moment(endDate)?.format('MM/YYYY') : 'Now'}
                     {' | '}
                     <FontAwesomeIcon icon={['fas', 'location-dot']} />{' '}
-                    <a href={location.url}>{location.name}</a>
+                    <a onClick={() => nextOpen(location.url, '_blank')?.focus()}>{location.name}</a>
                 </Footnote>
                 <div className="description">{description}</div>
             </div>

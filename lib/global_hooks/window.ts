@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
+import { isBrowser } from '../helpers/window';
 
 type IWidthHeight = {
     width?: number;
     height?: number;
 };
-
-export const isBrowser = () => typeof window !== 'undefined';
 
 export const useWindowSize = () => {
     const [windowSize, setWindowSize] = useState<IWidthHeight>({

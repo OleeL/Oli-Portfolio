@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useSpring } from 'react-spring';
-import { isBrowser } from './window';
+import { isBrowser } from '../helpers/window';
 
 const getRefPropertiesHeight = <T extends HTMLElement>(current: T | null) => {
     if (!isBrowser() || !current) {
