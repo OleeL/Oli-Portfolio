@@ -29,7 +29,7 @@ const ExperienceDescription = <T extends HTMLDivElement>({
             opacity: 1,
             scale: 1,
             from: { opacity: 0, scale: 0.95 },
-            config: { tension: 60 },
+            config: { tension: 50, mass: 1, clamp: true, friction: 10 },
         },
         [experience],
     );
