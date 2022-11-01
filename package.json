@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://oleel.github.io",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "lint": "next lint",
     "build": "next build",
     "start": "next start",

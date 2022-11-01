@@ -3,7 +3,8 @@
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier"
+    "prettier",
+    "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
@@ -26,6 +27,7 @@
     }
   },
   "rules": {
+    "react-hooks/exhaustive-deps": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-console": "off",
     "@typescript-eslint/ban-ts-comment": "off",
