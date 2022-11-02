@@ -22,7 +22,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "gh-pages": "^4.0.0",
-    "math2d": "^4.0.1",
     "moment": "^2.29.4",
     "next": "^13.0.1",
     "next-pwa": "^5.6.0",
