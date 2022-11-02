@@ -3,9 +3,8 @@ import NavigationComponent from '../components/Navigation';
 import Profile from '../components/Profile';
 import AboutMe from '../components/AboutMe';
 import Experience from '../components/experience/Experience';
-import Education from '../components/Education';
 import Contact from '../components/Contact';
-import Projects from '../components/Projects';
+import Projects from '../components/Projects/Projects';
 
 const Content = () => (
     <main>
@@ -13,7 +12,6 @@ const Content = () => (
         <Profile />
         <AboutMe />
         <Experience />
-        <Education />
         <Projects />
         <Contact />
     </main>

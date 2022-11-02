@@ -1,11 +1,8 @@
 import { ReactElement } from 'react';
+import { TagType } from '../../components/Tag';
 
 type Location = {
     url: string;
-    name: string;
-};
-
-type Tag = {
     name: string;
 };
 
@@ -18,7 +15,7 @@ export type ExperienceType = {
     description: ReactElement<any>;
     url: string;
     location: Location;
-    tags: Tag[];
+    tags: TagType[];
 };
 
 export default ExperienceType;

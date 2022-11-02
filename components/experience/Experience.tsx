@@ -50,8 +50,8 @@ const ExperienceDescription = <T extends HTMLDivElement>({
                 <div className="description">{description}</div>
             </div>
             <div className="tag-row">
-                {tags.map(({ name }, k) => (
-                    <Tag key={k} className="tag" name={name} />
+                {tags.map(tag => (
+                    <Tag key={tag.id} className="tag" tag={tag} />
                 ))}
             </div>
         </a.div>
@@ -97,7 +97,7 @@ const ExperienceBody = () => {
     return (
         <>
             <a.div className="experience-container">
-                <a.div style={style} className="experience-box">
+                <a.div style={style} className="home-box">
                     <div className="experience-list-divider-container">
                         <ul ref={ref} className="experience-list">
                             {experiences.map(x => (

@@ -1,17 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC, CSSProperties } from 'react';
 
-interface ITag {
+export type TagType = {
+    id: number;
     name: string;
+};
+
+interface ITag {
+    tag: TagType;
     className?: string;
     style?: CSSProperties;
-    id?: string;
 }
 
-export const Tag: FC<ITag> = ({ name, className, style = {}, id }) => {
+export const Tag: FC<ITag> = ({ tag, className, style = {} }) => {
     return (
-        <span id={id} style={style} className={`${className || 'default'}`}>
-            <FontAwesomeIcon style={style} icon={['fas', 'tag']} /> {name}
+        <span style={style} className={`${className || 'default'}`}>
+            <FontAwesomeIcon style={style} icon={['fas', 'tag']} /> {tag.name}
             <style jsx>{`
                 span.default {
                     background-color: grey;
@@ -23,6 +27,20 @@ export const Tag: FC<ITag> = ({ name, className, style = {}, id }) => {
                 }
             `}</style>
         </span>
+    );
+};
+
+interface ITags extends Omit<ITag, 'tag'> {
+    tags: TagType[];
+}
+
+export const DrawTags: FC<ITags> = ({ className, tags, style }) => {
+    return (
+        <>
+            {tags.map((x, k) => (
+                <Tag className={className} tag={x} key={k} style={style} />
+            ))}
+        </>
     );
 };
 
