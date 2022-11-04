@@ -1,10 +1,13 @@
+@import './variables';
+
 .projects-container {
     min-height: 400px;
-    margin: 35px 5px 5px 5px;
-    padding: 5px;
+    margin-top: 35px;
     display: flex;
     justify-content: center;
     width: auto;
+    position: relative;
+    pointer-events: all;
 }
 
 .project-box {
@@ -14,4 +17,30 @@
     height: 400px;
     font-size: 16px;
     display: block;
+    font-family: Fira Code;
+    user-select: none;
+    pointer-events: none;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    a {
+        font-size: 20px;
+    }
+    .carousel-shadow {
+        height: auto;
+        width: 1px;
+        // clip-path: inset(0px -50px 0px -50px);
+    
+        // &.left {
+        //     box-shadow: 0px 0px 42px 42px $background-blue;
+        //     z-index: 1;
+        // }
+    
+        // &.right {    
+        //     box-shadow: 0px 0px 42px 50px $background-blue;
+        //     z-index: 1;
+        // }
+    }
 }

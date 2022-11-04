@@ -29,7 +29,7 @@ export const ProjectList: Project[] = [
     },
     {
         id: 2,
-        name: 'League of legends performance tool',
+        name: 'LoL Performance Analysis Tool',
         description: (
             <ul>
                 <li>
