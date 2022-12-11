@@ -45,5 +45,41 @@ export const ProjectList: Project[] = [
             { id: 3, name: 'C#' },
         ],
         image: { src: '', alt: 'An image of lolPerfTool' },
+    },    {
+        id: 3,
+        name: 'LoL Performance Analysis Tool',
+        description: (
+            <ul>
+                <li>
+                    Developed on and helped to achieve a successful project implementing unit tests,
+                    code reviews and a CI/CD pipeline on Azure.
+                </li>
+            </ul>
+        ),
+        url: 'https://www.github.com/',
+        tags: [
+            { id: 1, name: 'React' },
+            { id: 2, name: '.NET 3' },
+            { id: 3, name: 'C#' },
+        ],
+        image: { src: '', alt: 'An image of lolPerfTool' },
+    },    {
+        id: 4,
+        name: 'LoL Performance Analysis Tool',
+        description: (
+            <ul>
+                <li>
+                    Developed on and helped to achieve a successful project implementing unit tests,
+                    code reviews and a CI/CD pipeline on Azure.
+                </li>
+            </ul>
+        ),
+        url: 'https://www.github.com/',
+        tags: [
+            { id: 1, name: 'React' },
+            { id: 2, name: '.NET 3' },
+            { id: 3, name: 'C#' },
+        ],
+        image: { src: '', alt: 'An image of lolPerfTool' },
     },
 ];

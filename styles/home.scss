@@ -81,6 +81,10 @@ section {
     }
 }
 
+.paragraph-start {
+    margin-top: 0px;
+}
+
 .selection-slider {
     background-color: $primary-theme-color;
     border-radius: 2px;
@@ -159,6 +163,8 @@ a {
         content: "0" counter(section) ".";
         color: $primary-theme-color;
     }
+
+    margin-bottom: 35px;
 }
 
 @import './experience';

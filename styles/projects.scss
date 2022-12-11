@@ -2,7 +2,6 @@
 
 .projects-container {
     min-height: 400px;
-    margin-top: 35px;
     display: flex;
     justify-content: center;
     width: auto;
@@ -17,14 +16,16 @@
     height: 400px;
     font-size: 16px;
     display: block;
-    font-family: Fira Code;
+    font-family: "Fira Code";
     user-select: none;
     pointer-events: none;
 }
 
 .carousel {
     display: flex;
-    justify-content: center;
+    overflow-x: auto;
+    border: 1px solid $divider-color;
+    border-radius: 7px;
     a {
         font-size: 20px;
     }
