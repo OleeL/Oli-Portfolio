@@ -1,12 +1,11 @@
-import { FC, useEffect, useState, MouseEvent } from 'react';
+import { FC } from 'react';
 import Section from '../Section';
 import { ProjectList } from './ProjectList';
-import { isBrowser } from '../../lib/helpers/window';
 
-type DragEvent = {
-    isDragging: boolean;
-    x: number | undefined;
-};
+// type DragEvent = {
+//     isDragging: boolean;
+//     x: number | undefined;
+// };
 
 // const CarouselContainerContent = () => {
 //     const initDragState = { isDragging: false, x: undefined };
@@ -62,22 +61,22 @@ type DragEvent = {
 const Carousel = () => {
     return (
         <div className="carousel">
-                <div className="projects-container">
-                    {ProjectList.map(({ id, url, name, description }) => (
-                        <div key={id} className="home-box project-box">
-                            <>
-                                <a href={url}>{name}</a>
-                                {description}
-                            </>
-                        </div>
-                    ))}
+            <div className="projects-container">
+                {ProjectList.map(({ id, url, name, description }) => (
+                    <div key={id} className="home-box project-box">
+                        <>
+                            <a href={url}>{name}</a>
+                            {description}
+                        </>
+                    </div>
+                ))}
             </div>
         </div>
     );
 };
 
 const ProjectsBody = () => {
-    return <Carousel />
+    return <Carousel />;
 };
 
 const Projects: FC = () => {

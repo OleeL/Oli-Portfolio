@@ -10,15 +10,22 @@ export const experiences: ExperienceType[] = [
         description: (
             <ul>
                 <li>
-                    Developed on and helped to achieve a successful project implementing unit tests,
-                    code reviews and a CI/CD pipeline on Azure.
+                    Developed on and helped to achieve a successful project
+                    implementing unit tests, code reviews and a CI/CD pipeline
+                    on Azure.
                 </li>
                 <li>
-                    Collaborated with clients and communicated with them to help them turn their
-                    ideas into reality.
+                    Collaborated with clients and communicated with them to help
+                    them turn their ideas into reality.
                 </li>
-                <li>Designed and implemented software using C# .NET Core 6.0 with Blazor.</li>
-                <li>Training to be Microsoft Azure Certified as an Azure Developer Associate.</li>
+                <li>
+                    Designed and implemented software using C# .NET Core 6.0
+                    with Blazor.
+                </li>
+                <li>
+                    Training to be Microsoft Azure Certified as an Azure
+                    Developer Associate.
+                </li>
             </ul>
         ),
         url: 'https://www.silverchip.com/',
@@ -46,15 +53,22 @@ export const experiences: ExperienceType[] = [
         description: (
             <ul>
                 <li>
-                    Developed on and helped to achieve a successful project implementing unit tests,
-                    code reviews and a CI/CD pipeline on Azure.
+                    Developed on and helped to achieve a successful project
+                    implementing unit tests, code reviews and a CI/CD pipeline
+                    on Azure.
                 </li>
                 <li>
-                    Collaborated with clients and communicated with them to help them turn their
-                    ideas into reality.
+                    Collaborated with clients and communicated with them to help
+                    them turn their ideas into reality.
                 </li>
-                <li>Designed and implemented software using C# .NET Core 6.0 with Blazor.</li>
-                <li>Training to be Microsoft Azure Certified as an Azure Developer Associate.</li>
+                <li>
+                    Designed and implemented software using C# .NET Core 6.0
+                    with Blazor.
+                </li>
+                <li>
+                    Training to be Microsoft Azure Certified as an Azure
+                    Developer Associate.
+                </li>
             </ul>
         ),
         url: 'https://beeta.co/',
@@ -79,18 +93,21 @@ export const experiences: ExperienceType[] = [
         description: (
             <ul>
                 <li>
-                    Experience of developing, debugging and profiling parallel programs using Julia
-                    Lang and MPI.
+                    Experience of developing, debugging and profiling parallel
+                    programs using Julia Lang and MPI.
                 </li>
                 <li>
-                    Developed parallel graph algorithms with a branch and bound programming paradigm
-                    which can be applied to many problems.
+                    Developed parallel graph algorithms with a branch and bound
+                    programming paradigm which can be applied to many problems.
                 </li>
                 <li>
-                    Communicated computer science and high performance computing with blogs and
-                    public speaking.
+                    Communicated computer science and high performance computing
+                    with blogs and public speaking.
                 </li>
-                <li>Improved general programming skills and worked as part of a team.</li>
+                <li>
+                    Improved general programming skills and worked as part of a
+                    team.
+                </li>
             </ul>
         ),
         url: 'https://www.google.com/maps/place/Dublin,+Ireland/@53.6392395,-7.2807953,7.21z/data=!4m5!3m4!1s0x48670e80ea27ac2f:0xa00c7a9973171a0!8m2!3d53.3497316!4d-6.2608337',
@@ -114,22 +131,31 @@ export const experiences: ExperienceType[] = [
         endDate: new Date(2020, 9, 1),
         description: (
             <ul>
-                <li>Designed and implemented software experiencing full stack development.</li>
                 <li>
-                    Worked independently and in a small agile team using continuous integration.
+                    Designed and implemented software experiencing full stack
+                    development.
                 </li>
                 <li>
-                    Front-end development mainly consisted of Typescript and React. I developed a
-                    multiplayer game using Three.Js. The project used SignalR for real time game
-                    updates with .NET Core (C#).
+                    Worked independently and in a small agile team using
+                    continuous integration.
                 </li>
                 <li>
-                    Worked on a project with Arduinos and various electronic components. I created a
-                    valuable generic software which can be modified by adding / removing electronic
-                    devices plugged into the Arduino. Interaction with the components could be made
-                    remotely in the browser.
+                    Front-end development mainly consisted of Typescript and
+                    React. I developed a multiplayer game using Three.Js. The
+                    project used SignalR for real time game updates with .NET
+                    Core (C#).
                 </li>
-                <li>Working under pressure to deliver products and client events.</li>
+                <li>
+                    Worked on a project with Arduinos and various electronic
+                    components. I created a valuable generic software which can
+                    be modified by adding / removing electronic devices plugged
+                    into the Arduino. Interaction with the components could be
+                    made remotely in the browser.
+                </li>
+                <li>
+                    Working under pressure to deliver products and client
+                    events.
+                </li>
             </ul>
         ),
         url: 'https://chronyko.com/',
@@ -159,9 +185,10 @@ export const experiences: ExperienceType[] = [
         endDate: new Date(2015, 8, 1),
         description: (
             <p>
-                An IT project to update and improve the company SharePoint intranet website. Working
-                to scope out and implement a new layout to result in a new and improved method of
-                communication. I also provided scoping documents and training guides.
+                An IT project to update and improve the company SharePoint
+                intranet website. Working to scope out and implement a new
+                layout to result in a new and improved method of communication.
+                I also provided scoping documents and training guides.
             </p>
         ),
         url: 'https://www.eventms.com/',

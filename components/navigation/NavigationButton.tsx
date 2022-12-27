@@ -27,7 +27,9 @@ const NavigationButton: FC<IButton> = ({ buttonName, props }) => {
             <a.button
                 style={{ ...spring, ...props }}
                 className="nav-button"
-                onClick={() => goToSection({ api, id: toKebabCase(buttonName) })}
+                onClick={() =>
+                    goToSection({ api, id: toKebabCase(buttonName) })
+                }
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
                 {buttonName}

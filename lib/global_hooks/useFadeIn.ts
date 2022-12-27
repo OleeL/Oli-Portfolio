@@ -89,7 +89,9 @@ export const useFadeInIfVisible = (props?: FadeProps): FadeInIfVisible => {
 
     const fade = useSpring({
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translate(0px, 0px)' : 'translate(-10px, -20px)',
+        transform: isVisible
+            ? 'translate(0px, 0px)'
+            : 'translate(-10px, -20px)',
         config: { mass: 70, tension: 1000, friction: 700 },
         ...props,
     });

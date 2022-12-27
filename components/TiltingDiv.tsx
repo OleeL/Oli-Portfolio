@@ -1,7 +1,10 @@
 import { FC, ReactNode } from 'react';
 import { useSpring, animated } from 'react-spring';
 
-const Spring = { xy: [0, 0], config: { mass: 30, tension: 1000, friction: 200 } };
+const Spring = {
+    xy: [0, 0],
+    config: { mass: 30, tension: 1000, friction: 200 },
+};
 
 const tiltAmount = 100;
 
@@ -20,7 +23,11 @@ interface IInteractive {
     children: ReactNode;
 }
 
-export const TiltingDiv: FC<IInteractive> = ({ children, className, style }) => {
+export const TiltingDiv: FC<IInteractive> = ({
+    children,
+    className,
+    style,
+}) => {
     const [spring, set] = useSpring(() => Spring);
 
     return (
@@ -28,7 +35,9 @@ export const TiltingDiv: FC<IInteractive> = ({ children, className, style }) => 
             <animated.div
                 className={className}
                 style={{ transform: spring.xy.to(rotate), ...style }}
-                onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+                onMouseMove={({ clientX: x, clientY: y }) =>
+                    set({ xy: calc(x, y) })
+                }
                 onMouseLeave={() => set({ xy: [0, 0] })}>
                 {children}
             </animated.div>

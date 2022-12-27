@@ -23,7 +23,13 @@ export const Navigation: FC<INavigation> = () => {
                 <NavigationLogo props={logoFade} />
                 <ul className="nav-buttons">
                     {navigationButtons.map((x, i) => {
-                        return <NavigationButton key={i} props={fadeIn[i]} buttonName={x} />;
+                        return (
+                            <NavigationButton
+                                key={i}
+                                props={fadeIn[i]}
+                                buttonName={x}
+                            />
+                        );
                     })}
                 </ul>
             </nav>

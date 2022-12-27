@@ -26,8 +26,11 @@ export const useSelectionSlider = ({
         forceUpdate();
     }, [ref, selection]);
 
-    const children = Object.values(ref?.current?.childNodes ?? []) as HTMLElement[];
-    const index = children?.findIndex(x => x.className?.includes(activeKey)) ?? 0;
+    const children = Object.values(
+        ref?.current?.childNodes ?? [],
+    ) as HTMLElement[];
+    const index =
+        children?.findIndex(x => x.className?.includes(activeKey)) ?? 0;
     const child = children[index] ?? null;
 
     const height = child?.getBoundingClientRect()?.height ?? 0;
@@ -50,7 +53,10 @@ export const useSelectionSlider = ({
                     left,
                 }}
             />
-            <a.div className={className} style={{ ...spring, ...defaultSettings, height }} />
+            <a.div
+                className={className}
+                style={{ ...spring, ...defaultSettings, height }}
+            />
         </>
     );
 

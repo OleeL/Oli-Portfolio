@@ -53,7 +53,9 @@ const GetTranslationRightTop = (hovered: boolean): string =>
 const Top: FC<IBurgerProps> = ({ pressed = false, hovered = false }) => {
     const { className, styles } = GetLineStyle();
     const rotation = pressed ? GetRotLeft(hovered) : GetRotRight(hovered);
-    const translation = pressed ? GetTranslationLeftTop(hovered) : GetTranslationRightTop(hovered);
+    const translation = pressed
+        ? GetTranslationLeftTop(hovered)
+        : GetTranslationRightTop(hovered);
     const width = hovered ? '16px' : '32px';
     const spring = useSpring({
         transform: `translate3d(${translation}) rotate(${rotation})`,

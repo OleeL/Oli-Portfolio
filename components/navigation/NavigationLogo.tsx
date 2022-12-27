@@ -11,15 +11,22 @@ interface IVector2 {
 
 export const radToDeg = (angle: number) => (angle * 180) / Math.PI;
 export const degToRad = (angle: number) => (angle * Math.PI) / 180;
-export const getPositionFromAngledRadius = (angle: number, radius: number): IVector2 => ({
+export const getPositionFromAngledRadius = (
+    angle: number,
+    radius: number,
+): IVector2 => ({
     x: Math.cos(angle) * radius,
     y: Math.sin(angle) * radius,
 });
-export const addVectors = ({ x, y }: IVector2, addition: IVector2): IVector2 => ({
+export const addVectors = (
+    { x, y }: IVector2,
+    addition: IVector2,
+): IVector2 => ({
     x: x + addition.x,
     y: y + addition.y,
 });
-export const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n));
+export const clamp = (n: number, min: number, max: number) =>
+    Math.max(min, Math.min(max, n));
 
 interface IPolyCircleGenerate {
     offset: IVector2;
@@ -35,7 +42,10 @@ const getPolyCirclePoints = ({
     const points = new Array<IVector2>(segments + 1);
     const inc = degToRad(360) / segments;
     for (let i = 0; i <= segments; i++) {
-        points[i] = addVectors(getPositionFromAngledRadius(i * inc, radius), offset);
+        points[i] = addVectors(
+            getPositionFromAngledRadius(i * inc, radius),
+            offset,
+        );
     }
     return points;
 };
@@ -59,7 +69,9 @@ const NavigationLogo = ({ props }: ILogoProps) => {
     const pointsSquared = useMemo(
         () =>
             getPolyCirclePoints({ offset: { x: 42, y: 41 }, radius: 25 * 2 })
-                .map(({ x, y }) => `${clamp(x, MIN, MAX)},${clamp(y, MIN, MAX)}`)
+                .map(
+                    ({ x, y }) => `${clamp(x, MIN, MAX)},${clamp(y, MIN, MAX)}`,
+                )
                 .join(' '),
         [],
     );
@@ -88,7 +100,7 @@ const NavigationLogo = ({ props }: ILogoProps) => {
                     window.location.href = '/';
                 }}
             />
-            <a.text style={props} x="42" y="50">
+            <a.text className="logo-text" style={props} x="42" y="50">
                 OL
             </a.text>
         </svg>

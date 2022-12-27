@@ -74,7 +74,9 @@ const ButtonDown: FC<IButtonDown> = ({
         scale,
         ...style,
     });
-    const trimmedProps = [collection.className, className].filter(x => x != null).join(' ');
+    const trimmedProps = [collection.className, className]
+        .filter(x => x != null)
+        .join(' ');
 
     return (
         <a.button

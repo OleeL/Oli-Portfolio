@@ -1,5 +1,12 @@
 import moment from 'moment';
-import { FC, RefObject, useState, useEffect, Dispatch, SetStateAction } from 'react';
+import {
+    FC,
+    RefObject,
+    useState,
+    useEffect,
+    Dispatch,
+    SetStateAction,
+} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { a } from 'react-spring';
 import { experiences } from './Experiences';
@@ -23,7 +30,8 @@ const ExperienceDescription = <T extends HTMLDivElement>({
     springRef: RefObject<T>;
     experience: ExperienceType;
 }) => {
-    const { startDate, endDate, company, role, description, location, tags } = experience;
+    const { startDate, endDate, company, role, description, location, tags } =
+        experience;
     const fade = useFadeReset(
         {
             opacity: 1,
@@ -34,7 +42,11 @@ const ExperienceDescription = <T extends HTMLDivElement>({
         [experience],
     );
     return (
-        <a.div style={fade} className="fit-content" ref={springRef} key={experience.company}>
+        <a.div
+            style={fade}
+            className="fit-content"
+            ref={springRef}
+            key={experience.company}>
             <div className="experience-description">
                 <h4>
                     &gt; {company} | <span>{role}</span>
@@ -45,7 +57,12 @@ const ExperienceDescription = <T extends HTMLDivElement>({
                     {endDate ? moment(endDate)?.format('MM/YYYY') : 'Now'}
                     {' | '}
                     <FontAwesomeIcon icon={['fas', 'location-dot']} />{' '}
-                    <a onClick={() => nextOpen(location.url, '_blank')?.focus()}>{location.name}</a>
+                    <a
+                        onClick={() =>
+                            nextOpen(location.url, '_blank')?.focus()
+                        }>
+                        {location.name}
+                    </a>
                 </Footnote>
                 <div className="description">{description}</div>
             </div>
@@ -88,7 +105,11 @@ const ExperienceListElement: FC<IExperienceListElement> = ({
 const ExperienceBody = () => {
     const { experience, setExperience } = useExperience(experiences[0]);
     const { ref, Slider } = useSelectionSlider({ selection: experience });
-    const { ref: springRef, style, minHeightRef } = useSpringResizeHeight<HTMLDivElement>();
+    const {
+        ref: springRef,
+        style,
+        minHeightRef,
+    } = useSpringResizeHeight<HTMLDivElement>();
 
     useEffect(() => {
         minHeightRef.current = ref.current;
@@ -110,7 +131,10 @@ const ExperienceBody = () => {
                             ))}
                         </ul>
                     </div>
-                    <ExperienceDescription springRef={springRef} experience={experience} />
+                    <ExperienceDescription
+                        springRef={springRef}
+                        experience={experience}
+                    />
                 </a.div>
             </a.div>
             <Slider />

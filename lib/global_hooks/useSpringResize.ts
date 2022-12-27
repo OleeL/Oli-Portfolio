@@ -6,7 +6,8 @@ const getRefPropertiesHeight = <T extends HTMLElement>(current: T | null) => {
     if (!isBrowser() || !current) {
         return 1;
     }
-    const { marginTop, marginBottom, paddingTop, paddingBottom } = window.getComputedStyle(current);
+    const { marginTop, marginBottom, paddingTop, paddingBottom } =
+        window.getComputedStyle(current);
 
     const { clientHeight } = current;
 

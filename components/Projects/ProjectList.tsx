@@ -18,8 +18,9 @@ export const ProjectList: Project[] = [
         description: (
             <ul>
                 <li>
-                    Developed on and helped to achieve a successful project implementing unit tests,
-                    code reviews and a CI/CD pipeline on Azure.
+                    Developed on and helped to achieve a successful project
+                    implementing unit tests, code reviews and a CI/CD pipeline
+                    on Azure.
                 </li>
             </ul>
         ),
@@ -33,8 +34,9 @@ export const ProjectList: Project[] = [
         description: (
             <ul>
                 <li>
-                    Developed on and helped to achieve a successful project implementing unit tests,
-                    code reviews and a CI/CD pipeline on Azure.
+                    Developed on and helped to achieve a successful project
+                    implementing unit tests, code reviews and a CI/CD pipeline
+                    on Azure.
                 </li>
             </ul>
         ),
@@ -45,14 +47,16 @@ export const ProjectList: Project[] = [
             { id: 3, name: 'C#' },
         ],
         image: { src: '', alt: 'An image of lolPerfTool' },
-    },    {
+    },
+    {
         id: 3,
         name: 'LoL Performance Analysis Tool',
         description: (
             <ul>
                 <li>
-                    Developed on and helped to achieve a successful project implementing unit tests,
-                    code reviews and a CI/CD pipeline on Azure.
+                    Developed on and helped to achieve a successful project
+                    implementing unit tests, code reviews and a CI/CD pipeline
+                    on Azure.
                 </li>
             </ul>
         ),
@@ -63,14 +67,16 @@ export const ProjectList: Project[] = [
             { id: 3, name: 'C#' },
         ],
         image: { src: '', alt: 'An image of lolPerfTool' },
-    },    {
+    },
+    {
         id: 4,
         name: 'LoL Performance Analysis Tool',
         description: (
             <ul>
                 <li>
-                    Developed on and helped to achieve a successful project implementing unit tests,
-                    code reviews and a CI/CD pipeline on Azure.
+                    Developed on and helped to achieve a successful project
+                    implementing unit tests, code reviews and a CI/CD pipeline
+                    on Azure.
                 </li>
             </ul>
         ),
