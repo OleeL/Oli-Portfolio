@@ -16,47 +16,49 @@ if (!Cache.prototype.addAll) {
         }
         NetworkError.prototype = Object.create(Error.prototype);
 
-        return Promise.resolve().then(function () {
-            if (arguments.length < 1) throw new TypeError();
+        return Promise.resolve()
+            .then(function () {
+                if (arguments.length < 1) throw new TypeError();
 
-            // Simulate sequence<(Request or USVString)> binding:
-            var sequence = [];
+                // Simulate sequence<(Request or USVString)> binding:
+                var sequence = [];
 
-            requests = requests.map(function (request) {
-                if (request instanceof Request) {
-                    return request;
-                }
-                else {
-                    return String(request); // may throw TypeError
-                }
+                requests = requests.map(function (request) {
+                    if (request instanceof Request) {
+                        return request;
+                    } else {
+                        return String(request); // may throw TypeError
+                    }
+                });
+
+                return Promise.all(
+                    requests.map(function (request) {
+                        if (typeof request === 'string') {
+                            request = new Request(request);
+                        }
+
+                        var scheme = new URL(request.url).protocol;
+
+                        if (scheme !== 'http:' && scheme !== 'https:') {
+                            throw new NetworkError('Invalid scheme');
+                        }
+
+                        return fetch(request.clone());
+                    }),
+                );
+            })
+            .then(function (responses) {
+                // TODO: check that requests don't overwrite one another
+                // (don't think this is possible to polyfill due to opaque responses)
+                return Promise.all(
+                    responses.map(function (response, i) {
+                        return cache.put(requests[i], response);
+                    }),
+                );
+            })
+            .then(function () {
+                return undefined;
             });
-
-            return Promise.all(
-                requests.map(function (request) {
-                    if (typeof request === 'string') {
-                        request = new Request(request);
-                    }
-
-                    var scheme = new URL(request.url).protocol;
-
-                    if (scheme !== 'http:' && scheme !== 'https:') {
-                        throw new NetworkError("Invalid scheme");
-                    }
-
-                    return fetch(request.clone());
-                })
-            );
-        }).then(function (responses) {
-            // TODO: check that requests don't overwrite one another
-            // (don't think this is possible to polyfill due to opaque responses)
-            return Promise.all(
-                responses.map(function (response, i) {
-                    return cache.put(requests[i], response);
-                })
-            );
-        }).then(function () {
-            return undefined;
-        });
     };
 }
 
@@ -70,28 +72,35 @@ if (!CacheStorage.prototype.match) {
 
             return cacheNames.reduce(function (chain, cacheName) {
                 return chain.then(function () {
-                    return match || caches.open(cacheName).then(function (cache) {
-                        return cache.match(request, opts);
-                    }).then(function (response) {
-                        match = response;
-                        return match;
-                    });
+                    return (
+                        match ||
+                        caches
+                            .open(cacheName)
+                            .then(function (cache) {
+                                return cache.match(request, opts);
+                            })
+                            .then(function (response) {
+                                match = response;
+                                return match;
+                            })
+                    );
                 });
             }, Promise.resolve());
         });
     };
 }
 
-self.addEventListener('fetch', function(event) {
-    event.respondWith(async function() {
-        try {
-            var res = await fetch(event.request);
-            var cache = await caches.open('cache');
-            cache.put(event.request.url, res.clone());
-            return res;
-        } 
-        catch(error) {
-            return caches.match(event.request);
-        }
-    }());
+self.addEventListener('fetch', function (event) {
+    event.respondWith(
+        (async function () {
+            try {
+                var res = await fetch(event.request);
+                var cache = await caches.open('cache');
+                cache.put(event.request.url, res.clone());
+                return res;
+            } catch (error) {
+                return caches.match(event.request);
+            }
+        })(),
+    );
 });

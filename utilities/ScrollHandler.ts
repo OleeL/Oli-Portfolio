@@ -5,7 +5,8 @@ type IScrollFromTo = {
     current: number;
 };
 
-const calcuateY = (target: string): number => document?.getElementById(target)?.offsetTop ?? 0;
+const calcuateY = (target: string): number =>
+    document?.getElementById(target)?.offsetTop ?? 0;
 
 const getScroll = (target: string): IScrollFromTo =>
     typeof window !== 'undefined'

@@ -1,15 +1,15 @@
-@import "./variables.scss";
-@import "../public/fonts/fira/fira_code.scss";
-@import "../public/fonts/segoe_ui/segoe_ui.scss";
+@import './variables.scss';
+@import '../public/fonts/fira/fira_code.scss';
+@import '../public/fonts/segoe_ui/segoe_ui.scss';
 
 @font-face {
-    font-family: "RobotoMono";
-    src: url("/fonts/RobotoMono.ttf") format("truetype");
+    font-family: 'RobotoMono';
+    src: url('/fonts/RobotoMono.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: "RobotoMono";
-    src: url("/fonts/RobotoMono-Italic.ttf") format("truetype");
+    font-family: 'RobotoMono';
+    src: url('/fonts/RobotoMono-Italic.ttf') format('truetype');
     font-style: italic;
 }
 
@@ -55,8 +55,9 @@ body {
     width: 100%;
     font-size: calc(2.5vmin);
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-        "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -66,7 +67,8 @@ body {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 .overflow {
@@ -74,5 +76,5 @@ code {
 }
 
 .fill-width {
-    width: -webkit-fill-available
+    width: -webkit-fill-available;
 }
