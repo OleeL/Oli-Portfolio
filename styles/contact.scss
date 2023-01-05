@@ -56,7 +56,7 @@
         }
 
         .input {
-            padding: 5px;
+            padding: 5px 9px 5px 9px;
             display: block;
             margin-bottom: 10px;
             min-width: 300px;
@@ -80,6 +80,7 @@
         }
 
         .messagebox {
+            padding: 5px 9px 5px 9px;
             border-radius: 5px;
             border: 1px $divider-color solid;
             height: 150px;
