@@ -13,7 +13,7 @@ export const Title: FC<TitleProps> = props => {
         <title
             id={id}
             {...props}
-            className={`title-${className}`}
+            className={`title ${className}`}
             style={style}>
             {children}
         </title>

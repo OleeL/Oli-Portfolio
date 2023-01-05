@@ -1,0 +1,50 @@
+@import "./_variables";
+
+.form {
+    &-default {
+        display: block;
+    }
+}
+
+.label {
+    &-default {
+        display: block;
+        margin-bottom: 8px;
+    }
+}
+
+.button {
+    &-default {
+        display: block;
+        margin: 10px 10px 10px 0px;
+        padding: 5px;
+    }
+}
+
+.input {
+    padding: 5px;
+    display: block;
+    margin-bottom: 10px;
+    min-width: 300px;
+    .default {
+        border-radius: 5px;
+        border: 0px #637a86 solid;
+    }
+}
+
+.title {
+    .default {
+        display: block;
+    }
+}
+
+.textarea {
+    padding: 5px;
+    display: block;
+    margin-bottom: 10px;
+    min-width: 300px;
+    .default {
+        border-radius: 5px;
+        border: 0px #637a86 solid;
+    }
+}

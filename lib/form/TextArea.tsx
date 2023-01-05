@@ -1,15 +1,14 @@
 import { FC, useId } from 'react';
 import { Label } from './Label';
 
-type InputProps = React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
+type TextAreaProps = React.DetailedHTMLProps<
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    HTMLTextAreaElement
 > & {
     label?: string;
 };
 
-// Generates label with it
-export const Input: FC<InputProps> = props => {
+export const TextArea: FC<TextAreaProps> = props => {
     const reactId = useId();
     const defaultId = `${reactId}`;
     const {
@@ -19,17 +18,16 @@ export const Input: FC<InputProps> = props => {
         id = defaultId,
         label,
     } = props;
-
     return (
         <>
             {label && <Label htmlFor={id}>{label}</Label>}
-            <input
+            <textarea
                 id={id}
                 {...props}
-                className={`input ${className}`}
+                className={`textarea ${className}`}
                 style={style}>
                 {children}
-            </input>
+            </textarea>
         </>
     );
 };

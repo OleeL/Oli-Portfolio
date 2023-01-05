@@ -1,4 +1,5 @@
 @import './_variables';
+@import '../lib/styles/buloke.scss';
 
 main {
     display: flex;
@@ -12,7 +13,7 @@ main {
 
 a {
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: auto;
 }
 
 .inset {
@@ -44,6 +45,7 @@ a {
 
     .tag-row {
         margin: 15px;
+        margin-bottom: 27px;
         height: fit-content;
         display: flex;
         white-space: nowrap;
@@ -169,5 +171,4 @@ a {
 
 @import './experience';
 @import './projects';
-@import './contact';
-@import './buloke.scss';
+@import './contact.scss';

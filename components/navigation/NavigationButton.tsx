@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { a, useSpring } from 'react-spring';
 import { useScrollSpring, goToSection } from '../../utilities/ScrollHandler';
-import styles from '../../styles/navigation.module.scss';
+import styles from '../../styles/variables.module.scss';
 import { toKebabCase } from '../../lib/helpers/string';
 
 interface IButton {

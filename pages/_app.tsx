@@ -4,7 +4,11 @@ import '../styles/globals.scss';
 import '../styles/home.scss';
 import '../styles/_variables.scss';
 import '../styles/navigation.scss';
-import { faCalendar, faLocationDot, faTag } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCalendar,
+    faLocationDot,
+    faTag,
+} from '@fortawesome/free-solid-svg-icons';
 import { registerServiceWorker } from '../lib/global_hooks';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

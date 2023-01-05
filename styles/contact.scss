@@ -1,27 +1,17 @@
-@import './variables';
-
-$module: 'contact';
+@import "./variables";
 
 .contact {
     display: flex;
     border: 1px solid $divider-color;
     border-radius: 7px;
     padding: 20px;
-}
-
-.#{module} {
 
     &-container {
-        min-height: 400px;
-        display: flex;
-        justify-content: center;
-        width: auto;
-        position: relative;
+        width: 100%;
         pointer-events: all;
-        
         display: block;
     }
-    
+
     &-box {
         margin: 5px;
         padding: 20px;
@@ -32,5 +22,73 @@ $module: 'contact';
         font-family: "Fira Code";
         user-select: none;
         pointer-events: none;
-    }    
+    }
+
+    .form-contact {
+        display: block;
+        width: 100%;
+
+        .label {
+            &-default {
+                display: block;
+                margin-bottom: 8px;
+                color: white;
+                font-weight: 600;
+                font-size: 24px;
+            }
+        }
+
+        .button {
+            &-default {
+                display: block;
+                margin: 10px 10px 10px 0px;
+                padding: 10px;
+                background-color: $divider-color;
+                border: 0px solid $divider-color;
+                color: $profile-text-color;
+                font-size: 15px;
+                border-radius: 5px;
+                border-width: 1px;
+                &:hover {
+                    color: $primary-theme-color;
+                }
+            }
+        }
+
+        .input {
+            padding: 5px;
+            display: block;
+            margin-bottom: 10px;
+            min-width: 300px;
+            border-radius: 5px;
+            border: 1px $divider-color solid;
+            box-shadow: 1px 0px 40px 5px rgb(0 0 0 / 9%);
+            background-color: rgba(0,0,0,0);
+            color: $p-color;
+            font-size: 18px;
+            font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+        }
+
+        .input:active {
+            border-color: $primary-theme-color;
+        }
+
+        .title {
+            .default {
+                display: block;
+            }
+        }
+
+        .messagebox {
+            border-radius: 5px;
+            border: 1px $divider-color solid;
+            height: 150px;
+            width: -webkit-fill-available;
+            box-shadow: 1px 0px 40px 5px rgb(0 0 0 / 9%);
+            background-color: rgba(0,0,0,0);
+            color: $p-color;
+            font-size: 20px;
+            font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+        }
+    }
 }
