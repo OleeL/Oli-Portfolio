@@ -34,7 +34,7 @@ export const useSelectionSlider = ({
     const child = children[index] ?? null;
 
     const height = child?.getBoundingClientRect()?.height ?? 0;
-    const left = child?.offsetLeft ?? 0;
+    const left = (child?.offsetLeft ?? 0) - 2;
     const spring = useSpring({
         top: child?.offsetTop ?? 0,
         left,

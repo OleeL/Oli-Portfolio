@@ -19,13 +19,21 @@
     font-family: "Fira Code";
     user-select: none;
     pointer-events: none;
+
+    background-color: $background-blue;
 }
 
 .carousel {
     display: flex;
     overflow-x: auto;
+    padding: 5px;
     border: 1px solid $divider-color;
     border-radius: 7px;
+
+    -webkit-box-shadow: inset 0px 0px 60px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow: inset 0px 0px 60px 0px rgba(0,0,0,0.26);
+    box-shadow: inset 0px 0px 60px 0px rgba(0,0,0,0.26);
+
     a {
         font-size: 20px;
     }
