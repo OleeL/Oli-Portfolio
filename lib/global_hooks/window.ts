@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react';
 import { isBrowser } from '../helpers/window';
 
 type IWidthHeight = {
-    width?: number;
-    height?: number;
+    width: number;
+    height: number;
 };
 
 export const useWindowSize = () => {
     const [windowSize, setWindowSize] = useState<IWidthHeight>({
-        width: undefined,
-        height: undefined,
+        width: 0,
+        height: 0,
     });
 
     useEffect(() => {
-        if (isBrowser()) return () => {};
+        if (!isBrowser()) return () => {};
         const handleResize = () => {
             setWindowSize({
                 width: window.innerWidth,
@@ -26,5 +26,3 @@ export const useWindowSize = () => {
     }, []);
     return windowSize;
 };
-
-export default useWindowSize;
