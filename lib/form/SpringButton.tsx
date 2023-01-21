@@ -41,8 +41,8 @@ export const SpringButton: FC<SpringButtonProps> = props => {
         ...(borderColor && { borderColor: getPropColor(borderColor, hover) }),
     });
 
-    const newProps = {...props};
-    Object.keys(hoverKeys).map((key: string) => {
+    const newProps = { ...props };
+    Object.keys(hoverKeys).forEach((key: string) => {
         delete newProps[key as keyof HoverTypes];
     });
 

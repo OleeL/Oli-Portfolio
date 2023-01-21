@@ -5,18 +5,19 @@ type FormAddendum = {
     submitText?: string;
     omitSubmit?: boolean;
     buttonComponent?: ComponentType;
-}
+};
 
 const formAddendumKeys: FormAddendum = {
     submitText: undefined,
     omitSubmit: undefined,
-    buttonComponent: undefined
+    buttonComponent: undefined,
 } as FormAddendum;
 
 type FormProps = React.DetailedHTMLProps<
     React.FormHTMLAttributes<HTMLFormElement>,
     HTMLFormElement
-> & FormAddendum;
+> &
+    FormAddendum;
 
 export const Form: FC<FormProps> = props => {
     const {
@@ -29,8 +30,8 @@ export const Form: FC<FormProps> = props => {
 
     const ButtonComponent = props?.buttonComponent ?? Button;
 
-    const cleanseProps = {...props}
-    Object.keys(formAddendumKeys).map((key: string) => {
+    const cleanseProps = { ...props };
+    Object.keys(formAddendumKeys).forEach((key: string) => {
         delete cleanseProps[key as keyof FormAddendum];
     });
 

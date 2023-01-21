@@ -4,6 +4,9 @@
 .navigation {
     display: inline-flex;
     width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     ul {
         counter-reset: list-number;
@@ -88,11 +91,15 @@ header {
 
 .nav-buttons {
     padding-inline-start: 0px;
-    width: 100%;
+    width: fit-content;
     display: flex;
     align-content: center;
     align-items: center;
     flex-direction: row;
     justify-content: flex-end;
     list-style-type: none;   
+
+    @media (max-width: 750px) {
+        display: none;
+    }
 }

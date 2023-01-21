@@ -18,7 +18,9 @@ const getRefPropertiesHeight = <T extends HTMLElement>(current: T | null) => {
     return clientHeight + sum;
 };
 
-export const useSpringResizeHeight = <T extends HTMLElement>() => {
+export const useSpringResizeHeight = <T extends HTMLElement>(
+    extraHeight: number,
+) => {
     const ref = useRef<T | null>(null);
     const minHeightRef = useRef<any | null>(null);
 
@@ -30,7 +32,7 @@ export const useSpringResizeHeight = <T extends HTMLElement>() => {
         : getRefPropertiesHeight(ref.current);
 
     const style = useSpring({
-        height: `${height}px`,
+        height: `${height + extraHeight}px`,
     });
 
     return { ref, style, minHeightRef };

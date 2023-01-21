@@ -17,7 +17,9 @@ import { useFadeReset } from '../../lib/global_hooks';
 import { useSelectionSlider } from '../../lib/global_hooks/useSelectionSlider';
 import useExperience from './hooks/useExperience';
 import Section from '../Section';
-import { nextOpen } from '../../lib/helpers/window';
+import { isBrowser, nextOpen } from '../../lib/helpers/window';
+import styles from '../../styles/variables.module.scss';
+import { useWindowSize } from '../../lib/global_hooks/window';
 
 const Footnote: FC<{ children: any }> = ({ children }) => {
     return <p className="footnote">{children}</p>;
@@ -102,14 +104,44 @@ const ExperienceListElement: FC<IExperienceListElement> = ({
     );
 };
 
+const getExtraHeight = (elementId: string): number => {
+    if (!isBrowser()) return 0;
+
+    const el = document.getElementById(elementId);
+    if (!el) return 0;
+    const height = el.getBoundingClientRect()?.height ?? 0;
+    return (
+        height +
+        [
+            el.style.marginTop,
+            el.style.marginBottom,
+            el.style.paddingTop,
+            el.style.paddingBottom,
+        ].reduce((acc, x) => {
+            const val = parseFloat(x);
+            if (Number.isNaN(val)) {
+                return acc;
+            }
+            return val + acc;
+        }, 0)
+    );
+};
+
 const ExperienceBody = () => {
     const { experience, setExperience } = useExperience(experiences[0]);
     const { ref, Slider } = useSelectionSlider({ selection: experience });
+    const { width } = useWindowSize();
+
+    const isScreenSmall = (width ?? 0) < parseFloat(styles.mediaMaxWidth);
+    const height = isScreenSmall
+        ? getExtraHeight('experience-list-divider-container') + 10
+        : 0;
+
     const {
         ref: springRef,
         style,
         minHeightRef,
-    } = useSpringResizeHeight<HTMLDivElement>();
+    } = useSpringResizeHeight<HTMLDivElement>(height);
 
     useEffect(() => {
         minHeightRef.current = ref.current;
@@ -118,8 +150,10 @@ const ExperienceBody = () => {
     return (
         <>
             <a.div className="experience-container">
-                <a.div style={style} className="home-box">
-                    <div className="experience-list-divider-container">
+                <a.div style={style} className="home-box-experience">
+                    <div
+                        className="experience-list-divider-container"
+                        id="experience-list-divider-container">
                         <ul ref={ref} className="experience-list">
                             {experiences.map(x => (
                                 <ExperienceListElement

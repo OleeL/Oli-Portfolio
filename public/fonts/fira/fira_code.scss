@@ -1,8 +1,8 @@
 @font-face {
   font-family: local('Courier'), 'Fira Code';
   font-display: swap;
-  src: url('woff2/FiraCode-Light.woff2') format('woff2'),
-    url("woff/FiraCode-Light.woff") format("woff");
+  src: url('/woff2/FiraCode-Light.woff2') format('woff2'),
+    url('/woff/FiraCode-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
@@ -10,8 +10,8 @@
 @font-face {
   font-family: local('Courier'), 'Fira Code';
   font-display: swap;
-  src: url('woff2/FiraCode-Regular.woff2') format('woff2'),
-    url("woff/FiraCode-Regular.woff") format("woff");
+  src: url('/woff2/FiraCode-Regular.woff2') format('woff2'),
+    url('/woff/FiraCode-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -19,8 +19,8 @@
 @font-face {
   font-family: local('Courier'), 'Fira Code';
   font-display: swap;
-  src: url('woff2/FiraCode-Medium.woff2') format('woff2'),
-    url("woff/FiraCode-Medium.woff") format("woff");
+  src: url('/woff2/FiraCode-Medium.woff2') format('woff2'),
+    url('/woff/FiraCode-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
 }
@@ -28,8 +28,8 @@
 @font-face {
   font-family: local('Courier'), 'Fira Code';
   font-display: swap;
-  src: url('woff2/FiraCode-SemiBold.woff2') format('woff2'),
-    url("woff/FiraCode-SemiBold.woff") format("woff");
+  src: url('/woff2/FiraCode-SemiBold.woff2') format('woff2'),
+    url('/woff/FiraCode-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
 }
@@ -37,8 +37,8 @@
 @font-face {
   font-family: local('Courier'), 'Fira Code';
   font-display: swap;
-  src: url('woff2/FiraCode-Bold.woff2') format('woff2'),
-    url("woff/FiraCode-Bold.woff") format("woff");
+  src: url('/woff2/FiraCode-Bold.woff2') format('woff2'),
+    url('/woff/FiraCode-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
@@ -46,8 +46,8 @@
 @font-face {
   font-family: local('Courier'), 'Fira Code VF';
   font-display: swap;
-  src: url('woff2/FiraCode-VF.woff2') format('woff2-variations'),
-       url('woff/FiraCode-VF.woff') format('woff-variations');
+  src: url('/woff2/FiraCode-VF.woff2') format('woff2-variations'),
+       url('/woff/FiraCode-VF.woff') format('woff-variations');
   font-weight: 300 700;
   font-style: normal;
 }

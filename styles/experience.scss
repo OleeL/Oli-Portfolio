@@ -1,27 +1,83 @@
+
+
+.home-box-experience {
+    display: flex;
+    -webkit-box-shadow: 1px 0px 40px 5px rgba(0,0,0,0.09);
+    box-shadow: 1px 0px 40px 5px rgba(0,0,0,0.09);
+    width:95%;
+    border-radius: 7px;
+    border: 1px solid $divider-color;    
+    margin: -1px;
+    height: fit-content;
+
+    .tag {
+        background-color: $divider-color;
+        user-select: none;
+        font-size: 13px;
+        color: $p-color;
+        padding: 3px 11px 3px 11px;
+        border-radius: 20px;
+        font-family: 'Fira Code';
+        margin-bottom: 2px;
+        margin-right: 3px;
+    }
+
+    .tag-row {
+        margin: 15px;
+        margin-bottom: 27px;
+        height: fit-content;
+        display: flex;
+        white-space: nowrap;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+
+    flex-direction: row;
+    @media (max-width: $media-max-width) {
+        flex-direction: column;
+    }
+}
+
 .experience-list {
     padding-inline-start: 0px;
     list-style-type: none;
-    width: fit-content;
+    width: 200px;
     padding-left: 10px;
     margin-right: 20px;
     margin-top: 0px;
-    height:max-content;
+    height: max-content;
 
     display: flex;
     flex-direction: column;
+    @media (max-width: $media-max-width) {
+        flex-direction: row;
+        overflow-x: scroll;
+        margin-bottom: 0;
+        width: -webkit-fill-available;
+        padding-bottom: 0px;
+    }
 
     .list-element {
         font-family: 'Fira Code';
         background: none;
-        width: 255px;
+        width: 191px;
         padding-left: 16px;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        margin-left: 13px;
+        border-radius: 5px;
         font-size: 18px;
-        &:not(:first-child) {
-            margin: 20px 0px 0px 13px;
 
+        @media (min-width: $media-max-width) {
+            margin-left: 13px;
+            &:not(:first-child) {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: $media-max-width) {
+            padding: 4px;
+            margin: 4px 10px 4px 10px;
+            white-space: nowrap;
+            width: fit-content;
         }
     }
 }
@@ -29,6 +85,11 @@
 .experience-list-divider-container {
     margin: 27px 20px 27px 0px;
     border-right: 1px solid $divider-color;
+    @media (max-width: $media-max-width) {
+        border-right: none;
+        border-bottom: 1px solid $divider-color;
+        margin: 10px 0px 10px 0px;
+    }
 }
 
 .experience-container {
@@ -40,7 +101,7 @@
 }
 
 .experience-description {
-    margin: 27px 27px 27px 0px;
+    padding: 27px 27px 27px 0;
 
     h4 {
         color: $primary-theme-color;
@@ -67,6 +128,10 @@
             padding-inline-start: 17.5px;
         }
     }
+
+    @media (max-width: $media-max-width) {
+        padding: 27px;
+    }
 }
 
 .footnote {
@@ -81,7 +146,6 @@
 .selection-slider {
     background-color: $primary-theme-color;
     border-radius: 2px;
-    width: 3px;
     &.backdrop {
         background-color: $divider-color;
     }

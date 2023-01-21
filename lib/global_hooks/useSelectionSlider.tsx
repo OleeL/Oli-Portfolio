@@ -1,5 +1,7 @@
 import { CSSProperties, useCallback, useEffect, useRef, useState } from 'react';
 import { a, useSpring } from 'react-spring';
+import { useWindowSize } from './window';
+import styles from '../../styles/variables.module.scss';
 
 interface IProps {
     selection: any;
@@ -26,6 +28,11 @@ export const useSelectionSlider = ({
         forceUpdate();
     }, [ref, selection]);
 
+    const sliderWidth = 3;
+
+    const { width } = useWindowSize();
+    const isHorizontal = width < parseFloat(styles.mediaMaxWidth);
+
     const children = Object.values(
         ref?.current?.childNodes ?? [],
     ) as HTMLElement[];
@@ -40,7 +47,12 @@ export const useSelectionSlider = ({
         left,
     });
 
-    const backdropHeight = child?.parentElement?.offsetHeight ?? 0;
+    const backdropHeight = isHorizontal
+        ? sliderWidth
+        : child?.parentElement?.offsetHeight ?? 0;
+    const backdropTop = isHorizontal
+        ? (child?.offsetTop ?? 0) + (child?.offsetHeight ?? 0)
+        : child?.parentElement?.offsetTop ?? 0;
 
     const Slider = () => (
         <>
@@ -49,13 +61,18 @@ export const useSelectionSlider = ({
                 style={{
                     ...defaultSettings,
                     height: backdropHeight,
-                    top: child?.parentElement?.offsetTop ?? 0,
+                    top: backdropTop,
                     left,
                 }}
             />
             <a.div
                 className={className}
-                style={{ ...spring, ...defaultSettings, height }}
+                style={{
+                    ...spring,
+                    ...defaultSettings,
+                    height,
+                    width: sliderWidth,
+                }}
             />
         </>
     );
