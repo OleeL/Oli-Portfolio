@@ -1,6 +1,11 @@
 @import './_variables';
 @import '../lib/styles/buloke.scss';
 
+
+body {
+    background-color: $background-blue;
+}
+
 main {
     display: flex;
     flex-direction: column;

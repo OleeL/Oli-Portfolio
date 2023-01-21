@@ -59,10 +59,7 @@ const ExperienceDescription = <T extends HTMLDivElement>({
                     {endDate ? moment(endDate)?.format('MM/YYYY') : 'Now'}
                     {' | '}
                     <FontAwesomeIcon icon={['fas', 'location-dot']} />{' '}
-                    <a
-                        onClick={() =>
-                            nextOpen(location.url, '_blank')?.focus()
-                        }>
+                    <a href={location.url} target={'_blank'} rel="noreferrer">
                         {location.name}
                     </a>
                 </Footnote>
