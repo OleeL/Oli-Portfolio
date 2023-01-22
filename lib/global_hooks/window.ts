@@ -6,7 +6,7 @@ type IWidthHeight = {
     height: number;
 };
 
-export const useWindowSize = () => {
+export const useWindowSize = (): IWidthHeight => {
     const [windowSize, setWindowSize] = useState<IWidthHeight>({
         width: 0,
         height: 0,
@@ -26,3 +26,10 @@ export const useWindowSize = () => {
     }, []);
     return windowSize;
 };
+
+export const useWindowResize = (func: () => void) =>
+    useEffect(() => {
+        if (!isBrowser()) return () => {};
+        window.addEventListener('resize', func);
+        return () => window.removeEventListener('resize', func);
+    }, []);

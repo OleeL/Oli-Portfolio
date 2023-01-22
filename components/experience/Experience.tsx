@@ -17,7 +17,7 @@ import { useFadeReset } from '../../lib/global_hooks';
 import { useSelectionSlider } from '../../lib/global_hooks/useSelectionSlider';
 import useExperience from './hooks/useExperience';
 import Section from '../Section';
-import { isBrowser, nextOpen } from '../../lib/helpers/window';
+import { isBrowser } from '../../lib/helpers/window';
 import styles from '../../styles/variables.module.scss';
 import { useWindowSize } from '../../lib/global_hooks/window';
 
@@ -126,19 +126,29 @@ const getExtraHeight = (elementId: string): number => {
 
 const ExperienceBody = () => {
     const { experience, setExperience } = useExperience(experiences[0]);
-    const { ref, Slider } = useSelectionSlider({ selection: experience });
     const { width } = useWindowSize();
 
     const isScreenSmall = (width ?? 0) < parseFloat(styles.mediaMaxWidth);
-    const height = isScreenSmall
-        ? getExtraHeight('experience-list-divider-container') + 10
-        : 0;
+    const getHeight = () =>
+        isScreenSmall
+            ? getExtraHeight('experience-list-divider-container') + 10
+            : 0;
+    const [height, setHeight] = useState(0);
+
+    useEffect(() => setHeight(getHeight()), [experience, isScreenSmall]);
 
     const {
         ref: springRef,
         style,
         minHeightRef,
+        heightReset,
     } = useSpringResizeHeight<HTMLDivElement>(height);
+    const { ref, Slider } = useSelectionSlider({
+        selection: experience,
+        triggerFunc: () => {
+            heightReset();
+        },
+    });
 
     useEffect(() => {
         minHeightRef.current = ref.current;

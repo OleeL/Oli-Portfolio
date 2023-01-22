@@ -1,10 +1,10 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSpring } from 'react-spring';
 import { isBrowser } from '../helpers/window';
 
 const getRefPropertiesHeight = <T extends HTMLElement>(current: T | null) => {
     if (!isBrowser() || !current) {
-        return 1;
+        return 0;
     }
     const { marginTop, marginBottom, paddingTop, paddingBottom } =
         window.getComputedStyle(current);
@@ -24,16 +24,23 @@ export const useSpringResizeHeight = <T extends HTMLElement>(
     const ref = useRef<T | null>(null);
     const minHeightRef = useRef<any | null>(null);
 
-    const height = minHeightRef?.current
-        ? Math.max(
-              getRefPropertiesHeight(minHeightRef.current) + 20,
-              getRefPropertiesHeight(ref.current),
-          )
-        : getRefPropertiesHeight(ref.current);
+    const getHeight = () =>
+        minHeightRef?.current
+            ? Math.max(
+                  getRefPropertiesHeight(minHeightRef.current) + 20,
+                  getRefPropertiesHeight(ref.current),
+              )
+            : getRefPropertiesHeight(ref.current);
+
+    const [height, setHeight] = useState(0);
+    const heightReset = () => setHeight(getHeight());
+
+    useEffect(() => setHeight(getHeight()), []);
+    // useWindowResize(() => setHeight(getHeight()));
 
     const style = useSpring({
         height: `${height + extraHeight}px`,
     });
 
-    return { ref, style, minHeightRef };
+    return { ref, style, minHeightRef, heightReset };
 };
