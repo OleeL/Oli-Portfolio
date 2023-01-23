@@ -184,12 +184,18 @@ export const experiences: ExperienceType[] = [
         startDate: new Date(2015, 7, 1),
         endDate: new Date(2015, 8, 1),
         description: (
-            <p>
-                An IT project to update and improve the company SharePoint
-                intranet website. Working to scope out and implement a new
-                layout to result in a new and improved method of communication.
-                I also provided scoping documents and training guides.
-            </p>
+            <>
+                {' '}
+                <p>
+                    An IT project to update and improve the company SharePoint
+                    intranet website.
+                </p>
+                <p>
+                    Working to scope out and implement a new layout to result in
+                    a new and improved method of communication.
+                </p>
+                <p>I also provided scoping documents and training guides.</p>
+            </>
         ),
         url: 'https://www.eventms.com/',
         location: {

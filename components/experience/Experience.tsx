@@ -54,14 +54,20 @@ const ExperienceDescription = <T extends HTMLDivElement>({
                     &gt; {company} | <span>{role}</span>
                 </h4>
                 <Footnote>
-                    <FontAwesomeIcon icon={['fas', 'calendar']} />{' '}
-                    {moment(startDate).format('MM/YYYY')} -{' '}
-                    {endDate ? moment(endDate)?.format('MM/YYYY') : 'Now'}
-                    {' | '}
-                    <FontAwesomeIcon icon={['fas', 'location-dot']} />{' '}
-                    <a href={location.url} target={'_blank'} rel="noreferrer">
-                        {location.name}
-                    </a>
+                    <span>
+                        <FontAwesomeIcon icon={['fas', 'calendar']} />{' '}
+                        {moment(startDate).format('MM/YYYY')} -{' '}
+                        {endDate ? moment(endDate)?.format('MM/YYYY') : 'Now'}
+                    </span>
+                    <span>
+                        <FontAwesomeIcon icon={['fas', 'location-dot']} />{' '}
+                        <a
+                            href={location.url}
+                            target={'_blank'}
+                            rel="noreferrer">
+                            {location.name}
+                        </a>
+                    </span>
                 </Footnote>
                 <div className="description">{description}</div>
             </div>
@@ -128,7 +134,7 @@ const ExperienceBody = () => {
     const { experience, setExperience } = useExperience(experiences[0]);
     const { width } = useWindowSize();
 
-    const isScreenSmall = (width ?? 0) < parseFloat(styles.mediaMaxWidth);
+    const isScreenSmall = (width ?? 0) <= parseFloat(styles.mediaMaxWidth);
     const getHeight = () =>
         isScreenSmall
             ? getExtraHeight('experience-list-divider-container') + 10

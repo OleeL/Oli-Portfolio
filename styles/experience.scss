@@ -54,6 +54,7 @@
         flex-direction: row;
         overflow-x: scroll;
         margin-bottom: 0;
+        margin-right: 0;
         width: -webkit-fill-available;
         padding-bottom: 0px;
     }
@@ -65,17 +66,21 @@
         padding-left: 16px;
         border-radius: 5px;
         font-size: 18px;
+        margin-bottom: 20px;
 
         @media (min-width: $media-max-width) {
             margin-left: 13px;
-            &:not(:first-child) {
-                margin-top: 20px;
+            &:not(:last-child) {
+                margin-top: 0;
             }
+            &:last-child {
+                margin-bottom: 0;
+            }   
         }
 
         @media (max-width: $media-max-width) {
             padding: 4px;
-            margin: 4px 10px 4px 10px;
+            margin: 0 10px 4px 10px;
             white-space: nowrap;
             width: fit-content;
         }
@@ -136,11 +141,13 @@
 
 .footnote {
     font-size: 15px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-family: 'Fira Code';
+
+    span {
+        white-space: nowrap;
+        margin-right: 18px;
+        margin-top: 20px;
+    }
 }
 
 .selection-slider {

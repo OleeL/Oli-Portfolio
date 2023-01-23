@@ -22,7 +22,7 @@ export const useSelectionSlider = ({
 }: IProps) => {
     const sliderWidth = 3;
     const { width } = useWindowSize();
-    const isHorizontal = width < parseFloat(styles.mediaMaxWidth);
+    const isHorizontal = width <= parseFloat(styles.mediaMaxWidth);
 
     const ref = useRef<HTMLUListElement>(null);
     const [, updateState] = useState<any>();

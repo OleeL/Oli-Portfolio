@@ -7,14 +7,16 @@ import Contact from '../components/Contact';
 import Projects from '../components/Projects/Projects';
 
 const Content = () => (
-    <main>
-        <NavigationComponent />
-        <Profile />
-        <AboutMe />
-        <Experience />
-        <Projects />
-        <Contact />
-    </main>
+    <>
+        <main>
+            <NavigationComponent />
+            <Profile />
+            <AboutMe />
+            <Experience />
+            <Projects />
+            <Contact />
+        </main>
+    </>
 );
 
 const App = () => {
