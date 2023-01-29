@@ -51,7 +51,7 @@ const ExperienceDescription = <T extends HTMLDivElement>({
             key={experience.company}>
             <div className="experience-description">
                 <h4>
-                    &gt; {company} | <span>{role}</span>
+                    {company} <span>{role}</span>
                 </h4>
                 <Footnote>
                     <span>

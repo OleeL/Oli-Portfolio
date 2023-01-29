@@ -1,10 +1,11 @@
-import { ComponentType, FC } from 'react';
+import { ButtonHTMLAttributes, ComponentType, FC } from 'react';
 import { Button } from './Button';
 
 type FormAddendum = {
     submitText?: string;
     omitSubmit?: boolean;
-    buttonComponent?: ComponentType;
+    buttonComponent?: ComponentType<ButtonHTMLAttributes<HTMLButtonElement>>;
+    disabled?: boolean;
 };
 
 const formAddendumKeys: FormAddendum = {
@@ -25,6 +26,7 @@ export const Form: FC<FormProps> = props => {
         className = 'default',
         submitText = 'Submit',
         omitSubmit = false,
+        disabled = false,
         onSubmit = () => {},
     } = props;
 
@@ -43,7 +45,9 @@ export const Form: FC<FormProps> = props => {
             {children}
             {!omitSubmit && (
                 <>
-                    <ButtonComponent>{submitText}</ButtonComponent>
+                    <ButtonComponent disabled={disabled}>
+                        {submitText}
+                    </ButtonComponent>
                 </>
             )}
         </form>

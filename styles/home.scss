@@ -1,7 +1,7 @@
 @import './_variables';
 @import '../lib/styles/buloke.scss';
 
-main, .profile {
+main {
     display: flex;
     flex-direction: column;
     padding: 0px 5%;
@@ -11,6 +11,10 @@ main, .profile {
     @media (min-width: 1150px) {
         padding: 0px 22%;
     }
+}
+
+#profile {
+    justify-content: center;
 }
 
 a {
@@ -26,34 +30,8 @@ a {
 
 .home-box {
     display: flex;
-    -webkit-box-shadow: 1px 0px 40px 5px rgba(0,0,0,0.09);
-    box-shadow: 1px 0px 40px 5px rgba(0,0,0,0.09);
     width:95%;
-    border-radius: 7px;
-    border: 1px solid $divider-color;    
     margin: -1px;
-
-    .tag {
-        background-color: $divider-color;
-        user-select: none;
-        font-size: 13px;
-        color: $p-color;
-        padding: 3px 11px 3px 11px;
-        border-radius: 20px;
-        font-family: 'Fira Code';
-        margin-bottom: 2px;
-        margin-right: 3px;
-    }
-
-    .tag-row {
-        margin: 15px;
-        margin-bottom: 27px;
-        height: fit-content;
-        display: flex;
-        white-space: nowrap;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
 }
 
 section {

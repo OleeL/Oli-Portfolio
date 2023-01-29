@@ -2,11 +2,7 @@
 
 .home-box-experience {
     display: flex;
-    -webkit-box-shadow: 1px 0px 40px 5px rgba(0,0,0,0.09);
-    box-shadow: 1px 0px 40px 5px rgba(0,0,0,0.09);
-    width:95%;
-    border-radius: 7px;
-    border: 1px solid $divider-color;    
+    width: 95%;
     margin: -1px;
     height: fit-content;
 
@@ -23,8 +19,12 @@
     }
 
     .tag-row {
-        margin: 15px;
-        margin-bottom: 27px;
+        margin: 0 0 27px;
+
+        @media (max-width: $media-max-width) {
+            padding: 0 27px 27px 27px;
+        }
+        
         height: fit-content;
         display: flex;
         white-space: nowrap;
@@ -118,7 +118,7 @@
 
         span {
             color: $p-color;
-            font-size: smaller;
+            font-size: 13px;
         }
     }
 

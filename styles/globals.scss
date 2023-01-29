@@ -15,11 +15,11 @@
 
 html {
     scroll-behavior: unset !important;
-    background-color: $background-blue;
+    background-color: $primary-background-color;
 }
 
 main {
-    background-color: $background-blue;
+    background-color: $primary-background-color;
 }
 
 /* width */
@@ -37,7 +37,7 @@ main {
 ::-webkit-scrollbar-thumb {
     background: rgba(136, 136, 136, 1);
     border-radius: 100px;
-    border: 3px solid $background-blue;
+    border: 3px solid $primary-background-color;
 }
 
 /* Handle on hover */
@@ -56,7 +56,7 @@ main {
 
 body {
     counter-reset: section;
-    background-color: $background-blue;
+    background-color: $primary-background-color;
     width: 100%;
     font-size: calc(2.5vmin);
     margin: 0;

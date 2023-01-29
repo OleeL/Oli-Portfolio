@@ -1,6 +1,8 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import Image from 'next/image';
+import { a, useSpring } from 'react-spring';
 import Section from '../Section';
-import { ProjectList } from './ProjectList';
+import { Project, ProjectList } from './ProjectList';
 
 // type DragEvent = {
 //     isDragging: boolean;
@@ -58,17 +60,45 @@ import { ProjectList } from './ProjectList';
 //     );
 // };
 
+const Project: FC<Project> = ({ url, name, description, image }) => {
+    const box = {
+        width: image?.width ?? 0,
+        height: image?.height ?? 0,
+    };
+
+    const [hovered, setHovered] = useState(false);
+
+    const spring = useSpring({
+        opacity: hovered ? 0 : 0.5,
+    });
+    return (
+        <div className="home-box project-box">
+            <a href={url}>{name}</a>
+            {/* eslint-disable jsx-a11y/alt-text */}
+            {image && (
+                <div
+                    className="image-container"
+                    style={box}
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}>
+                    <Image {...image} />
+                    <a.div
+                        className="image-overlay"
+                        style={{ ...spring, ...box }}
+                    />
+                </div>
+            )}
+            {description}
+        </div>
+    );
+};
+
 const Carousel = () => {
     return (
         <div className="carousel">
             <div className="projects-container">
-                {ProjectList.map(({ id, url, name, description }) => (
-                    <div key={id} className="home-box project-box">
-                        <>
-                            <a href={url}>{name}</a>
-                            {description}
-                        </>
-                    </div>
+                {ProjectList.map(props => (
+                    <Project key={props.id} {...props} />
                 ))}
             </div>
         </div>

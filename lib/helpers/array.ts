@@ -8,3 +8,7 @@ export const shuffleArray = <T>(array: T[]): T[] => {
     }
     return array;
 };
+
+export const provideIds = <T>(array: T[]): (T & { id: number })[] => {
+    return array.map((x, id) => ({ id, ...x }));
+};

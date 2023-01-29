@@ -1,4 +1,10 @@
-import { FC, FormEvent } from 'react';
+import {
+    ButtonHTMLAttributes,
+    ComponentType,
+    FC,
+    FormEvent,
+    useState,
+} from 'react';
 import Section from './Section';
 import { Form } from '../lib/form/Form';
 import { Input } from '../lib/form/Input';
@@ -7,30 +13,35 @@ import { useForm } from '../lib/form/useForm';
 import { SpringButton } from '../lib/form/SpringButton';
 import styles from '../styles/variables.module.scss';
 
+const FormButton: FC<ButtonHTMLAttributes<HTMLButtonElement>> = props => {
+    return (
+        <SpringButton
+            {...props}
+            textColor={{
+                defaultColor: styles.pColor,
+                hoverColor: styles.primaryThemeColor,
+            }}
+            borderColor={{
+                defaultColor: styles.dividerColor,
+                hoverColor: styles.primaryThemeColor,
+            }}>
+            {props?.disabled ? 'Sent!' : 'Submit'}
+        </SpringButton>
+    );
+};
+
 const ContactBody = () => {
-    const [, onChange] = useForm({
+    const [form, onChange] = useForm({
         emailAddress: '',
         message: '',
     });
 
+    const [sent, setSent] = useState(false);
+
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
-    };
-
-    const FormButton = () => {
-        return (
-            <SpringButton
-                textColor={{
-                    defaultColor: styles.pColor,
-                    hoverColor: styles.primaryThemeColor,
-                }}
-                borderColor={{
-                    defaultColor: styles.dividerColor,
-                    hoverColor: styles.primaryThemeColor,
-                }}>
-                Submit
-            </SpringButton>
-        );
+        console.log(form);
+        setSent(true);
     };
 
     return (
@@ -39,18 +50,21 @@ const ContactBody = () => {
                 <Form
                     onSubmit={onSubmit}
                     className="contact"
+                    disabled={sent}
                     buttonComponent={FormButton}>
                     <Input
                         onChange={(x: any) => onChange(x, 'emailAddress')}
                         label="Email"
                         type="email"
                         required
+                        disabled={sent}
                     />
                     <TextArea
                         label="Message"
                         className="messagebox"
                         required
                         onChange={(x: any) => onChange(x, 'message')}
+                        disabled={sent}
                     />
                 </Form>
             </div>
