@@ -1,10 +1,6 @@
-import {
-    ButtonHTMLAttributes,
-    ComponentType,
-    FC,
-    FormEvent,
-    useState,
-} from 'react';
+import { FC, FormEvent, useState } from 'react';
+import { CheckCircle } from 'react-feather';
+import useAxios from 'axios-hooks';
 import Section from './Section';
 import { Form } from '../lib/form/Form';
 import { Input } from '../lib/form/Input';
@@ -12,20 +8,40 @@ import { TextArea } from '../lib/form/TextArea';
 import { useForm } from '../lib/form/useForm';
 import { SpringButton } from '../lib/form/SpringButton';
 import styles from '../styles/variables.module.scss';
+import { ButtonProps } from '../lib/form/Button';
 
-const FormButton: FC<ButtonHTMLAttributes<HTMLButtonElement>> = props => {
+const FormButton: FC<ButtonProps> = props => {
+    const isSuccess = props?.disabled && !props?.loading;
+    const textColor = isSuccess
+        ? {
+              defaultColor: styles.colorSuccess,
+              hoverColor: styles.colorSuccess,
+          }
+        : {
+              defaultColor: styles.pColor,
+              hoverColor: styles.primaryThemeColor,
+          };
+    const borderColor = isSuccess
+        ? {
+              defaultColor: styles.colorSuccess,
+              hoverColor: styles.colorSuccess,
+          }
+        : {
+              defaultColor: styles.dividerColor,
+              hoverColor: styles.primaryThemeColor,
+          };
     return (
         <SpringButton
             {...props}
-            textColor={{
-                defaultColor: styles.pColor,
-                hoverColor: styles.primaryThemeColor,
-            }}
-            borderColor={{
-                defaultColor: styles.dividerColor,
-                hoverColor: styles.primaryThemeColor,
-            }}>
-            {props?.disabled ? 'Sent!' : 'Submit'}
+            textColor={textColor}
+            borderColor={borderColor}>
+            {isSuccess ? (
+                <>
+                    <span>Sent!</span> <CheckCircle size={15} />
+                </>
+            ) : (
+                <span>{!props?.loading ? 'Submit' : ''}</span>
+            )}
         </SpringButton>
     );
 };
@@ -37,10 +53,17 @@ const ContactBody = () => {
     });
 
     const [sent, setSent] = useState(false);
+    const [{ loading }, sendEmail] = useAxios(
+        {
+            url: '/api/email',
+            method: 'POST',
+        },
+        { manual: true },
+    );
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
-        console.log(form);
+        sendEmail({ data: form });
         setSent(true);
     };
 
@@ -48,6 +71,7 @@ const ContactBody = () => {
         <div className="contact">
             <div className="contact-container">
                 <Form
+                    loading={loading}
                     onSubmit={onSubmit}
                     className="contact"
                     disabled={sent}
@@ -56,6 +80,7 @@ const ContactBody = () => {
                         onChange={(x: any) => onChange(x, 'emailAddress')}
                         label="Email"
                         type="email"
+                        title={sent ? `Sent from ${form.emailAddress}` : ''}
                         required
                         disabled={sent}
                     />
@@ -63,6 +88,7 @@ const ContactBody = () => {
                         label="Message"
                         className="messagebox"
                         required
+                        title={sent ? 'Sent message' : ''}
                         onChange={(x: any) => onChange(x, 'message')}
                         disabled={sent}
                     />

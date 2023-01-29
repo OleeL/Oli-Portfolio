@@ -26,3 +26,6 @@ yarn.lock
 /.next
 /.vscode
 /out
+
+# env
+.env.local

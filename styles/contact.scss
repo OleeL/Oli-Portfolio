@@ -55,6 +55,7 @@
         .button {
             &-default {
                 display: block;
+                position: relative;
                 margin: 10px 10px 10px 0px;
                 padding: 10px;
                 min-width: 90px;
@@ -64,9 +65,20 @@
                 font-size: 15px;
                 border-radius: 5px;
                 border-width: 1px;
+
                 &:hover {
                     color: $primary-theme-color;
                 }
+            }
+        }
+
+        button {
+            svg {
+                vertical-align: text-top;
+            }
+
+            .spinner {
+                stroke: $primary-theme-color;
             }
         }
 
@@ -90,6 +102,8 @@
 
         input:disabled, textarea:disabled, button:disabled {
             cursor: not-allowed;
+            background-color: $primary-background-color-darken;
+            color: #404040;
         }
 
         .title {
@@ -107,7 +121,7 @@
             box-shadow: 1px 0px 40px 5px rgb(0 0 0 / 9%);
             background-color: rgba(0,0,0,0);
             color: $p-color;
-            font-size: 20px;
+            font-size: 18px;
             font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
         }
     }

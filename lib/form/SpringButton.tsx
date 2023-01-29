@@ -1,5 +1,7 @@
 import { FC, HTMLAttributes, useId, useState } from 'react';
 import { a, useSpring } from 'react-spring';
+import { Spinner } from '../components/Spinner';
+import { ExtraProps } from './Button';
 
 export type HoverColorType = {
     hoverColor: string;
@@ -16,7 +18,9 @@ const hoverKeys: HoverTypes = {
     borderColor: undefined,
 };
 
-export type SpringButtonProps = HTMLAttributes<HTMLButtonElement> & HoverTypes;
+export type SpringButtonProps = HTMLAttributes<HTMLButtonElement> &
+    HoverTypes &
+    ExtraProps;
 
 const getPropColor = (prop: HoverColorType | null, hover: boolean) => {
     if (!prop) return 'white';
@@ -33,6 +37,19 @@ export const SpringButton: FC<SpringButtonProps> = props => {
         id = defaultId,
         textColor,
         borderColor = null,
+        loading = false,
+        loadingProps = {
+            settings: {
+                radius: 20,
+                size: 50,
+            },
+            svgProps: {
+                style: {
+                    width: 20,
+                    height: 20,
+                },
+            },
+        },
     } = props;
 
     const [hover, setHover] = useState(false);
@@ -55,6 +72,7 @@ export const SpringButton: FC<SpringButtonProps> = props => {
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}>
             {children}
+            {loading && <Spinner {...loadingProps} />}
         </a.button>
     );
 };
