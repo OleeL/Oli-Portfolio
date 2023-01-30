@@ -13,11 +13,6 @@ type HoverTypes = {
     borderColor?: HoverColorType;
 };
 
-const hoverKeys: HoverTypes = {
-    textColor: undefined,
-    borderColor: undefined,
-};
-
 export type SpringButtonProps = HTMLAttributes<HTMLButtonElement> &
     HoverTypes &
     ExtraProps;
@@ -50,6 +45,7 @@ export const SpringButton: FC<SpringButtonProps> = props => {
                 },
             },
         },
+        ...rest
     } = props;
 
     const [hover, setHover] = useState(false);
@@ -58,16 +54,11 @@ export const SpringButton: FC<SpringButtonProps> = props => {
         ...(borderColor && { borderColor: getPropColor(borderColor, hover) }),
     });
 
-    const newProps = { ...props };
-    Object.keys(hoverKeys).forEach((key: string) => {
-        delete newProps[key as keyof HoverTypes];
-    });
-
     return (
         <a.button
             id={id}
             style={{ ...style, ...spring }}
-            {...newProps}
+            {...rest}
             className={`button-${className}`}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}>

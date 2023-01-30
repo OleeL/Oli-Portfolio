@@ -1,25 +1,16 @@
 import { ComponentType, FC } from 'react';
 import { Button, ButtonProps } from './Button';
 
-type FormAddendum = {
+type FormProps = React.DetailedHTMLProps<
+    React.FormHTMLAttributes<HTMLFormElement>,
+    HTMLFormElement
+> & {
     submitText?: string;
     omitSubmit?: boolean;
     buttonComponent?: ComponentType<ButtonProps>;
     loading?: boolean;
     disabled?: boolean;
 };
-
-const formAddendumKeys: FormAddendum = {
-    submitText: undefined,
-    omitSubmit: undefined,
-    buttonComponent: undefined,
-} as FormAddendum;
-
-type FormProps = React.DetailedHTMLProps<
-    React.FormHTMLAttributes<HTMLFormElement>,
-    HTMLFormElement
-> &
-    FormAddendum;
 
 export const Form: FC<FormProps> = props => {
     const {
@@ -29,28 +20,20 @@ export const Form: FC<FormProps> = props => {
         omitSubmit = false,
         disabled = false,
         loading = false,
+        buttonComponent = Button,
         onSubmit = () => {},
+        ...rest
     } = props;
 
-    const ButtonComponent = props?.buttonComponent ?? Button;
-
-    const cleanseProps = { ...props };
-    Object.keys(formAddendumKeys).forEach((key: string) => {
-        delete cleanseProps[key as keyof FormAddendum];
-    });
+    const ButtonComponent = buttonComponent;
 
     return (
-        <form
-            {...cleanseProps}
-            className={`form-${className}`}
-            onSubmit={onSubmit}>
+        <form {...rest} className={`form-${className}`} onSubmit={onSubmit}>
             {children}
             {!omitSubmit && (
-                <>
-                    <ButtonComponent disabled={disabled} loading={loading}>
-                        {submitText}
-                    </ButtonComponent>
-                </>
+                <ButtonComponent disabled={disabled} loading={loading}>
+                    {submitText}
+                </ButtonComponent>
             )}
         </form>
     );

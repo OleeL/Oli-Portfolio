@@ -36,10 +36,10 @@ export const useFadeReset = (props: UseSpringProps, deps: readonly any[]) => {
 };
 
 const getDefaultFadeProps = ({
-    length,
-    delay = 100,
+    length = 1,
+    delay = 500,
     initialDelay = 0,
-}: FadePropsArr): Required<FadePropsArr> => {
+}: Partial<FadePropsArr>): Required<FadePropsArr> => {
     return { length, delay, initialDelay };
 };
 
@@ -65,6 +65,7 @@ type FadeInIfVisible = {
 export const useFadeInIfVisible = (props?: FadeProps): FadeInIfVisible => {
     const [isVisible, setVisible] = useState(false);
     const ref = useRef();
+    const { delay, initialDelay } = getDefaultFadeProps({ ...props });
     useEffect(() => {
         if (!ref.current) {
             return () => {};
@@ -93,7 +94,8 @@ export const useFadeInIfVisible = (props?: FadeProps): FadeInIfVisible => {
             ? 'translate(0px, 0px)'
             : 'translate(-10px, -20px)',
         config: { mass: 70, tension: 1000, friction: 700 },
-        ...props,
+        delay,
+        initialDelay,
     });
     return { ref, isVisible, fade };
 };

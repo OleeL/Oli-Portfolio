@@ -2,9 +2,15 @@ import { NextApiRequest, NextApiResponse } from 'next/types';
 import nodemailer from 'nodemailer';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
+    if (!req.body?.message || !req.body?.emailAddress) {
+        res.status(400).json({
+            error: 'Bad request',
+        });
+        return res;
+    }
     const message = {
         from: process.env.EMAIL_ADDRESS,
-        to: process.env.EMAIL_ADDRESS,
+        to: process.env.EMAIL_ADDRESS_TO,
         subject: 'Portfolio Contact Notification',
         text: req.body.message,
         html: `
@@ -32,13 +38,17 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         transporter.sendMail(message, err => {
             if (err) {
                 return res.status(500).json({
-                    error: 'Connection refused',
+                    error: 'Internal Server Error',
                 });
             }
             return res.status(250).json({
                 success: 'Message delivered',
             });
         });
+        return res;
     }
-    return res.status(405);
+    res.status(405).json({
+        error: 'Bad Method',
+    });
+    return res;
 }
