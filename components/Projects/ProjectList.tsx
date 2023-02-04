@@ -28,18 +28,19 @@ export const ProjectList: Project[] = provideIds([
         tags: provideIds([{ name: 'Java' }, { name: 'LWJGL' }]),
         image: {
             src: '/images/projects/turris.png',
-            alt: 'An image of turris',
+            alt: 'Turris image',
             ...defaultImage,
         },
     },
     {
-        name: 'LoL Performance Analysis',
+        name: 'LoL PA',
         description: (
             <>
                 <p>
-                    Developed on and helped to achieve a successful project
-                    implementing unit tests, code reviews and a CI/CD pipeline
-                    on Azure.
+                    League of legends tool - Provides players with detailed
+                    statistics and insights on their in-game performance,
+                    including win rates, KDA, item builds, and summoner spell
+                    usage.
                 </p>
             </>
         ),
@@ -50,27 +51,35 @@ export const ProjectList: Project[] = provideIds([
             { name: '.NET Core' },
             { name: 'C#' },
         ]),
-        image: { src: '', alt: 'An image of lolPerfTool', ...defaultImage },
+        image: {
+            src: '/images/projects/lolPerf.png',
+            alt: 'An image of lolPerfTool',
+            ...defaultImage,
+        },
     },
     {
-        name: 'LoL Performance Analysis Tool',
+        name: 'Network Visualisation',
         description: (
             <p>
-                Developed on and helped to achieve a successful project
-                implementing unit tests, code reviews and a CI/CD pipeline on
-                Azure.
+                A project to accelerate a force directed placement algorithm
+                that running on the GPU (using CUDA) to outperform the same
+                algorithm on the CPU.
             </p>
         ),
-        url: 'https://www.github.com/',
+        url: 'https://github.com/OleeL/NetworkVisualisation-CUDA',
         tags: provideIds([
             { name: 'React' },
             { name: '.NET 3' },
             { name: 'C#' },
         ]),
-        image: { src: '', alt: 'An image of lolPerfTool', ...defaultImage },
+        image: {
+            src: '/images/projects/graphNodes.png',
+            alt: 'Network Graph',
+            ...defaultImage,
+        },
     },
     {
-        name: 'LoL Performance Analysis Tool',
+        name: 'Arkanoid Clone',
         description: (
             <>
                 <p>
@@ -80,12 +89,16 @@ export const ProjectList: Project[] = provideIds([
                 </p>
             </>
         ),
-        url: 'https://www.github.com/',
+        url: 'https://github.com/OleeL/Arkanoid',
         tags: provideIds([
             { name: 'React' },
             { name: '.NET 3' },
             { name: 'C#' },
         ]),
-        image: { src: '', alt: 'An image of lolPerfTool', ...defaultImage },
+        image: {
+            src: '/images/projects/arkanoid.png',
+            alt: 'Arkanoid teaser image',
+            ...defaultImage,
+        },
     },
 ]);

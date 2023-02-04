@@ -9,11 +9,13 @@
     pointer-events: all;
 
     .image-container {
-        margin: 10px 0 0 0;
+        margin: 0;
         position: relative;
 
         * {
             border-radius: 7px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
         .image-overlay {
@@ -29,28 +31,45 @@
     }
 }
 
+#underline {
+    position: relative;
+    height: 2px;
+}
+
 .project-box {
     margin: 5px;
-    padding: 20px;
     width: 300px;
     height: 400px;
     font-size: 15px;
     display: block;
     font-family: "Fira Code";
-    user-select: none;
-    pointer-events: none;
     border-radius: 7px;
+    cursor: pointer;
+    border: 1px solid $divider-color;
+    background-color: $primary-background-color-darken;
 
-    background-color: $primary-background-color;
+    &-content {
+        padding: 15px;
+        > p {
+            margin: 7px 0 0 0;
+        }
+        >div {
+            width: min-content;
+            white-space: nowrap;
+        }
+
+    }
+}
+
+.underline {
+    background-color: $primary-theme-color;
+    height: 2px;
 }
 
 .carousel {
     display: flex;
     overflow-x: auto;
     padding: 5px;
-    border-radius: 7px;
-    border: 1px solid $divider-color;
-    background-color: $primary-background-color-darken;
 
     a {
         font-size: 20px;

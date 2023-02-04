@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { a, useSpring } from 'react-spring';
 import Section from '../Section';
 import { Project, ProjectList } from './ProjectList';
+import { redirect } from '../../lib/helpers/window';
 
 // type DragEvent = {
 //     isDragging: boolean;
@@ -68,27 +69,42 @@ const Project: FC<Project> = ({ url, name, description, image }) => {
 
     const [hovered, setHovered] = useState(false);
 
-    const spring = useSpring({
+    const springOverlay = useSpring({
         opacity: hovered ? 0 : 0.5,
     });
+
+    const springUnderline = useSpring({
+        width: hovered ? '100%' : '0%',
+    });
+
     return (
-        <div className="home-box project-box">
-            <a href={url}>{name}</a>
-            {/* eslint-disable jsx-a11y/alt-text */}
+        <div
+            className="home-box project-box"
+            onClick={() => {
+                redirect(url);
+            }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}>
             {image && (
-                <div
-                    className="image-container"
-                    style={box}
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}>
+                <div className="image-container" style={box}>
+                    {/* eslint-disable jsx-a11y/alt-text */}
                     <Image {...image} />
                     <a.div
                         className="image-overlay"
-                        style={{ ...spring, ...box }}
+                        style={{ ...springOverlay, ...box }}
                     />
                 </div>
             )}
-            {description}
+
+            <div className="project-box-content">
+                <div>
+                    <a href={url}>
+                        {name}
+                        <a.div className="underline" style={springUnderline} />
+                    </a>
+                </div>
+                {description}
+            </div>
         </div>
     );
 };

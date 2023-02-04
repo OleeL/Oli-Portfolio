@@ -1,3 +1,5 @@
+import router from 'next/router';
+
 export const isBrowser = () => typeof window !== 'undefined';
 
 export const nextOpen = (
@@ -10,3 +12,5 @@ export const nextOpen = (
     }
     return null;
 };
+
+export const redirect = (url: string) => router.push(url);
