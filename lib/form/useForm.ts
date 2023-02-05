@@ -1,5 +1,5 @@
 import { useState, SyntheticEvent } from 'react';
-import create from 'zustand';
+import { create } from 'zustand';
 import usePrev from '../global_hooks/usePrev';
 
 type FormParams<T> = { [s: string]: T };
@@ -29,6 +29,7 @@ const useStoreForm = create<Store<any>>(set => ({
 }));
 
 export const useForm = <T>({ obj }: FormParams<T>) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { form, setForm, changeForm } = useStoreForm();
     const [validState, setValidState] = useState<Record<string, any>>({});
     const prev = usePrev(validState);
