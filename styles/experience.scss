@@ -129,7 +129,7 @@
     }
 
     a {
-        color: $p-color;
+        color: inherit;
     }
 
     .description {
@@ -153,6 +153,7 @@
         white-space: nowrap;
         margin-right: 18px;
         margin-top: 20px;
+        color: $p-grey-dark;
     }
 }
 
