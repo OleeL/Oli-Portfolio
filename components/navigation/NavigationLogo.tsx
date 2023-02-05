@@ -91,10 +91,10 @@ const NavigationLogo = ({ props }: ILogoProps) => {
     useEffect(() => {}, []);
 
     return (
-        <svg className="logo">
+        <a.svg style={props} className="logo">
             <a.polygon
                 {...spring}
-                style={{ ...props, ...rotationSpring }}
+                style={rotationSpring}
                 shapeRendering="geometricPrecision"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
@@ -105,7 +105,7 @@ const NavigationLogo = ({ props }: ILogoProps) => {
             <a.text className="logo-text" x="42" y="50">
                 OL
             </a.text>
-        </svg>
+        </a.svg>
     );
 };
 
