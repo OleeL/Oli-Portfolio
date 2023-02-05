@@ -61,9 +61,9 @@ export const ProjectList: Project[] = provideIds([
         name: 'Network Visualisation',
         description: (
             <p>
-                A project to accelerate a force directed placement algorithm
-                that running on the GPU (using CUDA) to outperform the same
-                algorithm on the CPU.
+                A project to accelerate a force directed placement algorithm on
+                the GPU (using CUDA) to outperform the same algorithm on the
+                CPU.
             </p>
         ),
         url: 'https://github.com/OleeL/NetworkVisualisation-CUDA',
