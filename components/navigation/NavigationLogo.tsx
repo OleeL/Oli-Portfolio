@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { a, useSpring } from 'react-spring';
 
 const MIN = 16;
@@ -88,6 +88,8 @@ const NavigationLogo = ({ props }: ILogoProps) => {
         fillOpacity: hovered ? 0.1 : 0,
     });
 
+    useEffect(() => {}, []);
+
     return (
         <svg className="logo">
             <a.polygon
@@ -100,7 +102,7 @@ const NavigationLogo = ({ props }: ILogoProps) => {
                     window.location.href = '/';
                 }}
             />
-            <a.text className="logo-text" style={props} x="42" y="50">
+            <a.text className="logo-text" x="42" y="50">
                 OL
             </a.text>
         </svg>
