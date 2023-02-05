@@ -3,7 +3,7 @@ import { a } from 'react-spring';
 import { useFadeInArr } from '../lib/global_hooks';
 
 const Profile: FC = () => {
-    const [fade] = useFadeInArr({ length: 3, delay: 300 });
+    const [fade] = useFadeInArr({ length: 3, delay: 0 });
 
     return (
         <section className="centered full-screen" id="profile">

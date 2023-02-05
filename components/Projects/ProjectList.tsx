@@ -37,10 +37,10 @@ export const ProjectList: Project[] = provideIds([
         description: (
             <>
                 <p>
-                    League of legends tool - Provides players with detailed
-                    statistics and insights on their in-game performance,
-                    including win rates, KDA, item builds, and summoner spell
-                    usage.
+                    Using the League of Legends API to provide players with
+                    detailed statistics and insights on their in-game
+                    performance, including win rates, KDA, item builds, and
+                    summoner spell usage.
                 </p>
             </>
         ),
@@ -81,13 +81,11 @@ export const ProjectList: Project[] = provideIds([
     {
         name: 'Arkanoid Clone',
         description: (
-            <>
-                <p>
-                    Developed on and helped to achieve a successful project
-                    implementing unit tests, code reviews and a CI/CD pipeline
-                    on Azure.
-                </p>
-            </>
+            <p>
+                Created in jMonkeyEngine, to learn game development. Learnt how
+                to create and implement game objects, physics and collisions,
+                and creating user interface elements.
+            </p>
         ),
         url: 'https://github.com/OleeL/Arkanoid',
         tags: provideIds([
