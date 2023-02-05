@@ -37,7 +37,7 @@ export const useFadeReset = (props: UseSpringProps, deps: readonly any[]) => {
 
 const getDefaultFadeProps = ({
     length = 1,
-    delay = 500,
+    delay = 200,
     initialDelay = 0,
 }: Partial<FadePropsArr>): Required<FadePropsArr> => {
     return { length, delay, initialDelay };
