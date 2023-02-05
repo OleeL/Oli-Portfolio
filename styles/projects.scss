@@ -18,6 +18,10 @@
             border-bottom-right-radius: 0;
         }
 
+        img {
+            object-fit: cover;
+        }
+
         .image-overlay {
             cursor: pointer;
             background-color: $primary-theme-color;

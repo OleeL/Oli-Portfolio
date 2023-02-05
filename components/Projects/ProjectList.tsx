@@ -12,7 +12,7 @@ export type Project = {
     image?: ImageProps;
 };
 
-const defaultImage = { width: 300, height: 200 };
+const defaultImage: Partial<ImageProps> = { width: 300, height: 200 };
 
 export const ProjectList: Project[] = provideIds([
     {
