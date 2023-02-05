@@ -5,62 +5,6 @@ import Section from '../Section';
 import { Project, ProjectList } from './ProjectList';
 import { BulokeWindow } from '../../lib/helpers/window';
 
-// type DragEvent = {
-//     isDragging: boolean;
-//     x: number | undefined;
-// };
-
-// const CarouselContainerContent = () => {
-//     const initDragState = { isDragging: false, x: undefined };
-//     const [dragEvent, setDragEvent] = useState<DragEvent>(initDragState);
-//     const [x, setX] = useState<number | undefined>(undefined);
-
-//     const mouseDown = ({ clientX }: MouseEvent<HTMLDivElement>) => {
-//         setDragEvent({ isDragging: true, x: clientX });
-//     };
-
-//     useEffect(() => {
-//         const mouseUp = () => {
-//             setDragEvent({ x: dragEvent.x, isDragging: false });
-//         };
-
-//         const mouseMove = (ev: { clientX: number }): any => {
-//             if (!dragEvent.isDragging) return;
-//             setX(ev.clientX - (dragEvent?.x ?? 0) + (x ?? 0));
-//         };
-
-//         const removeEventListeners = () => {
-//             if (BulokeWindow.isBrowser()) {
-//                 window.removeEventListener('mouseup', mouseUp);
-//                 window.removeEventListener('mousemove', mouseMove);
-//             }
-//         };
-
-//         if (BulokeWindow.isBrowser()) {
-//             removeEventListeners();
-//             window.addEventListener('mouseup', mouseUp);
-//             window.addEventListener('mousemove', mouseMove);
-//         }
-
-//         return () => removeEventListeners();
-//     }, [dragEvent]);
-
-//     return (
-//         <div>
-//             <div style={{ left: x }} className="projects-container" onMouseDown={mouseDown}>
-//                 {ProjectList.map(({ id, url, name, description }) => (
-//                     <div key={id} className="home-box project-box">
-//                         <>
-//                             <a href={url}>{name}</a>
-//                             {description}
-//                         </>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// };
-
 const Project: FC<Project> = ({ url, name, description, image }) => {
     const box = {
         width: image?.width ?? 0,
