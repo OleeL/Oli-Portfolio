@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { isBrowser } from '../helpers/window';
+import { BulokeWindow } from '../helpers/window';
 
 type IWidthHeight = {
     width: number;
@@ -13,7 +13,7 @@ export const useWindowSize = (): IWidthHeight => {
     });
 
     useEffect(() => {
-        if (!isBrowser()) return () => {};
+        if (!BulokeWindow.isBrowser()) return () => {};
         const handleResize = () => {
             setWindowSize({
                 width: window.innerWidth,
@@ -29,7 +29,7 @@ export const useWindowSize = (): IWidthHeight => {
 
 export const useWindowResize = (func: () => void) =>
     useEffect(() => {
-        if (!isBrowser()) return () => {};
+        if (!BulokeWindow.isBrowser()) return () => {};
         window.addEventListener('resize', func);
         return () => window.removeEventListener('resize', func);
     }, []);

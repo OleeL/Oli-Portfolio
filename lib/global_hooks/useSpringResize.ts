@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSpring } from 'react-spring';
-import { isBrowser } from '../helpers/window';
+import { BulokeWindow } from '../helpers/window';
 
 const getRefPropertiesHeight = <T extends HTMLElement>(current: T | null) => {
-    if (!isBrowser() || !current) {
+    if (!BulokeWindow.isBrowser() || !current) {
         return 0;
     }
     const { marginTop, marginBottom, paddingTop, paddingBottom } =

@@ -10,21 +10,26 @@ export const experiences: ExperienceType[] = provideIds([
         description: (
             <>
                 <p>
-                    Developed on and helped to achieve a successful project
-                    implementing unit tests, code reviews and a CI/CD pipeline
-                    on Azure.
+                    Developing user-friendly and visually appealing applications
+                    using React, React Native, HTML, CSS/SCSS and JS/TS.
                 </p>
                 <p>
-                    Collaborated with clients and communicated with them to help
-                    them turn their ideas into reality.
+                    Writing clean, efficient, and well-documented code that
+                    adheres to best practices and standards.
                 </p>
                 <p>
-                    Designed and implemented software using C# .NET Core 6.0
-                    with Blazor.
+                    Collaborating with cross-functional teams including
+                    designers, project managers, and other developers to bring
+                    new features and functionality to life.
                 </p>
                 <p>
-                    Training to be Microsoft Azure Certified as an Azure
-                    Developer Associate.
+                    Debugging, testing and fixing bugs and compatibility issues
+                    across various browsers and platforms.
+                </p>
+                <p>
+                    Keeping up-to-date with emerging trends and technologies in
+                    the software development industry, and continuously
+                    improving skills and knowledge.
                 </p>
             </>
         ),

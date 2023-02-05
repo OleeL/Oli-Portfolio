@@ -17,7 +17,7 @@ import { useFadeReset } from '../../lib/global_hooks';
 import { useSelectionSlider } from '../../lib/global_hooks/useSelectionSlider';
 import useExperience from './hooks/useExperience';
 import Section from '../Section';
-import { isBrowser } from '../../lib/helpers/window';
+import { BulokeWindow } from '../../lib/helpers/window';
 import styles from '../../styles/variables.module.scss';
 import { useWindowSize } from '../../lib/global_hooks/window';
 
@@ -108,7 +108,7 @@ const ExperienceListElement: FC<IExperienceListElement> = ({
 };
 
 const getExtraHeight = (elementId: string): number => {
-    if (!isBrowser()) return 0;
+    if (!BulokeWindow.isBrowser()) return 0;
 
     const el = document.getElementById(elementId);
     if (!el) return 0;

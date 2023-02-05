@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { a, useSpring } from 'react-spring';
 import Section from '../Section';
 import { Project, ProjectList } from './ProjectList';
-import { redirect } from '../../lib/helpers/window';
+import { BulokeWindow } from '../../lib/helpers/window';
 
 // type DragEvent = {
 //     isDragging: boolean;
@@ -30,13 +30,13 @@ import { redirect } from '../../lib/helpers/window';
 //         };
 
 //         const removeEventListeners = () => {
-//             if (isBrowser()) {
+//             if (BulokeWindow.isBrowser()) {
 //                 window.removeEventListener('mouseup', mouseUp);
 //                 window.removeEventListener('mousemove', mouseMove);
 //             }
 //         };
 
-//         if (isBrowser()) {
+//         if (BulokeWindow.isBrowser()) {
 //             removeEventListeners();
 //             window.addEventListener('mouseup', mouseUp);
 //             window.addEventListener('mousemove', mouseMove);
@@ -81,7 +81,7 @@ const Project: FC<Project> = ({ url, name, description, image }) => {
         <div
             className="home-box project-box"
             onClick={() => {
-                redirect(url);
+                BulokeWindow.redirect(url);
             }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}>

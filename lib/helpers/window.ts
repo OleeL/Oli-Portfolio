@@ -1,16 +1,18 @@
 import router from 'next/router';
 
-export const isBrowser = () => typeof window !== 'undefined';
+export class BulokeWindow {
+    public static isBrowser = () => typeof window !== 'undefined';
 
-export const nextOpen = (
-    url?: string | URL,
-    target?: string,
-    features?: string,
-): WindowProxy | null => {
-    if (isBrowser()) {
-        return window.open(url, target, features);
-    }
-    return null;
-};
+    public static nextOpen = (
+        url?: string | URL,
+        target?: string,
+        features?: string,
+    ): WindowProxy | null => {
+        if (BulokeWindow.isBrowser()) {
+            return window.open(url, target, features);
+        }
+        return null;
+    };
 
-export const redirect = (url: string) => router.push(url);
+    public static redirect = (url: string) => router.push(url);
+}
