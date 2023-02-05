@@ -6,8 +6,16 @@ class MyDocument extends Document {
             <Html lang={'en-GB'}>
                 <title>Oliver Legg</title>
                 <Head>
-                    <meta name="title" content="Oliver Legg's Portfolio" key="title" />
-                    <meta name="description" content="Contact info, work etc." key="description" />
+                    <meta
+                        name="title"
+                        content="Oliver Legg's Portfolio"
+                        key="title"
+                    />
+                    <meta
+                        name="description"
+                        content="Contact info, work etc."
+                        key="description"
+                    />
                     <meta name="theme-color" content="#282c34" />
                     <link
                         rel="apple-touch-icon"

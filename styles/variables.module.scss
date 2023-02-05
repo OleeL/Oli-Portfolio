@@ -1,0 +1,11 @@
+@import './_variables';
+
+:export {
+    primaryThemeColor: $primary-theme-color;
+    primaryThemeColorDimmed: $primary-theme-color-dimmed;
+    backgroundColor: $primary-background-color;
+    dividerColor: $divider-color;
+    pColor: $p-color;
+    mediaMaxWidth: $media-max-width;
+    colorSuccess: $color-success;
+}

@@ -1,0 +1,128 @@
+@import "./variables";
+
+.contact {
+    display: flex;
+    position: relative;
+    border: 1px solid $divider-color;
+    border-radius: 7px;
+    padding: 20px;
+    margin-bottom: 50px;
+
+    &-container {
+        width: 100%;
+        pointer-events: all;
+        display: block;
+    }
+
+    &-box {
+        margin: 5px;
+        padding: 20px;
+        width: 300px;
+        height: 400px;
+        font-size: 16px;
+        display: block;
+        font-family: "Fira Code";
+        user-select: none;
+        pointer-events: none;
+    }
+
+    &-sent-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255,255,255,0.1);
+        backdrop-filter: blur(5px);
+        border-radius: 7px;
+        left:0;
+        top:0;
+        color: $h1-color;
+    }
+
+    .form-contact {
+        display: block;
+        width: 100%;
+
+        .label {
+            &-default {
+                display: block;
+                margin-bottom: 8px;
+                color: $h2-color;
+                font-weight: 600;
+                font-size: 24px;
+            }
+        }
+
+        .button {
+            &-default {
+                display: block;
+                position: relative;
+                margin: 10px 10px 10px 0px;
+                padding: 10px;
+                min-width: 90px;
+                background-color: $divider-color;
+                border: 0px solid $divider-color;
+                color: $profile-text-color;
+                font-size: 15px;
+                border-radius: 5px;
+                border-width: 1px;
+
+                &:hover {
+                    color: $primary-theme-color;
+                }
+            }
+        }
+
+        button {
+            svg {
+                vertical-align: text-top;
+            }
+
+            .spinner {
+                stroke: $primary-theme-color;
+            }
+        }
+
+        .input {
+            padding: 5px 9px 5px 9px;
+            display: block;
+            margin-bottom: 10px;
+            min-width: 300px;
+            border-radius: 5px;
+            border: 1px $divider-color solid;
+            box-shadow: 1px 0px 40px 5px rgb(0 0 0 / 9%);
+            background-color: rgba(0,0,0,0);
+            color: $p-color;
+            font-size: 18px;
+            font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+        }
+
+        .input:active {
+            border-color: $primary-theme-color;
+        }
+
+        input:disabled, textarea:disabled, button:disabled {
+            cursor: not-allowed;
+            background-color: $primary-background-color-darken;
+            color: #404040;
+        }
+
+        .title {
+            .default {
+                display: block;
+            }
+        }
+
+        .messagebox {
+            padding: 5px 9px 5px 9px;
+            border-radius: 5px;
+            border: 1px $divider-color solid;
+            height: 150px;
+            width: -webkit-fill-available;
+            box-shadow: 1px 0px 40px 5px rgb(0 0 0 / 9%);
+            background-color: rgba(0,0,0,0);
+            color: $p-color;
+            font-size: 18px;
+            font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+        }
+    }
+}

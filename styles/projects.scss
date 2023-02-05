@@ -1,0 +1,81 @@
+@import './variables';
+
+.projects-container {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    position: relative;
+    pointer-events: all;
+
+    .image-container {
+        margin: 0;
+        position: relative;
+
+        * {
+            border-radius: 7px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .image-overlay {
+            cursor: pointer;
+            background-color: $primary-theme-color;
+            user-select: all;
+            pointer-events: all;
+            opacity: 0.2;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+
+#underline {
+    position: relative;
+    height: 2px;
+}
+
+.project-box {
+    margin: 5px;
+    width: 300px;
+    height: 400px;
+    font-size: 15px;
+    display: block;
+    font-family: "Fira Code";
+    border-radius: 7px;
+    cursor: pointer;
+    border: 1px solid $divider-color;
+    background-color: $primary-background-color-darken;
+
+    &-content {
+        padding: 15px;
+        > p {
+            margin: 7px 0 0 0;
+        }
+        >div {
+            width: min-content;
+            white-space: nowrap;
+        }
+
+    }
+}
+
+.underline {
+    background-color: $primary-theme-color;
+    height: 2px;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    padding: 5px;
+
+    a {
+        font-size: 20px;
+    }
+    .carousel-shadow {
+        height: auto;
+        width: 1px;
+    }
+}

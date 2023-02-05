@@ -1,102 +1,29 @@
-import React, { BaseSyntheticEvent } from 'react';
-import css from 'styled-jsx/css';
-import ImageButton from '../components/ImageButton';
-import TiltingDiv from '../components/TiltingDiv';
-import router from 'next/dist/client/router';
-import dynamic from 'next/dynamic';
+import React from 'react';
+import NavigationComponent from '../components/Navigation';
+import Profile from '../components/Profile';
+import AboutMe from '../components/AboutMe';
+import Experience from '../components/experience/Experience';
+import Contact from '../components/Contact';
+import Projects from '../components/Projects/Projects';
 
-const pic_github = '/images/logos/ghlogo.svg';
-const pic_email = '/images/logos/emlogo.svg';
-const pic_linkedin = '/images/logos/lilogo.svg';
-// const pic_phone = '/images/logos/phlogo.svg';
-// const pic_profile = '/images/profilepic.webp';
-
-const LazyParticleBackdrop = dynamic(() => import('../components/ParticleBackdrop'), {
-    loading: () => <p>...</p>,
-});
-
-const PageStyle = css`
-    div {
-        min-height: 100vh;
-        max-width: 100vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        text-align: center;
-    }
-`;
-
-const FooterStyle = css`
-    div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-
-    a:link {
-        text-decoration: none;
-        color: #e5e5e5;
-    }
-
-    a:visited {
-        color: inherit;
-    }
-`;
-
-const ContentStyle = css`
-    div {
-        background-color: #1e2128;
-        padding: 5vmin;
-        box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.8);
-        border-radius: 10px;
-        justify-content: center;
-    }
-`;
-
-const App = () => <Page />;
-
-const Page = () => (
-    <div>
-        <style jsx>{PageStyle}</style>
-        <LazyParticleBackdrop />
-        <Content />
-    </div>
+const Content = () => (
+    <>
+        <main>
+            <NavigationComponent />
+            <Profile />
+            <AboutMe />
+            <Experience />
+            <Projects />
+            <Contact />
+        </main>
+    </>
 );
 
-const Content = () => {
+const App = () => {
     return (
-        <TiltingDiv style={{ width: '50vmin', height: '40vmin' }}>
-            <div>
-                <h1>Oliver Legg</h1>
-                <Footer />
-                <style jsx>{ContentStyle}</style>
-            </div>
-        </TiltingDiv>
+        <>
+            <Content />
+        </>
     );
 };
-
-const handleClick = (e: BaseSyntheticEvent, href: string) => {
-    e.preventDefault();
-    router.replace(href);
-};
-
-const Footer = () => {
-    return (
-        <div>
-            <style jsx>{FooterStyle}</style>
-            <ImageButton href="https://github.com/OleeL" src={pic_github} alt="GitHub" />
-            <ImageButton
-                onClick={(e: BaseSyntheticEvent) => handleClick(e, 'mailto:oliglegg@hotmail.co.uk')}
-                src={pic_email}
-                href="."
-                alt="Email"
-            />
-            <ImageButton href="https://linkedin.com/in/leggoli" src={pic_linkedin} alt="LinkedIn" />
-        </div>
-    );
-};
-
 export default App;
