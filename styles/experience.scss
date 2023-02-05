@@ -22,7 +22,7 @@
         margin: 0 0 27px;
 
         @media (max-width: $media-max-width) {
-            padding: 0 27px 27px 27px;
+            padding: 5px 0 0 0;
         }
         
         height: fit-content;
@@ -57,6 +57,7 @@
         margin-right: 0;
         width: -webkit-fill-available;
         padding-bottom: 0px;
+        padding-left: 0;
     }
 
     .list-element {
@@ -75,7 +76,7 @@
             }
             &:last-child {
                 margin-bottom: 0;
-            }   
+            }
         }
 
         @media (max-width: $media-max-width) {
@@ -83,6 +84,13 @@
             margin: 0 10px 4px 10px;
             white-space: nowrap;
             width: fit-content;
+
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 }
@@ -121,7 +129,7 @@
     }
 
     a {
-        color: $p-color;
+        color: inherit;
     }
 
     .description {
@@ -133,7 +141,7 @@
     }
 
     @media (max-width: $media-max-width) {
-        padding: 27px;
+        padding-top: 18px;
     }
 }
 
@@ -145,6 +153,7 @@
         white-space: nowrap;
         margin-right: 18px;
         margin-top: 20px;
+        color: $p-grey-dark;
     }
 }
 
