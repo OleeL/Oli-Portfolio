@@ -72,6 +72,7 @@ section {
     li {
         list-style: none;
         margin: 4px;
+        white-space: nowrap;
     }
     li:before {
         content: '';
@@ -88,8 +89,9 @@ section {
     }
     ul {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, 150px);
         width: 65%;
+        max-width: 500px;
     }
 
 

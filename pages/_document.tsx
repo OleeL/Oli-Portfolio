@@ -4,11 +4,11 @@ class MyDocument extends Document {
     render() {
         return (
             <Html lang={'en-GB'}>
-                <title>Oliver Legg</title>
+                <title>Oli Legg</title>
                 <Head>
                     <meta
                         name="title"
-                        content="Oliver Legg's Portfolio"
+                        content="Oli Legg's Portfolio"
                         key="title"
                     />
                     <meta

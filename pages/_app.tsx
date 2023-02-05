@@ -25,7 +25,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             html[0].setAttribute('lang', 'en');
         }
 
-        document.title = 'Oliver Legg';
+        document.title = 'Oli Legg';
     }, []);
 
     return (

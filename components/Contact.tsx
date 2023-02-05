@@ -86,7 +86,7 @@ const ContactBody = () => {
                     />
                     <TextArea
                         label="Message"
-                        className="messagebox"
+                        className="messagebox fill-width"
                         required
                         title={sent ? 'Sent message' : ''}
                         onChange={(x: any) => onChange(x, 'message')}

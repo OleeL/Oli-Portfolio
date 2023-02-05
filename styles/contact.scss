@@ -56,7 +56,7 @@
             &-default {
                 display: block;
                 position: relative;
-                margin: 10px 10px 10px 0px;
+                margin: 10px 10px 0px 0px;
                 padding: 10px;
                 min-width: 90px;
                 background-color: $divider-color;
@@ -86,7 +86,6 @@
             padding: 5px 9px 5px 9px;
             display: block;
             margin-bottom: 10px;
-            min-width: 300px;
             border-radius: 5px;
             border: 1px $divider-color solid;
             box-shadow: 1px 0px 40px 5px rgb(0 0 0 / 9%);
@@ -117,7 +116,6 @@
             border-radius: 5px;
             border: 1px $divider-color solid;
             height: 150px;
-            width: -webkit-fill-available;
             box-shadow: 1px 0px 40px 5px rgb(0 0 0 / 9%);
             background-color: rgba(0,0,0,0);
             color: $p-color;
