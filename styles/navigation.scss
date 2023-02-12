@@ -8,12 +8,19 @@
     flex-direction: row;
     flex-wrap: wrap;
 
+    @media (max-width: 750px) {
+        justify-content: center;
+    }
+
     ul {
         counter-reset: list-number;
     }
     svg {
         width: 85px;
         height: 85px;
+        cursor: pointer;
+        pointer-events: all;
+        
         .logo {
             stroke: $primary-theme-color;
             stroke-width: 3;
@@ -26,8 +33,6 @@
             fill: $primary-theme-color;
             stroke: $primary-theme-color;
             stroke-width: 3;
-            cursor: pointer;
-            pointer-events: all;
         }
         text {
             font-family: 'Segoe UI';
