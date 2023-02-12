@@ -45,11 +45,29 @@
         .label {
             &-default {
                 display: block;
-                margin-bottom: 5px;
+                margin: 0 0 5px 0;
+                padding-left: 25px;
                 color: $p-color;
                 font-family: "Fira Code";
                 font-size: 20px;
                 text-decoration: none;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+
+                    background-color: $primary-theme-color;
+                    -webkit-mask-image: url('/images/logos/chevron-right.svg');
+                    mask-image: url('/images/logos/chevron-right.svg');
+                    display: inline-block;
+                    background-color: $primary-theme-color;
+                    left: 0;
+                    top: 0;
+                    width: 20px;
+                    height: 20px;
+                }
             }
         }
 
@@ -111,6 +129,7 @@
             background: $divider-color;
             color: $p-color;
             font-size: 15px;
+            margin-bottom: 18px;
             font-family: "Fira Code";
         }
     }
