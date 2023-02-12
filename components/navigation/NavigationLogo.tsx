@@ -63,7 +63,13 @@ const NavigationLogo = ({ props }: ILogoProps) => {
             strokeDasharray: '157px',
             strokeDashoffset: '157px',
         },
-        config: { mass: 10, tension: 300, friction: 60 },
+        config: {
+            mass: 0.5,
+            tension: 20,
+            friction: 26,
+            damping: 1,
+            clamp: true,
+        },
     });
 
     const pointsSquared = useMemo(
