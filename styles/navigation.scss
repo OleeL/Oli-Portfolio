@@ -8,6 +8,10 @@
     flex-direction: row;
     flex-wrap: wrap;
 
+    @media (max-width: 750px) {
+        justify-content: center;
+    }
+
     ul {
         counter-reset: list-number;
     }

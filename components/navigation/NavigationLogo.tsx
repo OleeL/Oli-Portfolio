@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { useEffect, useMemo, useState } from 'react';
 import { a, useSpring } from 'react-spring';
 
@@ -117,4 +118,6 @@ const NavigationLogo = ({ props }: ILogoProps) => {
     );
 };
 
-export default NavigationLogo;
+export default dynamic(() => Promise.resolve(NavigationLogo), {
+    ssr: false,
+});
