@@ -65,9 +65,9 @@ const NavigationLogo = ({ props }: ILogoProps) => {
         },
         config: {
             mass: 0.5,
-            tension: 20,
-            friction: 26,
-            damping: 1,
+            precision: 0.01,
+            frequency: 1,
+            damping: 2,
             clamp: true,
         },
     });
@@ -90,27 +90,29 @@ const NavigationLogo = ({ props }: ILogoProps) => {
     );
 
     const spring = useSpring({
-        points: hovered ? pointsSquared : points,
-        fillOpacity: hovered ? 0.1 : 0,
+        points: !hovered ? pointsSquared : points,
+        fillOpacity: !hovered ? 0.1 : 0,
     });
 
     useEffect(() => {}, []);
 
     return (
         <a.svg style={props} className="logo">
-            <a.polygon
-                {...spring}
-                style={rotationSpring}
-                shapeRendering="geometricPrecision"
+            <g
                 onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                onClick={() => {
-                    window.location.href = '/';
-                }}
-            />
-            <a.text className="logo-text" x="42" y="50">
-                OL
-            </a.text>
+                onMouseLeave={() => setHovered(false)}>
+                <a.polygon
+                    {...spring}
+                    style={rotationSpring}
+                    shapeRendering="geometricPrecision"
+                    onClick={() => {
+                        window.location.href = '/';
+                    }}
+                />
+                <a.text className="logo-text" x="42" y="50">
+                    OL
+                </a.text>
+            </g>
         </a.svg>
     );
 };
