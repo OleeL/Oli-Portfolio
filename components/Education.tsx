@@ -4,7 +4,7 @@ import Section from './Section';
 const EducationBody = () => <p>Education</p>;
 
 const Education: FC = () => {
-    return <Section sectionName={'Education'} Content={EducationBody} />;
+    return <Section sectionName={'Education'} content={EducationBody} />;
 };
 
 export default Education;

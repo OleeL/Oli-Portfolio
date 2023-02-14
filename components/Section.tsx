@@ -5,10 +5,10 @@ import { toKebabCase } from '../lib/helpers/string';
 
 interface ISection {
     sectionName: string;
-    Content: FC<{ fade: any }>;
+    content: FC<{ fade: any }>;
 }
 
-const Section: FC<ISection> = ({ sectionName, Content }) => {
+const Section: FC<ISection> = ({ sectionName, content: Content }) => {
     const { fade, ref } = useFadeInIfVisible();
 
     return (

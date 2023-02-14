@@ -47,6 +47,7 @@
     margin-right: 20px;
     margin-top: 0px;
     height: max-content;
+    // overflow: visible;
 
     display: flex;
     flex-direction: column;
@@ -63,7 +64,6 @@
     .list-element {
         font-family: 'Fira Code';
         background: none;
-        width: 191px;
         padding-left: 16px;
         border-radius: 5px;
         font-size: 18px;
@@ -84,13 +84,6 @@
             margin: 0 10px 4px 10px;
             white-space: nowrap;
             width: fit-content;
-
-            &:first-child {
-                margin-left: 0;
-            }
-            &:last-child {
-                margin-right: 0;
-            }
         }
     }
 }
@@ -98,10 +91,12 @@
 .experience-list-divider-container {
     margin: 27px 20px 27px 0px;
     border-right: 1px solid $divider-color;
+    
     @media (max-width: $media-max-width) {
+        width: 100vw;
         border-right: none;
         border-bottom: 1px solid $divider-color;
-        margin: 10px 0px 10px 0px;
+        margin: 10px 0px 10px -9%;
     }
 }
 
@@ -146,14 +141,26 @@
 }
 
 .footnote {
-    font-size: 15px;
+    font-size: 13px;
+    width: fit-content;
     font-family: 'Fira Code';
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     span {
+        padding: 3px 11px 3px 11px;
+        background-color: $divider-color;
+        border-radius: 20px;
         white-space: nowrap;
-        margin-right: 18px;
-        margin-top: 20px;
-        color: $p-grey-dark;
+        // margin-right: 4px;
+        // margin-top: 20px;
+        color: $p-color;
+
+        &:last-child {
+            margin:0;
+        }
     }
 }
 
