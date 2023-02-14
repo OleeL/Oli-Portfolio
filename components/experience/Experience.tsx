@@ -6,7 +6,10 @@ import { experiences } from './Experiences';
 import { Tag } from '../Tag';
 import { ExperienceType } from '../../lib/types';
 import { useFadeReset } from '../../lib/global_hooks';
-import { useSelectionSlider } from '../../lib/global_hooks/useSelectionSlider';
+import {
+    Slider,
+    useSelectionSlider,
+} from '../../lib/global_hooks/useSelectionSlider';
 import useExperience from './hooks/useExperience';
 import Section from '../Section';
 
@@ -28,8 +31,9 @@ const ExperienceDescription = ({
             from: { opacity: 0, scale: 0.95 },
             config: { tension: 50, mass: 1, clamp: true, friction: 10 },
         },
-        [experience],
+        [],
     );
+
     return (
         <a.div style={fade} className="fit-content" key={experience.company}>
             <div className="experience-description">
@@ -91,8 +95,8 @@ const ExperienceListElement: FC<IExperienceListElement> = ({
 };
 
 const ExperienceBody = () => {
-    const { experience, setExperience } = useExperience(experiences[0]);
-    const { ref, Slider } = useSelectionSlider({
+    const { experience, setExperience } = useExperience();
+    const { ref, sliderProps } = useSelectionSlider({
         selection: experience,
     });
 
@@ -100,9 +104,7 @@ const ExperienceBody = () => {
         <>
             <div className="experience-container">
                 <div className="home-box-experience">
-                    <div
-                        className="experience-list-divider-container"
-                        id="experience-list-divider-container">
+                    <div className="experience-list-divider-container">
                         <ul ref={ref} className="experience-list">
                             {experiences.map(x => (
                                 <ExperienceListElement
@@ -117,13 +119,13 @@ const ExperienceBody = () => {
                     <ExperienceDescription experience={experience} />
                 </div>
             </div>
-            <Slider />
+            <Slider {...sliderProps} />
         </>
     );
 };
 
 const Experience: FC = () => {
-    return <Section sectionName={'Experience'} Content={ExperienceBody} />;
+    return <Section sectionName={'Experience'} content={ExperienceBody} />;
 };
 
 export default Experience;

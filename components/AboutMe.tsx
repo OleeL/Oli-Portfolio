@@ -32,7 +32,7 @@ const AboutMeBody = () => (
 );
 
 const AboutMe: FC = () => {
-    return <Section sectionName={'About Me'} Content={AboutMeBody} />;
+    return <Section sectionName={'About Me'} content={AboutMeBody} />;
 };
 
 export default AboutMe;

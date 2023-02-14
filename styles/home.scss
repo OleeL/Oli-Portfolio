@@ -24,6 +24,10 @@ html {
 
 .profile {
     text-align: left;
+
+    a {
+        text-decoration: none;
+    }
     @media (max-width: 750px) {
         text-align: center;
     }

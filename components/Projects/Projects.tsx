@@ -70,7 +70,7 @@ const ProjectsBody = () => {
 };
 
 const Projects: FC = () => {
-    return <Section sectionName={'Projects'} Content={ProjectsBody} />;
+    return <Section sectionName={'Projects'} content={ProjectsBody} />;
 };
 
 export default Projects;
