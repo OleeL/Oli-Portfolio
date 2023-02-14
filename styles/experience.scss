@@ -14,8 +14,6 @@
         padding: 3px 11px 3px 11px;
         border-radius: 20px;
         font-family: 'Fira Code';
-        margin-bottom: 2px;
-        margin-right: 3px;
     }
 
     .tag-row {
@@ -24,7 +22,8 @@
         @media (max-width: $media-max-width) {
             padding: 5px 0 0 0;
         }
-        
+
+        gap: 3px;    
         height: fit-content;
         display: flex;
         white-space: nowrap;
