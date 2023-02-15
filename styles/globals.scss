@@ -25,6 +25,7 @@ main {
 /* width */
 ::-webkit-scrollbar {
     width: 14px;
+    height: 14px;
 }
 
 /* Track */
@@ -35,14 +36,14 @@ main {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgba(136, 136, 136, 1);
+    background: $divider-color;
     border-radius: 100px;
     border: 3px solid $primary-background-color;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: darken($divider-color);
 }
 
 .pointer {

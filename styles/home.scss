@@ -35,7 +35,7 @@ html {
 
 a {
     cursor: pointer;
-    text-decoration: auto;
+    text-decoration: none;
 }
 
 .inset {
@@ -181,7 +181,8 @@ h3 {
 
 a {
     color: $primary-theme-color;
-    transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1)
+    transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+    text-decoration: none;
 }
 
 .section-heading {
