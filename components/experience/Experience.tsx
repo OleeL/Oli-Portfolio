@@ -79,17 +79,11 @@ const ExperienceListElement: FC<IExperienceListElement> = ({
 }) => {
     const { company } = experience;
     const active = company === selectedExperience.company;
-    const [hovered, setHovered] = useState<boolean>(false);
     return (
         <li
             className={`list-element pointer${active ? ' active' : ''}`}
-            onMouseOver={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            style={{
-                backgroundColor: hovered ? '#FFFFFF' : '#00000000',
-            }}
             onClick={() => setExperience(experience)}>
-            {company}
+            {experience?.companyNickname ?? company}
         </li>
     );
 };

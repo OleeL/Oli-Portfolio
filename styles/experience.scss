@@ -52,12 +52,12 @@
     flex-direction: column;
     @media (max-width: $media-max-width) {
         flex-direction: row;
-        overflow-x: scroll;
         margin-bottom: 0;
         margin-right: 0;
-        width: -webkit-fill-available;
+        width: fit-content;
         padding-bottom: 0px;
-        padding-left: 0;
+        padding-left: 20px;
+        gap: 10px;
     }
 
     .list-element {
@@ -66,23 +66,16 @@
         padding-left: 16px;
         border-radius: 5px;
         font-size: 18px;
-        margin-bottom: 20px;
 
-        @media (min-width: $media-max-width) {
-            margin-left: 13px;
-            &:not(:last-child) {
-                margin-top: 0;
-            }
-            &:last-child {
-                margin-bottom: 0;
-            }
+        &:hover {
+            background-color: $divider-color;
         }
 
         @media (max-width: $media-max-width) {
-            padding: 4px;
-            margin: 0 10px 4px 10px;
+            padding: 10px;
             white-space: nowrap;
-            width: fit-content;
+            width: 130px;
+            text-align: center;
         }
     }
 }
@@ -90,6 +83,7 @@
 .experience-list-divider-container {
     margin: 27px 20px 27px 0px;
     border-right: 1px solid $divider-color;
+    overflow-x: scroll;
     
     @media (max-width: $media-max-width) {
         width: 100vw;

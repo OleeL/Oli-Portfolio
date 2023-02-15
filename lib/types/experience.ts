@@ -9,6 +9,7 @@ type Location = {
 export type ExperienceType = {
     id: number;
     company: string;
+    companyNickname?: string;
     role: string;
     startDate: Date;
     endDate: Date | null;

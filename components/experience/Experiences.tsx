@@ -51,6 +51,7 @@ export const experiences: ExperienceType[] = provideIds([
     },
     {
         company: 'Beeta Tech Ltd',
+        companyNickname: 'Beeta Tech',
         role: 'Software Engineer',
         startDate: new Date(2021, 10, 1),
         endDate: new Date(2022, 6, 1),
@@ -181,6 +182,7 @@ export const experiences: ExperienceType[] = provideIds([
     },
     {
         company: 'Event Marketing Solutions',
+        companyNickname: 'EMS',
         role: 'IT Assistant',
         startDate: new Date(2015, 7, 1),
         endDate: new Date(2015, 8, 1),
