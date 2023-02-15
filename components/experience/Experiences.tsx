@@ -3,7 +3,8 @@ import { provideIds } from '../../lib/helpers/array';
 
 export const experiences: ExperienceType[] = provideIds([
     {
-        company: 'Silverchip',
+        company: 'CTI Digital',
+        companyNickname: 'CTI',
         role: 'Software Developer',
         startDate: new Date(2022, 6, 1),
         endDate: null,
@@ -33,10 +34,10 @@ export const experiences: ExperienceType[] = provideIds([
                 </p>
             </>
         ),
-        url: 'https://www.silverchip.com/',
+        url: 'https://www.ctidigital.com/',
         location: {
             name: 'Manchester, UK',
-            url: 'https://www.google.co.uk/maps/place/Silverchip+Ltd/@53.4844621,-2.2338038,17z/data=!3m2!4b1!5s0x487badbed3b7256f:0x3f8aaf639a5712c7!4m5!3m4!1s0x487bb1ea0e528ae3:0x78684458a30ac11a!8m2!3d53.4844621!4d-2.2316151',
+            url: 'https://www.google.com/maps/place/CTI+Digital/@53.4844624,-2.2336751,17z/data=!3m1!4b1!4m6!3m5!1s0x487bb1be9615d2cf:0xeb8ebc7d638a5a9e!8m2!3d53.4844624!4d-2.2314864!16s%2Fg%2F1v3_26xf',
         },
         tags: provideIds([
             { name: 'React' },

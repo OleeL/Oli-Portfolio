@@ -12,7 +12,7 @@ const Profile: FC = () => {
                 <a.h2 style={fade[1]}>Software Engineer</a.h2>
                 <a.p style={fade[2]} className="profile-text code">
                     Full-stack software engineer currently working at{' '}
-                    <a href="https://www.silverchip.com">Silverchip</a>
+                    <a href="https://www.ctidigital.com">CTI Digital</a>
                 </a.p>
             </div>
         </section>
