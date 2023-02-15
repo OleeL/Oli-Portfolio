@@ -56,8 +56,7 @@
         margin-bottom: 0;
         margin-right: 0;
         width: fit-content;
-        padding-bottom: 0px;
-        padding-left: 20px;
+        padding: 0 20px 0 20px;
     }
 
     .list-element {
@@ -76,6 +75,8 @@
             white-space: nowrap;
             width: 130px;
             text-align: center;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
     }
 }
@@ -118,6 +119,7 @@
 
     a {
         color: inherit;
+        text-decoration: none;
     }
 
     .description {
@@ -167,4 +169,8 @@
 
 .active {
     color: $primary-theme-color;
+
+    @media (max-width: $media-max-width) {
+        border-bottom: 1px solid $primary-theme-color;
+    }
 }

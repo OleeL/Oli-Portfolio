@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { FC, useState, Dispatch, SetStateAction } from 'react';
+import { FC, Dispatch, SetStateAction } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { a } from 'react-spring';
 import { experiences } from './Experiences';

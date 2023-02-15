@@ -1,12 +1,4 @@
-import {
-    CSSProperties,
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
-    FC,
-    useMemo,
-} from 'react';
+import { CSSProperties, useEffect, useRef, useState, FC, useMemo } from 'react';
 import { a, useSpring } from 'react-spring';
 import { useWindowWidth } from './window';
 import styles from '../../styles/variables.module.scss';
@@ -75,13 +67,9 @@ export const useSelectionSlider = ({
     const isHorizontal = width <= parseFloat(styles.mediaMaxWidth);
 
     const ref = useRef<HTMLUListElement>(null);
-    const [state, updateState] = useState<any>();
-    const forceUpdate = useCallback(() => {
-        updateState({});
-    }, []);
-    useEffect(() => {
-        forceUpdate();
-    }, [ref, selection]);
+    const [, updateState] = useState<any>();
+    const forceUpdate = () => updateState({});
+    useEffect(() => forceUpdate(), [ref, selection]);
 
     const children = Object.values(
         ref?.current?.childNodes ?? [],
@@ -113,7 +101,7 @@ export const useSelectionSlider = ({
             spring,
             width: sliderWidth,
         };
-    }, [selection, state, width]);
+    }, [selection, width]);
 
     return { ref, sliderProps };
 };
