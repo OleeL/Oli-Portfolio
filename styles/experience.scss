@@ -46,7 +46,8 @@
     margin-right: 20px;
     margin-top: 0px;
     height: max-content;
-    // overflow: visible;
+    gap: 10px;
+
 
     display: flex;
     flex-direction: column;
@@ -57,7 +58,6 @@
         width: fit-content;
         padding-bottom: 0px;
         padding-left: 20px;
-        gap: 10px;
     }
 
     .list-element {
@@ -83,9 +83,9 @@
 .experience-list-divider-container {
     margin: 27px 20px 27px 0px;
     border-right: 1px solid $divider-color;
-    overflow-x: scroll;
     
     @media (max-width: $media-max-width) {
+        overflow-x: scroll;
         width: 100vw;
         border-right: none;
         border-bottom: 1px solid $divider-color;
