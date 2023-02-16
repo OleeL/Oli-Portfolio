@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 class MyDocument extends Document {
     render() {
         return (
-            <Html lang={'en-GB'}>
+            <Html lang="en-GB">
                 <title>Oli Legg</title>
                 <Head>
                     <meta
@@ -16,10 +16,9 @@ class MyDocument extends Document {
                         content="Contact info, work etc."
                         key="description"
                     />
-                    <meta name="theme-color" content="#282c34" />
                     <link
                         rel="apple-touch-icon"
-                        sizes="180x180"
+                        sizes="72x72"
                         href="/favicon/apple-touch-icon.png"
                     />
                     <link
@@ -34,6 +33,13 @@ class MyDocument extends Document {
                         sizes="16x16"
                         href="/favicon/favicon-16x16.png"
                     />
+                    <link
+                        rel="mask-icon"
+                        href="/favicon/safari-pinned-tab.svg"
+                        color="#5bbad5"
+                    />
+                    <meta name="msapplication-TileColor" content="#da532c" />
+                    <meta name="theme-color" content="#fab043"></meta>
                     <link rel="manifest" href="/favicon/site.webmanifest" />
                 </Head>
                 <body>
