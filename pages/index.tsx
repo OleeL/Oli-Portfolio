@@ -8,8 +8,8 @@ import Projects from '../components/Projects/Projects';
 
 const Content = () => (
     <>
+        <NavigationComponent />
         <main>
-            <NavigationComponent />
             <Profile />
             <AboutMe />
             <Experience />
