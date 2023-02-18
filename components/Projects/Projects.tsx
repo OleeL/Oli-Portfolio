@@ -25,7 +25,7 @@ const Project: FC<Project> = ({ url, name, description, image }) => {
         <div
             className="home-box project-box"
             onClick={() => {
-                BulokeWindow.redirect(url);
+                BulokeWindow.nextOpen(url);
             }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}>
