@@ -2,10 +2,10 @@ import { FC, useState } from 'react';
 import Image from 'next/image';
 import { a, useSpring } from 'react-spring';
 import Section from '../Section';
-import { Project, ProjectList } from './ProjectList';
+import { ProjectType, ProjectList } from './ProjectList';
 import { BulokeWindow } from '../../lib/helpers/window';
 
-const Project: FC<Project> = ({ url, name, description, image }) => {
+const Project: FC<ProjectType> = ({ url, name, description, image }) => {
     const box = {
         width: image?.width ?? 0,
         height: image?.height ?? 0,

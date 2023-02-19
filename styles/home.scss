@@ -18,6 +18,20 @@ html {
     overflow-x: hidden;
 }
 
+footer {
+    color: $p-color;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 35px;
+
+    img, svg {
+        cursor: pointer;
+    }
+}
+
 #profile {
     justify-content: left;
 }
@@ -74,6 +88,10 @@ section {
     p, & {
         color: $p-color;
     }
+}
+
+section:last-child {
+    margin-bottom: 0;
 }
 
 .paragraph-start {

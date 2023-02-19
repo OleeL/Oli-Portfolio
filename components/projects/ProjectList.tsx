@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import { TagType } from '../Tag';
 import { provideIds } from '../../lib/helpers/array';
 
-export type Project = {
+export type ProjectType = {
     id: number;
     name: string;
     description: ReactElement<any>;
@@ -14,7 +14,7 @@ export type Project = {
 
 const defaultImage: Partial<ImageProps> = { width: 300, height: 200 };
 
-export const ProjectList: Project[] = provideIds([
+export const ProjectList: ProjectType[] = provideIds([
     {
         name: 'Turris',
         description: (

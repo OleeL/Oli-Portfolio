@@ -7,6 +7,14 @@
     min-height: fit-content;
 
     .tag {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        svg {
+            width: 13px;
+            height: auto;
+            margin: auto;
+        }
         background-color: $divider-color;
         user-select: none;
         font-size: 13px;
@@ -48,7 +56,7 @@
     height: max-content;
     display: flex;
     flex-direction: column;
-    
+
     @media (max-width: $media-max-width) {
         gap: 10px;
         flex-direction: row;
@@ -144,7 +152,15 @@
     flex-direction: row;
     flex-wrap: wrap;
 
+    svg {
+        width: 13px;
+        height: auto;
+    }
+
     span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
         padding: 3px 11px 3px 11px;
         background-color: $divider-color;
         border-radius: 20px;

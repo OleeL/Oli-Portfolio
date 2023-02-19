@@ -5,24 +5,24 @@ import AboutMe from '../components/AboutMe';
 import Experience from '../components/experience/Experience';
 import Contact from '../components/contact/Contact';
 import Projects from '../components/projects/Projects';
+import Footer from '../components/Footer';
 
 const Content = () => (
-    <>
-        <NavigationComponent />
-        <main>
-            <Profile />
-            <AboutMe />
-            <Experience />
-            <Projects />
-            <Contact />
-        </main>
-    </>
+    <main>
+        <Profile />
+        <AboutMe />
+        <Experience />
+        <Projects />
+        <Contact />
+    </main>
 );
 
 const App = () => {
     return (
         <>
+            <NavigationComponent />
             <Content />
+            <Footer />
         </>
     );
 };
