@@ -137,8 +137,12 @@ h1 {
     color: $h1-color;
     margin: 0px;
     display: block;
-    white-space: nowrap;
     width: 100%;
+
+    span {
+        color: $h1-color-alt;
+        margin: 0px;
+    }
 
     &.divider::after {
         content: "";
@@ -152,12 +156,6 @@ h1 {
 
 h2 {
     font-size: $size-h2;
-    color: $h2-color;
-    margin: 0px;
-}
-
-h3 {
-    font-size: 32px;
     color: $h1-color;
     margin: 0px;
     display: inline-flex;
