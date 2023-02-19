@@ -3,8 +3,8 @@ import NavigationComponent from '../components/Navigation';
 import Profile from '../components/Profile';
 import AboutMe from '../components/AboutMe';
 import Experience from '../components/experience/Experience';
-import Contact from '../components/Contact';
-import Projects from '../components/Projects/Projects';
+import Contact from '../components/contact/Contact';
+import Projects from '../components/projects/Projects';
 
 const Content = () => (
     <>

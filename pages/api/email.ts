@@ -1,7 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next/types';
 import nodemailer from 'nodemailer';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+type ResponseBody = {
+    error?: string;
+    success?: string;
+};
+
+export default function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<ResponseBody>,
+): NextApiResponse<ResponseBody> {
     if (!req.body?.message || !req.body?.emailAddress) {
         res.status(400).json({
             error: 'Bad request',
@@ -20,8 +28,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             </p>
             <p>
                 <br><br>
-                Lots of love,
-                <br> ${req.body.emailAddress}
+                From:
+                <br>
+                <a href="mailto:${req.body.emailAddress}">${req.body.emailAddress}</a>
             </p>
         `,
     };
@@ -34,21 +43,42 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         },
     });
 
-    if (req.method === 'POST') {
-        transporter.sendMail(message, err => {
-            if (err) {
-                return res.status(500).json({
-                    error: 'Internal Server Error',
-                });
-            }
-            return res.status(250).json({
-                success: 'Message delivered',
-            });
+    if (req.method !== 'POST') {
+        res.status(405).json({
+            error: 'Bad Method',
         });
         return res;
     }
-    res.status(405).json({
-        error: 'Bad Method',
-    });
+
+    fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        body: `secret=${process.env.GOOGLE_RECAPTCHA_KEY}&response=${req.body.recaptchaToken}`,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.success) {
+                return res.status(401).json({
+                    error: 'Unauthorized',
+                });
+            }
+            return transporter.sendMail(message, err => {
+                if (err) {
+                    return res.status(500).json({
+                        error: 'Internal Server Error',
+                    });
+                }
+                return res.status(250).json({
+                    success: 'Message delivered',
+                });
+            });
+        })
+        .catch(() => {
+            return res.status(500).json({
+                error: 'Internal Server Error',
+            });
+        });
     return res;
 }

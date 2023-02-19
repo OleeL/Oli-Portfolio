@@ -1,14 +1,14 @@
-import { FC, FormEvent, useState } from 'react';
+import { FC } from 'react';
 import { CheckCircle } from 'react-feather';
-import useAxios from 'axios-hooks';
-import Section from './Section';
-import { Form } from '../lib/form/Form';
-import { Input } from '../lib/form/Input';
-import { TextArea } from '../lib/form/TextArea';
-import { useForm } from '../lib/form/useForm';
-import { SpringButton } from '../lib/form/SpringButton';
-import styles from '../styles/variables.module.scss';
-import { ButtonProps } from '../lib/form/Button';
+import GoogleRecaptcha from 'react-google-recaptcha';
+import Section from '../Section';
+import { Form } from '../../lib/form/Form';
+import { Input } from '../../lib/form/Input';
+import { TextArea } from '../../lib/form/TextArea';
+import { SpringButton } from '../../lib/form/SpringButton';
+import styles from '../../styles/variables.module.scss';
+import { ButtonProps } from '../../lib/form/Button';
+import { useContact } from './useContact';
 
 const FormButton: FC<ButtonProps> = props => {
     const isSuccess = props?.disabled && !props?.loading;
@@ -33,6 +33,7 @@ const FormButton: FC<ButtonProps> = props => {
     return (
         <SpringButton
             {...props}
+            type="submit"
             textColor={textColor}
             borderColor={borderColor}>
             {isSuccess ? (
@@ -47,26 +48,8 @@ const FormButton: FC<ButtonProps> = props => {
 };
 
 const ContactBody = () => {
-    const [form, onChange] = useForm({
-        emailAddress: '',
-        message: '',
-    });
-
-    const [sent, setSent] = useState(false);
-    const [{ loading }, sendEmail] = useAxios(
-        {
-            url: '/api/email',
-            method: 'POST',
-        },
-        { manual: true },
-    );
-
-    const onSubmit = (event: FormEvent) => {
-        event.preventDefault();
-        sendEmail({ data: form });
-        setSent(true);
-    };
-
+    const { loading, onSubmit, sent, onChange, form, recaptchaRef } =
+        useContact();
     return (
         <div className="contact">
             <div className="contact-container">
@@ -91,6 +74,15 @@ const ContactBody = () => {
                         title={sent ? 'Sent message' : ''}
                         onChange={(x: any) => onChange(x, 'message')}
                         disabled={sent}
+                    />
+                    <GoogleRecaptcha
+                        theme="dark"
+                        ref={recaptchaRef}
+                        style={{ visibility: 'hidden' }}
+                        size="invisible"
+                        sitekey={
+                            process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY
+                        }
                     />
                 </Form>
             </div>

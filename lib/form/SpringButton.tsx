@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, useId, useState } from 'react';
+import { ButtonHTMLAttributes, FC, useId, useState } from 'react';
 import { a, useSpring } from 'react-spring';
 import { Spinner } from '../components/Spinner';
 import { ExtraProps } from './Button';
@@ -13,7 +13,7 @@ type HoverTypes = {
     borderColor?: HoverColorType;
 };
 
-export type SpringButtonProps = HTMLAttributes<HTMLButtonElement> &
+export type SpringButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
     HoverTypes &
     ExtraProps;
 
