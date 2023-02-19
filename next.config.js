@@ -11,6 +11,10 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=86400, immutable',
+          },
+          {
+            key: "Set-Cookie",
+            value: "HttpOnly;Secure;SameSite=Strict"
           }
         ],
       },
