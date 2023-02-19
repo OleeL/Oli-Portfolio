@@ -9,9 +9,10 @@ interface IFooterLogo {
     component: any;
     alt: string;
     id: number;
+    link: string;
 }
 
-const FooterImage: FC<IFooterLogo> = ({ component: Component, alt }) => {
+const FooterImage: FC<IFooterLogo> = ({ component: Component, alt, link }) => {
     const [hover, setHover] = useState(false);
     const spring = useSpring({ scale: hover ? 1.2 : 1 });
     return (
@@ -19,7 +20,9 @@ const FooterImage: FC<IFooterLogo> = ({ component: Component, alt }) => {
             style={spring}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}>
-            <Component alt={alt} />
+            <a href={link}>
+                <Component alt={alt} />
+            </a>
         </a.div>
     );
 };
@@ -44,8 +47,14 @@ const Footer: FC = () => {
     );
     return (
         <a.footer ref={ref} style={fade}>
-            {imageLogos.map(({ id, component, alt }) => (
-                <FooterImage key={id} component={component} alt={alt} id={id} />
+            {imageLogos.map(({ id, component, alt, link }) => (
+                <FooterImage
+                    key={id}
+                    component={component}
+                    alt={alt}
+                    id={id}
+                    link={link}
+                />
             ))}
         </a.footer>
     );
