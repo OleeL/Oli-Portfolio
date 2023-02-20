@@ -60,7 +60,7 @@ const ContactBody = () => {
                     disabled={sent}
                     buttonComponent={FormButton}>
                     <Input
-                        onChange={(x: any) => onChange(x, 'emailAddress')}
+                        onChange={x => onChange(x, 'emailAddress')}
                         label="Email"
                         type="email"
                         title={sent ? `Sent from ${form.emailAddress}` : ''}
@@ -72,13 +72,15 @@ const ContactBody = () => {
                         className="messagebox fill-width"
                         required
                         title={sent ? 'Sent message' : ''}
-                        onChange={(x: any) => onChange(x, 'message')}
+                        onChange={x => onChange(x, 'message')}
                         disabled={sent}
                     />
                     <GoogleRecaptcha
                         theme="dark"
                         ref={recaptchaRef}
-                        style={{ visibility: 'hidden' }}
+                        style={{
+                            display: 'none',
+                        }}
                         size="invisible"
                         sitekey={
                             process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY
