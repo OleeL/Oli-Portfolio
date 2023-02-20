@@ -37,9 +37,9 @@ const ExperienceDescription = ({
     return (
         <a.div style={fade} className="fit-content" key={experience.company}>
             <div className="experience-description">
-                <h4>
+                <h3>
                     {company} <span>{role}</span>
-                </h4>
+                </h3>
                 <Footnote>
                     <span>
                         <FontAwesomeIcon icon={['fas', 'calendar']} />{' '}

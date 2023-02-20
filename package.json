@@ -36,6 +36,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-spring": "^9.6.1",
     "react-tsparticles": "^2.7.1",
+    "sharp": "^0.31.3",
     "styled-jsx": "^5.1.1",
     "tsparticles": "^2.7.1",
     "uuid": "^9.0.0",

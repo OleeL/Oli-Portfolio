@@ -20,7 +20,7 @@ const FooterImage: FC<IFooterLogo> = ({ component: Component, alt, link }) => {
             style={spring}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}>
-            <a href={link}>
+            <a href={link} aria-label={alt}>
                 <Component alt={alt} />
             </a>
         </a.div>
