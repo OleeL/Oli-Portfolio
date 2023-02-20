@@ -9,9 +9,9 @@ const Profile: FC = () => {
         <section className="centered full-screen" id="profile">
             <div className="profile">
                 <h1>
-                    Oli Legg
+                    <span>Oli Legg</span>
                     <br />
-                    Software Engineer
+                    <span className="dimmed">Software Engineer</span>
                 </h1>
                 <a.p style={fade} className="profile-text code">
                     Full-stack software engineer currently working at{' '}
