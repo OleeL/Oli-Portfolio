@@ -6,5 +6,6 @@ declare namespace NodeJS {
         readonly EMAIL_TYPE: string; // "gmail", "hotmail"
         readonly GOOGLE_RECAPTCHA_KEY: string;
         readonly NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY: string;
+        readonly NEXT_PUBLIC_GA_MEASUREMENT_ID: string;
     }
 }

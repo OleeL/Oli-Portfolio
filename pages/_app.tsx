@@ -10,6 +10,7 @@ import {
     faTag,
 } from '@fortawesome/free-solid-svg-icons';
 import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from 'nextjs-google-analytics';
 import { registerServiceWorker } from '../lib/global_hooks';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -33,6 +34,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <>
             <Component {...pageProps} />
             <Analytics />
+            <GoogleAnalytics trackPageViews />
             <style jsx global>
                 {`
                     ${dom.css()}
