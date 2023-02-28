@@ -9,6 +9,7 @@ import {
     faLocationDot,
     faTag,
 } from '@fortawesome/free-solid-svg-icons';
+import { Analytics } from '@vercel/analytics/react';
 import { registerServiceWorker } from '../lib/global_hooks';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -31,6 +32,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
         <>
             <Component {...pageProps} />
+            <Analytics />
             <style jsx global>
                 {`
                     ${dom.css()}
