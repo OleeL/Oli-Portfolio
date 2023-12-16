@@ -15,7 +15,7 @@ const Profile: FC = () => {
                 </h1>
                 <a.p style={fade} className="profile-text code">
                     Full-stack software engineer currently working at{' '}
-                    <a href="https://www.ctidigital.com">CTI Digital</a>
+                    <a href="https://www.destination2.co.uk/">Travcorp Holdings Ltd</a>
                 </a.p>
             </div>
         </section>
