@@ -7,7 +7,7 @@ export const experiences: ExperienceType[] = provideIds([
         companyNickname: 'CTI',
         role: 'Software Developer',
         startDate: new Date(2022, 6, 1),
-        endDate: new Date(2023, 11, 1),
+        endDate: new Date(2023, 10, 1),
         description: (
             <>
                 <p>
