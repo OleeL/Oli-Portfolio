@@ -38,8 +38,15 @@ npm run build && npm start
 Create a file called `.env.local` (`touch .env.local`)
 and fill it with this content:
 ```properties
-EMAIL_ADDRESS=""    # Your mailer email address
-EMAIL_PASSWORD=""   # Your mailer email key/password
-EMAIL_TYPE=""       # Your mailer email type "gmail" | "hotmail"...
-EMAIL_ADDRESS_TO="" # The email you'd like to send the emails to
+# Your mailer email address
+EMAIL_ADDRESS=""
+
+# Your mailer email key/password
+EMAIL_PASSWORD=""
+
+# Your mailer email type "gmail" | "hotmail"...
+EMAIL_TYPE=""
+
+# The email you'd like to send the emails to
+EMAIL_ADDRESS_TO=""
 ```
