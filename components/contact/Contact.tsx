@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
 import { CheckCircle } from 'react-feather';
 import GoogleRecaptcha from 'react-google-recaptcha';
 import Section from '../Section';
@@ -10,7 +10,7 @@ import styles from '../../styles/variables.module.scss';
 import { ButtonProps } from '../../lib/form/Button';
 import { useContact } from './useContact';
 
-const FormButton: FC<ButtonProps> = props => {
+const FormButton = (props: ButtonProps): ReactElement => {
 	const isSuccess = props?.disabled && !props?.loading;
 	const textColor = isSuccess
 		? {
@@ -92,8 +92,8 @@ const ContactBody = () => {
 	);
 };
 
-const Contact: FC = () => {
-	return <Section sectionName={'Contact'} content={ContactBody} />;
-};
+const Contact: FC = () => (
+	<Section sectionName="Contact" content={ContactBody} />
+);
 
 export default Contact;

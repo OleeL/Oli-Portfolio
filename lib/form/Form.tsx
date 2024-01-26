@@ -1,4 +1,4 @@
-import { ComponentType, FC } from 'react';
+import { FC, ReactElement } from 'react';
 import { Button, ButtonProps } from './Button';
 
 type FormProps = React.DetailedHTMLProps<
@@ -7,26 +7,22 @@ type FormProps = React.DetailedHTMLProps<
 > & {
 	submitText?: string;
 	omitSubmit?: boolean;
-	buttonComponent?: ComponentType<ButtonProps>;
+	buttonComponent?: (props: ButtonProps) => ReactElement;
 	loading?: boolean;
 	disabled?: boolean;
 };
 
-export const Form: FC<FormProps> = props => {
-	const {
-		children,
-		className = 'default',
-		submitText = 'Submit',
-		omitSubmit = false,
-		disabled = false,
-		loading = false,
-		buttonComponent = Button,
-		onSubmit = () => {},
-		...rest
-	} = props;
-
-	const ButtonComponent = buttonComponent;
-
+export const Form: FC<FormProps> = ({
+	children,
+	className = 'default',
+	submitText = 'Submit',
+	omitSubmit = false,
+	disabled = false,
+	loading = false,
+	buttonComponent: ButtonComponent = Button,
+	onSubmit = () => {},
+	...rest
+}) => {
 	return (
 		<form {...rest} className={`form-${className}`} onSubmit={onSubmit}>
 			{children}

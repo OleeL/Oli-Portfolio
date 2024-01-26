@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app';
-import { useEffect } from 'react';
+import { FunctionComponent, useEffect } from 'react';
 import '../styles/globals.scss';
 import '../styles/home.scss';
 import '../styles/_variables.scss';
@@ -26,13 +26,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 		if (html.length > 0) {
 			html[0].setAttribute('lang', 'en');
 		}
-
-		document.title = 'Oli Legg';
 	}, []);
+
+	const PageComponent = Component as FunctionComponent;
 
 	return (
 		<>
-			<Component {...pageProps} />
+			<PageComponent {...pageProps} />
 			<Analytics />
 			<GoogleAnalytics trackPageViews />
 			<style jsx global>

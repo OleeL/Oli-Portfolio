@@ -31,7 +31,8 @@ const useFormStore = create<Store<any>>(set => ({
 	setFormErrors: (formErrors: any) => set({ formErrors }),
 }));
 
-export const useForm = <T>() => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const useForm = <T>(obj: T) => {
 	const { form, setForm, changeForm } = useFormStore(
 		state => ({
 			form: state.form,
