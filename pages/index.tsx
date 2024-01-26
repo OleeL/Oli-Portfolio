@@ -8,22 +8,22 @@ import Projects from '../components/projects/Projects';
 import Footer from '../components/Footer';
 
 const Content = () => (
-    <main>
-        <Profile />
-        <AboutMe />
-        <Experience />
-        <Projects />
-        <Contact />
-    </main>
+	<main>
+		<Profile />
+		<AboutMe />
+		<Experience />
+		<Projects />
+		<Contact />
+	</main>
 );
 
 const App = () => {
-    return (
-        <>
-            <NavigationComponent />
-            <Content />
-            <Footer />
-        </>
-    );
+	return (
+		<>
+			<NavigationComponent />
+			<Content />
+			<Footer />
+		</>
+	);
 };
 export default App;

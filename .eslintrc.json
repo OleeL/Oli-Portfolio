@@ -27,15 +27,29 @@
     }
   },
   "rules": {
-    "react-hooks/exhaustive-deps": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-console": "off",
+    "no-console": "off",
+    "no-shadow": "off",
+    "no-continue": 0,
     "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-empty-function": "off",
     "import/prefer-default-export": "off",
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
     "no-plusplus": "off",
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(warn|error|info|trace)$/]",
+        "message": "Unexpected property on console object was called"
+      }
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -45,7 +59,7 @@
         "ts": "never",
         "tsx": "never"
       }
-   ],
+    ],
     "quotes": [
       "error",
       "single",
@@ -57,7 +71,17 @@
     "prettier/prettier": [
       "error",
       {
-        "singleQuote": true
+        "singleQuote": true,
+        "useTabs": true,
+        "tabWidth": 4,
+        "printWidth": 80,
+        "jsxSingleQuote": false,
+        "semi": true,
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "bracketSameLine": true,
+        "arrowParens": "avoid",
+        "endOfLine": "auto"
       }
     ]
   }
