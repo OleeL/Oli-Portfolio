@@ -1,3 +1,3 @@
 export type EmailContactRequest = {
-    emailAddress: string;
+	emailAddress: string;
 };
