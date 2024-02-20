@@ -66,6 +66,7 @@ const ContactBody = () => {
 						title={sent ? `Sent from ${form.emailAddress}` : ''}
 						required
 						disabled={sent}
+						value={form.emailAddress}
 					/>
 					<TextArea
 						label="Message"
@@ -74,6 +75,7 @@ const ContactBody = () => {
 						title={sent ? 'Sent message' : ''}
 						onChange={x => onChange(x, 'message')}
 						disabled={sent}
+						value={form.message}
 					/>
 					<GoogleRecaptcha
 						theme="dark"

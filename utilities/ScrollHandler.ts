@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { SpringRef, useSpring } from 'react-spring';
 
 type IScrollFromTo = {
@@ -7,8 +8,9 @@ type IScrollFromTo = {
 	current: number;
 };
 
-const calcuateY = (target: string): number =>
-	document?.getElementById(target)?.offsetTop ?? 0;
+const calcuateY = (target: string): number => {
+	return document?.getElementById(target)?.getBoundingClientRect()?.y ?? 0;
+};
 
 const getScroll = (target: string): IScrollFromTo =>
 	typeof window !== 'undefined'
@@ -53,4 +55,14 @@ export const useScrollSpring = () => {
 	}
 
 	return api;
+};
+
+export const useInitialScroll = (): { x: number; y: number } => {
+	const initialScroll = useRef({ x: 0, y: 0 });
+
+	useEffect(() => {
+		initialScroll.current = { x: window.scrollX, y: window.scrollY };
+	}, []);
+
+	return initialScroll.current;
 };

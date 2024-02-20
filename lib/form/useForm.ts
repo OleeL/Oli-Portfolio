@@ -1,10 +1,17 @@
-import { useState, SyntheticEvent } from 'react';
+import { useState, useMemo } from 'react';
 import { create } from 'zustand';
-import { shallow } from 'zustand/shallow';
 import usePrev from '../global_hooks/usePrev';
 
-const validate = (val: any) => {
-	return val && `${val}` !== '';
+type ValidState = {
+	isValid: boolean;
+	message?: string;
+};
+
+const validate = (val: object): ValidState => {
+	return {
+		isValid: val !== null && val !== undefined,
+		message: undefined,
+	};
 };
 
 type Store<T> = {
@@ -15,39 +22,50 @@ type Store<T> = {
 	changeForm: (key: keyof T, value: any) => void;
 };
 
-const useFormStore = create<Store<any>>(set => ({
-	form: {},
-	setForm: (form: any) =>
-		set((x: Store<any>) => ({
-			...x,
-			form,
-		})),
-	changeForm: (key: keyof any, value: any) =>
-		set((x: Store<any>) => {
-			x.form[key] = value;
-			return x;
-		}),
-	formErrors: {},
-	setFormErrors: (formErrors: any) => set({ formErrors }),
-}));
+type FormChangeEvent = {
+	currentTarget: {
+		value: string;
+	};
+};
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const useForm = <T>(obj: T) => {
-	const { form, setForm, changeForm } = useFormStore(
-		state => ({
-			form: state.form,
-			setForm: state.setForm,
-			changeForm: state.changeForm,
-		}),
-		shallow,
+type FormReturnType<T> = [
+	T,
+	(changeObj: FormChangeEvent, objName: keyof T) => void,
+	(form: T) => void,
+	() => void,
+];
+
+const useForm = <T extends object>(obj: T) => {
+	const useFormStore = useMemo(
+		() =>
+			create<Store<T>>(set => ({
+				form: obj,
+				setForm: (form: T) =>
+					set(() => ({
+						form,
+					})),
+				changeForm: (key: keyof T, value: any) =>
+					set((state: Store<T>) => {
+						return {
+							...state,
+							form: { ...state.form, [key]: value },
+						};
+					}),
+				formErrors: {},
+				setFormErrors: (formErrors: any) => set({ formErrors }),
+			})),
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[],
 	);
-	const [validState, setValidState] = useState<Record<string, any>>({});
+
+	const { setForm, changeForm, form } = useFormStore();
+
+	const [validState, setValidState] = useState<Record<string, ValidState>>(
+		{},
+	);
 	const prev = usePrev(validState);
 
-	const onChange = (
-		changeObj: SyntheticEvent<HTMLInputElement>,
-		objName: keyof T,
-	): void => {
+	const onChange = (changeObj: FormChangeEvent, objName: keyof T): void => {
 		try {
 			changeForm(objName, changeObj.currentTarget.value);
 		} catch {
@@ -59,15 +77,19 @@ export const useForm = <T>(obj: T) => {
 	};
 
 	const onSubmit = () => {
-		setValidState(
-			Object.entries(validState).map(([k, v]) => {
-				if (prev[k] === v) {
-					return validState[k] ?? true;
-				}
-				return validate(v);
-			}),
-		);
+		let validationState = {};
+		for (const [k, v] of Object.entries(validState)) {
+			if (prev[k] === v) {
+				validationState = { ...validationState, [k]: prev[k] };
+				continue;
+			}
+			validationState = { [k]: validate(v) };
+		}
+
+		setValidState(validationState);
 	};
 
-	return [form, onChange, setForm, onSubmit];
+	return [form as T, onChange, setForm, onSubmit] as FormReturnType<T>;
 };
+
+export default useForm;

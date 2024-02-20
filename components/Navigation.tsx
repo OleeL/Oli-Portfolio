@@ -1,7 +1,11 @@
 import { FC, ReactNode } from 'react';
+import dynamic from 'next/dynamic';
 import { useFadeIn, useFadeInArr } from '../lib/global_hooks';
 import NavigationButton from './navigation/NavigationButton';
-import NavigationLogo from './navigation/NavigationLogo';
+
+const NavigationLogo = dynamic(() => import('./navigation/NavigationLogo'), {
+	ssr: false,
+});
 
 interface INavigation {
 	className?: string;
@@ -20,7 +24,7 @@ export const Navigation: FC<INavigation> = () => {
 	return (
 		<header>
 			<nav className="navigation">
-				<NavigationLogo props={logoFade} />
+				<NavigationLogo svgStyle={logoFade} />
 				<ul className="nav-buttons">
 					{navigationButtons.map((x, i) => {
 						return (

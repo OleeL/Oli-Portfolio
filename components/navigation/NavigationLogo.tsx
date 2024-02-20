@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { CSSProperties, useMemo, useState } from 'react';
 import { a, useSpring } from 'react-spring';
 
 const MIN = 16;
@@ -52,10 +52,10 @@ const getPolyCirclePoints = ({
 	return points;
 };
 
-interface ILogoProps {
-	props: any;
+interface LogoProps {
+	svgStyle: CSSProperties;
 }
-const NavigationLogo = ({ props }: ILogoProps) => {
+const NavigationLogo = ({ svgStyle }: LogoProps) => {
 	const [hovered, setHovered] = useState(false);
 
 	const rotationSpring = useSpring({
@@ -83,7 +83,7 @@ const NavigationLogo = ({ props }: ILogoProps) => {
 				.join(' '),
 		[],
 	);
-	const points = useMemo(
+	const defaultPoints = useMemo(
 		() =>
 			getPolyCirclePoints({ offset: { x: 42, y: 41 }, radius: 25 })
 				.map(({ x, y }) => `${x},${y}`)
@@ -92,14 +92,12 @@ const NavigationLogo = ({ props }: ILogoProps) => {
 	);
 
 	const spring = useSpring({
-		points: !hovered ? pointsSquared : points,
+		points: !hovered ? pointsSquared : defaultPoints,
 		fillOpacity: !hovered ? 0.1 : 0,
 	});
 
-	useEffect(() => {}, []);
-
 	return (
-		<a.svg style={props} className="logo">
+		<a.svg style={svgStyle} className="logo">
 			<g
 				onMouseEnter={() => setHovered(true)}
 				onMouseLeave={() => setHovered(false)}>

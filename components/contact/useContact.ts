@@ -1,6 +1,6 @@
 import useAxios from 'axios-hooks';
 import { FormEvent, useRef, useState } from 'react';
-import { useForm } from '../../lib/form/useForm';
+import useForm from '../../lib/form/useForm';
 
 type ContactForm = {
 	emailAddress: string;
@@ -8,7 +8,7 @@ type ContactForm = {
 };
 
 export const useContact = () => {
-	const [form, onChange] = useForm<ContactForm>({
+	const [form, onChange, , validateForm] = useForm<ContactForm>({
 		emailAddress: '',
 		message: '',
 	});
@@ -33,6 +33,7 @@ export const useContact = () => {
 	};
 
 	const onSubmit = async (event: FormEvent) => {
+		validateForm();
 		event.preventDefault();
 		sendEmail({
 			data: { ...form, recaptchaToken: (await processRecaptcha()) ?? '' },

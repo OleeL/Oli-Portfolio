@@ -7,15 +7,30 @@ export const experiences: ExperienceType[] = provideIds([
 		companyNickname: 'TRAVCORP',
 		role: 'Software Developer',
 		startDate: new Date(2022, 6, 1),
-		endDate: new Date(2023, 10, 1),
+		endDate: null,
 		description: (
 			<>
 				<p>
-					Travcorp is an online travel operator that specialises in
+					Travcorp is an online travel operator that specializes in
 					packaged holidays and hotels via its consumer brands
 					Destination2.co.uk and HolidayGems.co.uk.
 				</p>
-				<p>WIP...</p>
+				<p>
+					As a Software Developer at TRAVCORP, I have been responsible
+					for developing and maintaining robust web applications using
+					Angular, TypeScript, and SCSS, closely aligned with the
+					company&apos;s vision of delivering seamless online travel
+					experiences. My role involves extensive work with .NET
+					versions 6-8 and C# 8-11, focusing on creating efficient,
+					scalable backend solutions.
+				</p>
+				<p>
+					Worked on online platforms, ensuring high performance and
+					responsiveness to requests from the front-end. Used database
+					management with MSSQL includes designing, developing, and
+					maintaining efficient and secure databases. Databases had to
+					handling large volumes of customer data and transactions.
+				</p>
 			</>
 		),
 		url: 'https://holidaygems.co.uk/',
