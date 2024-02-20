@@ -2,10 +2,11 @@ import { FC, ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import { useFadeIn, useFadeInArr } from '../lib/global_hooks';
 import NavigationButton from './navigation/NavigationButton';
+import { LogoProps } from './navigation/NavigationLogo';
 
 const NavigationLogo = dynamic(() => import('./navigation/NavigationLogo'), {
 	ssr: false,
-});
+}) as FC<LogoProps>;
 
 interface INavigation {
 	className?: string;

@@ -52,7 +52,7 @@ const getPolyCirclePoints = ({
 	return points;
 };
 
-interface LogoProps {
+export interface LogoProps {
 	svgStyle: CSSProperties;
 }
 const NavigationLogo = ({ svgStyle }: LogoProps) => {
