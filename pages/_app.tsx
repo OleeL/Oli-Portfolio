@@ -8,6 +8,9 @@ import {
 	faCalendar,
 	faLocationDot,
 	faTag,
+	faLaptop,
+	faBuilding,
+	faHome,
 } from '@fortawesome/free-solid-svg-icons';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from 'nextjs-google-analytics';
@@ -17,7 +20,7 @@ import { registerServiceWorker } from '../lib/global_hooks';
 const { library, config, dom } = require('@fortawesome/fontawesome-svg-core');
 
 config.autoAddCss = false; // already being imported above
-library.add(faLocationDot, faCalendar, faTag);
+library.add(faLocationDot, faCalendar, faTag, faLaptop, faBuilding, faHome);
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	useEffect(() => {

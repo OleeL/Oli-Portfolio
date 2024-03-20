@@ -12,7 +12,7 @@ interface ITag {
 	style?: CSSProperties;
 }
 
-export const Tag: FC<ITag> = ({ tag, className, style = {} }) => {
+const Tag: FC<ITag> = ({ tag, className, style = {} }) => {
 	return (
 		<span style={style} className={`${className || 'default'}`}>
 			<FontAwesomeIcon style={style} icon={['fas', 'tag']} /> {tag.name}

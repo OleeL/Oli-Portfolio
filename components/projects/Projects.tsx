@@ -67,8 +67,12 @@ const ProjectsBody = () => {
 	return <Carousel />;
 };
 
-const Projects: FC = () => {
-	return <Section sectionName={'Projects'} content={ProjectsBody} />;
+const Projects = () => {
+	return (
+		<Section sectionName="Projects">
+			<ProjectsBody />
+		</Section>
+	);
 };
 
 export default Projects;

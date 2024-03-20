@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Section from './Section';
 
 const AboutMeBody = () => (
@@ -31,8 +30,12 @@ const AboutMeBody = () => (
 	</div>
 );
 
-const AboutMe: FC = () => {
-	return <Section sectionName={'About Me'} content={AboutMeBody} />;
+const AboutMe = () => {
+	return (
+		<Section sectionName="About Me">
+			<AboutMeBody />
+		</Section>
+	);
 };
 
 export default AboutMe;

@@ -1,12 +1,12 @@
-import { ExperienceType } from '../../lib/types';
-import { provideIds } from '../../lib/helpers/array';
+import { ExperienceType } from '../../../lib/types';
+import { provideIds } from '../../../lib/helpers/array';
 
 export const experiences: ExperienceType[] = provideIds([
 	{
 		company: 'TRAVCORP HOLDINGS LTD',
 		companyNickname: 'TRAVCORP',
 		role: 'Software Developer',
-		startDate: new Date(2022, 6, 1),
+		startDate: new Date(2023, 11, 1),
 		endDate: null,
 		description: (
 			<>
@@ -16,24 +16,23 @@ export const experiences: ExperienceType[] = provideIds([
 					Destination2.co.uk and HolidayGems.co.uk.
 				</p>
 				<p>
-					As a Software Developer at TRAVCORP, I have been responsible
-					for developing and maintaining robust web applications using
-					Angular, TypeScript, and SCSS, closely aligned with the
-					company&apos;s vision of delivering seamless online travel
-					experiences. My role involves extensive work with .NET
-					versions 6-8 and C# 8-11, focusing on creating efficient,
-					scalable backend solutions.
+					Responsible for developing and maintaining robust web
+					applications using Angular, TypeScript, and SCSS.
+				</p>
+				<p>
+					My role involves work with .NET versions 6-8 and C# 8-11,
+					focusing on creating ef cient, scalable backend solutions.
 				</p>
 				<p>
 					Worked on online platforms, ensuring high performance and
 					responsiveness to requests from the front-end. Used database
 					management with MSSQL includes designing, developing, and
-					maintaining efficient and secure databases. Databases had to
-					handling large volumes of customer data and transactions.
+					maintaining ef cient and secure databases. Databases had to
+					handling large volumes of customer data and transactions
 				</p>
 			</>
 		),
-		url: 'https://holidaygems.co.uk/',
+		url: 'https://destination2.co.uk/',
 		location: {
 			name: 'Chester, UK',
 			url: 'https://www.google.com/maps/search/Unit+14+Telford+Court+Chester+Gates+Business+Park,+Dunkirk,+Chester,+England,+CH1+6LT/@53.2467057,-2.9343571,17z/data=!3m1!4b1?entry=ttu',
@@ -46,6 +45,7 @@ export const experiences: ExperienceType[] = provideIds([
 			{ name: 'C# 8-11' },
 			{ name: 'MSSQL' },
 		]),
+		commuteType: 'Remote',
 	},
 	{
 		company: 'CTI Digital',
@@ -94,6 +94,7 @@ export const experiences: ExperienceType[] = provideIds([
 			{ name: 'Typescript' },
 			{ name: 'Javascript' },
 		]),
+		commuteType: 'Hybrid',
 	},
 	{
 		company: 'Beeta Tech Ltd',
@@ -134,6 +135,7 @@ export const experiences: ExperienceType[] = provideIds([
 			{ name: 'Javascript' },
 			{ name: 'React' },
 		]),
+		commuteType: 'Hybrid',
 	},
 	{
 		company: 'ICHEC',
@@ -142,6 +144,11 @@ export const experiences: ExperienceType[] = provideIds([
 		endDate: new Date(2021, 9, 1),
 		description: (
 			<>
+				<p>
+					A 2 month post-university project - at PRACE - to develop a
+					parallel anytime branch and bound algorithm for finding the
+					treewidth of graphs
+				</p>
 				<p>
 					Experience of developing, debugging and profiling parallel
 					programs using Julia Lang and MPI.
@@ -172,6 +179,7 @@ export const experiences: ExperienceType[] = provideIds([
 			{ name: 'OpenMP' },
 			{ name: 'LaTeX' },
 		]),
+		commuteType: 'Remote',
 	},
 	{
 		company: 'Chronyko',
@@ -225,6 +233,7 @@ export const experiences: ExperienceType[] = provideIds([
 			{ name: 'Next.js' },
 			{ name: 'SignalR' },
 		]),
+		commuteType: 'In-Office',
 	},
 	{
 		company: 'Event Marketing Solutions',
@@ -252,5 +261,6 @@ export const experiences: ExperienceType[] = provideIds([
 			url: 'https://www.google.co.uk/maps/place/Ellesmere+Port/@53.3807656,-3.2921582,7.75z/data=!4m5!3m4!1s0x487ad9533edc276d:0xffd9ac3c5a1329d1!8m2!3d53.279812!4d-2.897404',
 		},
 		tags: provideIds([{ name: 'Sharepoint' }]),
+		commuteType: 'In-Office',
 	},
 ]);

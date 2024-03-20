@@ -1,5 +1,10 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
-import { useSpring, UseSpringProps, useSprings } from 'react-spring';
+import {
+	SpringValue,
+	useSpring,
+	UseSpringProps,
+	useSprings,
+} from 'react-spring';
 
 type FadeProps = {
 	delay?: number;
@@ -18,7 +23,10 @@ export const useFadeIn = (props?: FadeProps | UseSpringProps) =>
 		...props,
 	});
 
-export const useFadeReset = (props: UseSpringProps, deps: readonly any[]) => {
+export const useFadeReset = (
+	props: UseSpringProps,
+	deps: readonly unknown[],
+) => {
 	const [fade, animate] = useSpring(
 		{
 			opacity: 1,
@@ -57,15 +65,23 @@ export const useFadeInArr = (props: FadePropsArr | number) => {
 	}));
 };
 
-type FadeInIfVisible = {
-	ref: RefObject<any>;
-	isVisible: boolean;
-	fade: ReturnType<typeof useFadeIn>;
+export type FadeCSS = {
+	opacity: SpringValue<number>;
+	transform: SpringValue<string>;
+	initialDelay: SpringValue<number>;
 };
 
-export const useFadeInIfVisible = (props?: FadeProps): FadeInIfVisible => {
+export type FadeInIfVisible<T> = {
+	ref: RefObject<T>;
+	isVisible: boolean;
+	fade: FadeCSS;
+};
+
+export const useFadeInIfVisible = <T extends HTMLElement>(
+	props?: FadeProps,
+): FadeInIfVisible<T> => {
 	const [isVisible, setVisible] = useState(false);
-	const ref = useRef();
+	const ref = useRef<T>(null);
 	const { delay, initialDelay } = getDefaultFadeProps({ ...props });
 	useEffect(() => {
 		if (!ref.current) {
@@ -100,7 +116,11 @@ export const useFadeInIfVisible = (props?: FadeProps): FadeInIfVisible => {
 		delay,
 		initialDelay,
 	});
-	return { ref, isVisible, fade };
+	return {
+		ref,
+		isVisible,
+		fade,
+	};
 };
 
 export default useFadeIn;

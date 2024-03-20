@@ -1,5 +1,6 @@
 import useAxios from 'axios-hooks';
 import { FormEvent, useRef, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import useForm from '../../lib/form/useForm';
 
 type ContactForm = {
@@ -23,7 +24,7 @@ export const useContact = () => {
 		{ manual: true },
 	);
 
-	const recaptchaRef = useRef<any>();
+	const recaptchaRef = useRef<ReCAPTCHA>(null);
 
 	const processRecaptcha = async () => {
 		if (recaptchaRef.current) {

@@ -1,13 +1,13 @@
 import { CSSProperties, useEffect, useRef, useState, FC, useMemo } from 'react';
-import { a, useSpring } from 'react-spring';
+import { PickAnimated, SpringValues, a, useSpring } from 'react-spring';
 import { useWindowWidth } from './window';
 import styles from '../../styles/variables.module.scss';
 
 interface IProps {
-	selection: any;
+	selection: unknown;
 	activeKey?: string;
 	className?: string;
-	triggerFunc?: (props?: any) => void;
+	triggerFunc?: (props?: SpringValues<PickAnimated<CSSProperties>>) => void;
 }
 
 const defaultSettings: CSSProperties = {
@@ -20,7 +20,7 @@ type ISlider = {
 	top: number;
 	left: number;
 	backdropHeight: number;
-	spring: any;
+	spring: SpringValues<PickAnimated<CSSProperties>>;
 	width: number;
 	height: number;
 };
@@ -67,7 +67,7 @@ export const useSelectionSlider = ({
 	const isHorizontal = width <= parseFloat(styles.mediaMaxWidth);
 
 	const ref = useRef<HTMLUListElement>(null);
-	const [, updateState] = useState<any>();
+	const [, updateState] = useState<object>();
 	const forceUpdate = () => updateState({});
 	useEffect(() => forceUpdate(), [ref, selection]);
 

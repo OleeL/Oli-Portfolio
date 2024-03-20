@@ -1,12 +1,12 @@
-import { FC, useState } from 'react';
-import { a, useSpring } from 'react-spring';
+import { CSSProperties, FC, useState } from 'react';
+import { AnimatedProps, a, useSpring } from 'react-spring';
 import { useScrollSpring, goToSection } from '../../utilities/ScrollHandler';
 import styles from '../../styles/variables.module.scss';
 import { toKebabCase } from '../../lib/helpers/string';
 
 interface IButton {
 	buttonName: string;
-	props?: any;
+	props?: AnimatedProps<CSSProperties>;
 }
 
 const NavigationButton: FC<IButton> = ({ buttonName, props }) => {

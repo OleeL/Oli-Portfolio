@@ -6,13 +6,13 @@ import GitHubLogo from '../public/images/logos/logo-github.svg';
 import LinkedInLogo from '../public/images/logos/logo-linkedin.svg';
 
 interface IFooterLogo {
-	component: any;
+	component: FC<object & { alt: string }>;
 	alt: string;
 	id: number;
 	link: string;
 }
 
-const FooterImage: FC<IFooterLogo> = ({ component: Component, alt, link }) => {
+const FooterImage = ({ component: Component, alt, link }: IFooterLogo) => {
 	const [hover, setHover] = useState(false);
 	const spring = useSpring({ scale: hover ? 1.2 : 1 });
 	return (

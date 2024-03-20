@@ -1,12 +1,12 @@
 import { ImageProps } from 'next/image';
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import { TagType } from '../Tag';
 import { provideIds } from '../../lib/helpers/array';
 
 export type ProjectType = {
 	id: number;
 	name: string;
-	description: ReactElement<any>;
+	description: ReactNode;
 	url: string;
 	tags: TagType[];
 	image?: ImageProps;

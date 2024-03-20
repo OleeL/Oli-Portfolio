@@ -1,10 +1,13 @@
-import { FC } from 'react';
 import Section from './Section';
 
 const EducationBody = () => <p>Education</p>;
 
-const Education: FC = () => {
-	return <Section sectionName={'Education'} content={EducationBody} />;
+const Education = () => {
+	return (
+		<Section sectionName="Education">
+			<EducationBody />
+		</Section>
+	);
 };
 
 export default Education;

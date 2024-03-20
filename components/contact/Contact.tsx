@@ -95,7 +95,9 @@ const ContactBody = () => {
 };
 
 const Contact: FC = () => (
-	<Section sectionName="Contact" content={ContactBody} />
+	<Section sectionName="Contact">
+		<ContactBody />
+	</Section>
 );
 
 export default Contact;
