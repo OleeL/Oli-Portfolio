@@ -4,7 +4,7 @@ import {
 	useSpring,
 	UseSpringProps,
 	useSprings,
-} from 'react-spring';
+} from '@react-spring/web';
 
 type FadeProps = {
 	delay?: number;

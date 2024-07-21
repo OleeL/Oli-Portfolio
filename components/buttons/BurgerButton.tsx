@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css';
-import { useSpring, animated, SpringConfig, a } from 'react-spring';
+import { useSpring, animated, SpringConfig, a } from '@react-spring/web';
 import { FC, useState } from 'react';
 
 interface IBurgerProps {

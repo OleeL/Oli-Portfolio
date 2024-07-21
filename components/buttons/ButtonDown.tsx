@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css';
-import { useSpring, a } from 'react-spring';
+import { useSpring, a } from '@react-spring/web';
 import { CSSProperties, FC, useState } from 'react';
 
 interface IButtonDown {

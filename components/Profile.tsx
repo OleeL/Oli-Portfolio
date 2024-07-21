@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { a } from 'react-spring';
+import { a } from '@react-spring/web';
 import { useFadeIn } from '../lib/global_hooks';
 
 const Profile: FC = () => {

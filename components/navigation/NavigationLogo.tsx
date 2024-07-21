@@ -1,7 +1,7 @@
 'use client';
 
 import { CSSProperties, useMemo, useState } from 'react';
-import { a, useSpring } from 'react-spring';
+import { a, useSpring } from '@react-spring/web';
 
 const MIN = 16;
 const MAX = 67;

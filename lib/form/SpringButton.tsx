@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC, useId, useState } from 'react';
-import { a, useSpring } from 'react-spring';
+import { a, useSpring } from '@react-spring/web';
 import { Spinner } from '../components/Spinner';
 import { ExtraProps } from './Button';
 

@@ -16,14 +16,9 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx",
-          ".d.ts"
-        ]
-      }
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
+      },
+      "typescript": {}
     }
   },
   "rules": {
@@ -36,10 +31,7 @@
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-empty-function": "off",
     "import/prefer-default-export": "off",
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    "linebreak-style": ["error", "unix"],
     "no-plusplus": "off",
     "no-param-reassign": "off",
     "class-methods-use-this": "off",

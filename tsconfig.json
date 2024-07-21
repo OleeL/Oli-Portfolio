@@ -21,12 +21,13 @@
   },
   "typings": ["./lib/typings/typings.d.ts"],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "./webpack.config.js"
   ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "lib/global_hooks/animation/useFadeIn"
+    "lib/global_hooks/animation/useFadeIn",
   ],
 }

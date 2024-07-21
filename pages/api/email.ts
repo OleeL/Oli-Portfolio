@@ -9,12 +9,11 @@ type ResponseBody = {
 export default function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<ResponseBody>,
-): NextApiResponse<ResponseBody> {
+) {
 	if (!req.body?.message || !req.body?.emailAddress) {
-		res.status(400).json({
+		return res.status(400).json({
 			error: 'Bad request',
 		});
-		return res;
 	}
 	const message = {
 		from: process.env.EMAIL_ADDRESS,
@@ -33,7 +32,7 @@ export default function handler(
                 <a href="mailto:${req.body.emailAddress}">${req.body.emailAddress}</a>
             </p>
         `,
-	};
+	} as const;
 
 	const transporter = nodemailer.createTransport({
 		service: process.env.EMAIL_TYPE,
@@ -44,10 +43,9 @@ export default function handler(
 	});
 
 	if (req.method !== 'POST') {
-		res.status(405).json({
+		return res.status(405).json({
 			error: 'Bad Method',
 		});
-		return res;
 	}
 
 	fetch('https://www.google.com/recaptcha/api/siteverify', {

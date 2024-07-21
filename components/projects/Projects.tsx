@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import Image from 'next/image';
-import { a, useSpring } from 'react-spring';
+import { a, useSpring } from '@react-spring/web';
 import Section from '../Section';
 import { ProjectType, ProjectList } from './ProjectList';
 import { BulokeWindow } from '../../lib/helpers/window';

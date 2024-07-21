@@ -1,12 +1,19 @@
-import { FC, useMemo, useState } from 'react';
-import { a, useSpring } from 'react-spring';
+import { ComponentType, FC, useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
+import { a, useSpring } from '@react-spring/web';
 import { useFadeInIfVisible } from '../lib/global_hooks';
 import { provideIds } from '../lib/helpers/array';
-import GitHubLogo from '../public/images/logos/logo-github.svg';
-import LinkedInLogo from '../public/images/logos/logo-linkedin.svg';
+
+// Dynamically import the SVGs
+const GitHubLogo = dynamic(
+	() => import('../public/images/logos/logo-github.svg'),
+);
+const LinkedInLogo = dynamic(
+	() => import('../public/images/logos/logo-linkedin.svg'),
+);
 
 interface IFooterLogo {
-	component: FC<object & { alt: string }>;
+	component: ComponentType<{ alt?: string }>;
 	alt: string;
 	id: number;
 	link: string;

@@ -1,5 +1,5 @@
 import { CSSProperties, FC, useState } from 'react';
-import { AnimatedProps, a, useSpring } from 'react-spring';
+import { AnimatedProps, a, useSpring } from '@react-spring/web';
 import { useScrollSpring, goToSection } from '../../utilities/ScrollHandler';
 import styles from '../../styles/variables.module.scss';
 import { toKebabCase } from '../../lib/helpers/string';

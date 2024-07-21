@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC, useId } from 'react';
-import { a } from 'react-spring';
+import { a } from '@react-spring/web';
 import { Spinner, SpinnerProps } from '../components/Spinner';
 
 export type ExtraProps = {

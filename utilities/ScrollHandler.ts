@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { SpringRef, useSpring } from 'react-spring';
+import { SpringRef, useSpring } from '@react-spring/web';
 
 type IScrollFromTo = {
 	target: number;

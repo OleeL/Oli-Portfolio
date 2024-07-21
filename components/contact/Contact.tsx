@@ -1,6 +1,7 @@
 import { FC, ReactElement } from 'react';
-import { CheckCircle } from 'react-feather';
 import GoogleRecaptcha from 'react-google-recaptcha';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Section from '../Section';
 import { Form } from '../../lib/form/Form';
 import { Input } from '../../lib/form/Input';
@@ -38,7 +39,7 @@ const FormButton = (props: ButtonProps): ReactElement => {
 			borderColor={borderColor}>
 			{isSuccess ? (
 				<>
-					<span>Sent!</span> <CheckCircle size={15} />
+					<span>Sent!</span> <FontAwesomeIcon icon={faCheck} />
 				</>
 			) : (
 				<span>{!props?.loading ? 'Submit' : ''}</span>

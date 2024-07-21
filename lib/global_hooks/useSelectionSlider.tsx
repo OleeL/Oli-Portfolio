@@ -1,5 +1,5 @@
 import { CSSProperties, useEffect, useRef, useState, FC, useMemo } from 'react';
-import { PickAnimated, SpringValues, a, useSpring } from 'react-spring';
+import { PickAnimated, SpringValues, a, useSpring } from '@react-spring/web';
 import { useWindowWidth } from './window';
 import styles from '../../styles/variables.module.scss';
 
@@ -12,7 +12,7 @@ interface IProps {
 
 const defaultSettings: CSSProperties = {
 	position: 'absolute',
-};
+} as const;
 
 type ISlider = {
 	className: string;
@@ -87,10 +87,10 @@ export const useSelectionSlider = ({
 	const sliderProps = useMemo(() => {
 		const backdropHeight = isHorizontal
 			? sliderWidth
-			: child?.parentElement?.offsetHeight ?? 0;
+			: (child?.parentElement?.offsetHeight ?? 0);
 		const backdropTop = isHorizontal
 			? (child?.offsetTop ?? 0) + (child?.offsetHeight ?? 0)
-			: child?.parentElement?.offsetTop ?? 0;
+			: (child?.parentElement?.offsetTop ?? 0);
 		return {
 			className,
 			isHorizontal,

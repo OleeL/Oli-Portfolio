@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment';
-import { a } from 'react-spring';
+import { a } from '@react-spring/web';
 import { useFadeReset } from '../../lib/global_hooks';
 import { ExperienceType } from '../../lib/types';
 import Footnote from './Footnote';

@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { a } from 'react-spring';
+import { a } from '@react-spring/web';
 import { useFadeInIfVisible } from '../lib/global_hooks/useFadeIn';
 import { toKebabCase } from '../lib/helpers/string';
 import { Fade } from '../lib/providers/fade';
