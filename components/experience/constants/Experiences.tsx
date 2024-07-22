@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ExperienceType } from '../../../lib/types';
 import { provideIds } from '../../../lib/helpers/array';
 
@@ -61,24 +62,33 @@ export const experiences = provideIds([
 		description: (
 			<>
 				<p>
-					Travcorp is an online travel operator that specializes in
-					packaged holidays and hotels via its consumer brands
-					Destination2.co.uk and HolidayGems.co.uk.
+					Travcorp is an online travel operator that specialises in
+					packaged holidays and hotels via its consumer brands,
+					<Link href="https://Destination2.co.uk/">
+						{' '}
+						Destination2.co.uk
+					</Link>{' '}
+					and{' '}
+					<Link href="https://holidaygems.co.uk/">
+						HolidayGems.co.uk
+					</Link>
+					.
 				</p>
 				<p>
-					Responsible for developing and maintaining robust web
+					I was responsible for developing and maintaining web
 					applications using Angular, TypeScript, and SCSS.
 				</p>
 				<p>
-					My role involves work with .NET versions 6-8 and C# 8-11,
-					focusing on creating ef cient, scalable backend solutions.
+					My role involved working with .NET versions 6-8 and C# 8-11,
+					focusing on creating efficient, scalable backend solutions.
 				</p>
 				<p>
-					Worked on online platforms, ensuring high performance and
-					responsiveness to requests from the front-end. Used database
-					management with MSSQL includes designing, developing, and
-					maintaining ef cient and secure databases. Databases had to
-					handling large volumes of customer data and transactions
+					I worked on online platforms, ensuring high performance and
+					responsiveness to requests from the front-end. I used
+					database management with MSSQL, which included designing,
+					developing, and maintaining efficient and secure databases.
+					These databases handled large volumes of customer data and
+					transactions.
 				</p>
 			</>
 		),
