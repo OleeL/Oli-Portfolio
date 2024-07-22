@@ -1,13 +1,63 @@
 import { ExperienceType } from '../../../lib/types';
 import { provideIds } from '../../../lib/helpers/array';
 
-export const experiences: ExperienceType[] = provideIds([
+export const experiences = provideIds([
+	{
+		company: 'Scope Markets (Rostro Group)',
+		companyNickname: 'Scope Markets',
+		role: 'Full Stack Developer',
+		startDate: new Date(2024, 3, 1),
+		endDate: null,
+		description: (
+			<>
+				<p>
+					Building and maintaining component libraries using Tailwind
+					CSS to enhance developer experience and streamline UI
+					development.
+				</p>
+				<p>
+					Developing front-end applications with TypeScript, React,
+					and Next.js, utilising the new app router for efficient
+					navigation and routing.
+				</p>
+				<p>
+					Implementing OAuth2 protocols for secure authentication and
+					authorization in web applications.
+				</p>
+				<p>
+					Creating and managing APIs using .NET 8, ensuring efficient
+					data handling and performance.
+				</p>
+				<p>
+					Designing and deploying microservices to improve system
+					modularity and scalability.
+				</p>
+				<p>
+					Implementing event sourcing to ensure accurate event
+					tracking and state management across distributed systems.
+				</p>
+			</>
+		),
+		url: 'https://scopemarkets.com',
+		location: {
+			name: 'London, UK',
+			url: 'https://maps.app.goo.gl/6JDD89CyWkAt58Vd6',
+		},
+		tags: provideIds([
+			{ name: 'Typescript' },
+			{ name: 'React' },
+			{ name: 'NextJS' },
+			{ name: '.NET' },
+			{ name: 'C# 8-11' },
+		]),
+		commuteType: 'Hybrid',
+	},
 	{
 		company: 'TRAVCORP HOLDINGS LTD',
 		companyNickname: 'TRAVCORP',
 		role: 'Software Developer',
 		startDate: new Date(2023, 11, 1),
-		endDate: null,
+		endDate: new Date(2024, 3, 1),
 		description: (
 			<>
 				<p>
@@ -263,4 +313,4 @@ export const experiences: ExperienceType[] = provideIds([
 		tags: provideIds([{ name: 'Sharepoint' }]),
 		commuteType: 'In-Office',
 	},
-]);
+] satisfies Omit<ExperienceType, 'id'>[]);

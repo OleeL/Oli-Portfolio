@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { a } from '@react-spring/web';
+import Link from 'next/link';
 import { useFadeIn } from '../lib/global_hooks';
 
 const Profile: FC = () => {
@@ -14,10 +15,10 @@ const Profile: FC = () => {
 					<span className="dimmed">Software Engineer</span>
 				</h1>
 				<a.p style={fade} className="profile-text code">
-					Full-stack software engineer currently working at{' '}
-					<a href="https://www.destination2.co.uk/">
-						Travcorp Holdings Ltd
-					</a>
+					Full-stack software engineer at{' '}
+					<Link href="https://www.scopemarkets.com/">
+						Scope Markets
+					</Link>
 				</a.p>
 			</div>
 		</section>
