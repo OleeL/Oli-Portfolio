@@ -12,14 +12,14 @@ export const experiences = provideIds([
 		description: (
 			<>
 				<p>
-					Building and maintaining component libraries using Tailwind
-					CSS to enhance developer experience and streamline UI
-					development.
-				</p>
-				<p>
 					Developing front-end applications with TypeScript, React,
 					and Next.js, utilising the new app router for efficient
 					navigation and routing.
+				</p>
+				<p>
+					Building and maintaining component libraries using Tailwind
+					CSS to enhance developer experience and streamline UI
+					development.
 				</p>
 				<p>
 					Implementing OAuth2 protocols for secure authentication and

@@ -14,18 +14,18 @@ const ExperienceListElement: FC<IExperienceListElement> = ({
 	const { company } = experience;
 	const active = company === selectedExperience.company;
 	return (
-		<li
-			className={`list-element pointer${active ? ' active' : ''}`}
-			tabIndex={0}
-			role="button"
-			onKeyDown={e => {
-				if (e.key === 'Enter' || e.key === ' ') {
-					e.preventDefault();
-					setExperience(experience);
-				}
-			}}
-			onClick={() => setExperience(experience)}>
-			{experience?.companyNickname ?? company}
+		<li className={`${active ? ' active' : ''}`}>
+			<button
+				className="list-element pointer"
+				onKeyDown={e => {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						setExperience(experience);
+					}
+				}}
+				onClick={() => setExperience(experience)}>
+				{experience?.companyNickname ?? company}
+			</button>
 		</li>
 	);
 };

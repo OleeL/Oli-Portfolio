@@ -1,5 +1,3 @@
-
-
 .home-box-experience {
     display: flex;
     width: 95%;
@@ -21,7 +19,7 @@
         color: $p-color;
         padding: 3px 11px 3px 11px;
         border-radius: 20px;
-        font-family: 'Fira Code';
+        font-family: "Fira Code";
     }
 
     .tag-row {
@@ -31,14 +29,13 @@
             padding: 5px 0 0 0;
         }
 
-        gap: 3px;    
+        gap: 3px;
         height: fit-content;
         display: flex;
         white-space: nowrap;
         flex-direction: row;
         flex-wrap: wrap;
     }
-
 
     flex-direction: row;
     @media (max-width: $media-max-width) {
@@ -47,6 +44,32 @@
 }
 
 .experience-list {
+    .active {
+        color: $primary-theme-color;
+
+        button {
+            color: $primary-theme-color;
+        }
+
+        &.button {
+            @media (max-width: $media-max-width) {
+                border-bottom: 1px solid $primary-theme-color;
+            }
+        }
+    }
+
+    button {
+        background-color: transparent;
+        color: $p-color;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
     padding-inline-start: 0px;
     list-style-type: none;
     width: 200px;
@@ -67,7 +90,7 @@
     }
 
     .list-element {
-        font-family: 'Fira Code';
+        font-family: "Fira Code";
         background: none;
         padding-left: 16px;
         padding: 10px 4px 10px 16px;
@@ -92,7 +115,7 @@
 .experience-list-divider-container {
     margin: 27px 20px 27px 0px;
     border-right: 1px solid $divider-color;
-    
+
     @media (max-width: $media-max-width) {
         overflow-x: scroll;
         width: 100vw;
@@ -116,7 +139,7 @@
         margin: 0px;
         margin-bottom: 4px;
         font-weight: normal;
-        font-family: 'Fira Code';
+        font-family: "Fira Code";
         font-size: 20px;
 
         span {
@@ -132,7 +155,7 @@
 
     .description {
         font-size: 15px;
-        font-family: 'Fira Code';
+        font-family: "Fira Code";
         ul {
             padding-inline-start: 17.5px;
         }
@@ -146,7 +169,7 @@
 .footnote {
     font-size: 13px;
     width: fit-content;
-    font-family: 'Fira Code';
+    font-family: "Fira Code";
     display: flex;
     gap: 5px;
     flex-direction: row;
@@ -170,7 +193,7 @@
         color: $p-color;
 
         &:last-child {
-            margin:0;
+            margin: 0;
         }
     }
 }
@@ -180,13 +203,5 @@
     border-radius: 2px;
     &.backdrop {
         background-color: $divider-color;
-    }
-}
-
-.active {
-    color: $primary-theme-color;
-
-    @media (max-width: $media-max-width) {
-        border-bottom: 1px solid $primary-theme-color;
     }
 }

@@ -15,7 +15,7 @@ const Project: FC<ProjectType> = ({ url, name, description, image }) => {
 	const projectRef = useRef<HTMLAnchorElement>(null);
 
 	const springOverlay = useSpring({
-		opacity: hovered ? 0 : 0.5,
+		opacity: hovered ? 0.5 : 0,
 	});
 
 	const springUnderline = useSpring({
