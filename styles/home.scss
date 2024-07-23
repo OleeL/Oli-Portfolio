@@ -197,6 +197,10 @@ h2 {
 
 .profile-text {
     font-size: $size-subtitle;
+    
+    a {
+        text-decoration: underline;
+    }
 }
 
 a {
