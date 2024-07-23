@@ -97,16 +97,32 @@ const NavigationLogo = ({ svgStyle }: LogoProps) => {
 	});
 
 	return (
-		<a.svg style={svgStyle} className="logo">
+		<a.svg
+			style={svgStyle}
+			className="logo"
+			role="img"
+			aria-labelledby="logoTitle logoDesc">
+			<title id="logoTitle">Oli Legg Logo</title>
+			<desc id="logoDesc">
+				Logo for Oli Legg&apos;s software engineering portfolio
+			</desc>
 			<g
 				onMouseEnter={() => setHovered(true)}
 				onMouseLeave={() => setHovered(false)}>
 				<a.polygon
 					{...spring}
+					role="button"
+					tabIndex={0}
+					aria-label="Navigate to home"
 					style={rotationSpring}
 					shapeRendering="geometricPrecision"
 					onClick={() => {
 						window.location.href = '/';
+					}}
+					onKeyDown={e => {
+						if (e.key === 'Enter') {
+							window.location.href = '/';
+						}
 					}}
 				/>
 				<a.text className="logo-text" x="42" y="50">

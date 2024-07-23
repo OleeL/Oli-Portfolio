@@ -16,7 +16,9 @@ const Section: FC<ISection> = ({ sectionName, children }) => {
 		<a.section ref={ref} id={toKebabCase(sectionName)} style={fade}>
 			<div className="fill-width">
 				<div className="section-content">
-					<h2 className="section-heading divider">{sectionName}</h2>
+					<h2 className="section-heading divider" tabIndex={0}>
+						{sectionName}
+					</h2>
 				</div>
 
 				<Fade.Provider value={fade}>{children}</Fade.Provider>

@@ -6,7 +6,7 @@ type ResponseBody = {
 	success?: string;
 };
 
-export default function handler(
+export default function POST(
 	req: NextApiRequest,
 	res: NextApiResponse<ResponseBody>,
 ) {
@@ -42,12 +42,6 @@ export default function handler(
 		},
 	});
 
-	if (req.method !== 'POST') {
-		return res.status(405).json({
-			error: 'Bad Method',
-		});
-	}
-
 	fetch('https://www.google.com/recaptcha/api/siteverify', {
 		method: 'POST',
 		body: `secret=${process.env.GOOGLE_RECAPTCHA_KEY}&response=${req.body.recaptchaToken}`,
@@ -78,5 +72,5 @@ export default function handler(
 				error: 'Internal Server Error',
 			});
 		});
-	return res;
+	res.status(204).write('');
 }

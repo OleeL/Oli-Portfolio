@@ -4,7 +4,7 @@ class MyDocument extends Document {
 	render() {
 		return (
 			<Html lang="en-GB">
-				<title>Oli Legg</title>
+				<title>Oli Legg | Portfoliio</title>
 				<Head>
 					<meta
 						name="title"
@@ -13,9 +13,25 @@ class MyDocument extends Document {
 					/>
 					<meta
 						name="description"
-						content="Contact info, work etc."
+						content="Oli Legg's software engineering portfolio showcasing projects, skills, and contact information."
 						key="description"
 					/>
+					<meta
+						name="keywords"
+						content="Oli Legg, software engineering, portfolio, projects, contact"
+						key="keywords"
+					/>
+					<meta
+						property="og:title"
+						content="Oli Legg | Software Engineering Portfolio"
+						key="og:title"
+					/>
+					<meta
+						property="og:description"
+						content="Explore Oli Legg's software engineering projects and skills. Contact information included."
+						key="og:description"
+					/>
+					<meta property="og:type" content="website" key="og:type" />
 					<link
 						rel="apple-touch-icon"
 						sizes="72x72"

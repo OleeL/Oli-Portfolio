@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { a, useSpring } from '@react-spring/web';
 import Section from '../Section';
@@ -12,6 +12,7 @@ const Project: FC<ProjectType> = ({ url, name, description, image }) => {
 	};
 
 	const [hovered, setHovered] = useState(false);
+	const projectRef = useRef<HTMLAnchorElement>(null);
 
 	const springOverlay = useSpring({
 		opacity: hovered ? 0 : 0.5,
@@ -20,6 +21,25 @@ const Project: FC<ProjectType> = ({ url, name, description, image }) => {
 	const springUnderline = useSpring({
 		width: hovered ? '100%' : '0%',
 	});
+
+	useEffect(() => {
+		const handleFocus = () => {
+			if (projectRef.current) {
+				projectRef.current.scrollIntoView({
+					behavior: 'smooth',
+					block: 'nearest',
+					inline: 'center',
+				});
+			}
+		};
+
+		const projectElement = projectRef.current;
+		projectElement?.addEventListener('focus', handleFocus);
+
+		return () => {
+			projectElement?.removeEventListener('focus', handleFocus);
+		};
+	}, []);
 
 	return (
 		<div
@@ -40,7 +60,7 @@ const Project: FC<ProjectType> = ({ url, name, description, image }) => {
 
 			<div className="project-box-content">
 				<div>
-					<a href={url}>
+					<a href={url} tabIndex={0} ref={projectRef}>
 						{name}
 						<a.div className="underline" style={springUnderline} />
 					</a>

@@ -4,9 +4,11 @@
     display: flex;
     position: relative;
     border-radius: 7px;
-    padding: 20px;
+    $padding: 20px;
+    padding: $padding;
     margin-bottom: 50px;
     background-color: $primary-background-color-darken;
+    overflow: hidden;
 
     &-container {
         width: 100%;
@@ -16,7 +18,7 @@
 
     &-box {
         margin: 5px;
-        padding: 20px;
+        padding: $padding;
         width: 300px;
         height: 400px;
         font-size: 15px;
@@ -137,6 +139,7 @@
             font-size: 15px;
             margin-bottom: 18px;
             font-family: "Fira Code";
+            max-width: calc(100% - $padding);
         }
     }
 }

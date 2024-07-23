@@ -1,7 +1,7 @@
 import Section from './Section';
 
 const AboutMeBody = () => (
-	<div className="paragraph-start">
+	<div className="paragraph-start" tabIndex={0}>
 		<p>Hello! My name is Oli,</p>
 		<p>
 			{' '}

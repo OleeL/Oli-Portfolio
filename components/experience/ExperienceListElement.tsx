@@ -16,6 +16,14 @@ const ExperienceListElement: FC<IExperienceListElement> = ({
 	return (
 		<li
 			className={`list-element pointer${active ? ' active' : ''}`}
+			tabIndex={0}
+			role="button"
+			onKeyDown={e => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					setExperience(experience);
+				}
+			}}
 			onClick={() => setExperience(experience)}>
 			{experience?.companyNickname ?? company}
 		</li>
