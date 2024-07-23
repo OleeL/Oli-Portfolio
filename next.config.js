@@ -33,7 +33,16 @@ const nextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; font-src 'self' https: data:; object-src 'none'; upgrade-insecure-requests",
+            value: [
+              "default-src 'self';",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://static.cloudflareinsights.com https://www.google.com https://www.googletagmanager.com;",
+              "style-src 'self' 'unsafe-inline';",
+              "img-src 'self' data: https:;",
+              "connect-src 'self' https:;",
+              "font-src 'self' https: data:;",
+              "object-src 'none';",
+              "upgrade-insecure-requests;"
+            ].join(' '),
           },
           {
             key: 'X-Frame-Options',
