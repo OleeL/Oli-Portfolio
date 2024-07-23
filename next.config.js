@@ -35,13 +35,14 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self';",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://static.cloudflareinsights.com https://www.google.com https://www.googletagmanager.com;",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://static.cloudflareinsights.com https://www.google.com https://www.googletagmanager.com https://www.gstatic.com/recaptcha/ https://www.recaptcha.net/;",
               "style-src 'self' 'unsafe-inline';",
               "img-src 'self' data: https:;",
               "connect-src 'self' https:;",
               "font-src 'self' https: data:;",
               "object-src 'none';",
-              "upgrade-insecure-requests;"
+              "frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/;",
+              "upgrade-insecure-requests;",
             ].join(' '),
           },
           {
